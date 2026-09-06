@@ -1,0 +1,774 @@
+/* =========================
+   LLENGUATGE 7
+   ACCENTS MÈTRICS
+   ========================= */
+
+
+/* =========================
+   EXEMPLES EXPLICACIÓ
+   ========================= */
+
+.exemple-accent-metric {
+    margin: 1.5rem auto;
+
+    padding: 1.2rem;
+
+    max-width: 700px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.75
+    );
+
+    border: 1px solid #d6d6d6;
+
+    border-radius: 14px;
+}
+
+
+.compas-accent-exemple {
+    margin-bottom: 1rem;
+
+    text-align: center;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+
+.pulsacions-accent-exemple {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 1rem;
+
+    flex-wrap: wrap;
+}
+
+
+.pulsacio-accent-exemple {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 0.45rem;
+
+    min-width: 90px;
+}
+
+
+.numero-accent {
+    font-size: 1rem;
+
+    font-weight: 700;
+}
+
+
+.accent-exemple {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 85px;
+    min-height: 42px;
+
+    padding: 0.55rem 0.8rem;
+
+    box-sizing: border-box;
+
+    border: 2px solid #bbb;
+
+    border-radius: 12px;
+
+    font-weight: 700;
+
+    background: #fff;
+}
+
+
+.accent-exemple.fort {
+    border-color: #c92a2a;
+
+    background: #fff5f5;
+}
+
+
+.accent-exemple.semifort {
+    border-color: #e67700;
+
+    background: #fff9db;
+}
+
+
+.accent-exemple.debil {
+    border-color: #1971c2;
+
+    background: #e7f5ff;
+}
+
+
+
+/* =========================
+   INSTRUCCIÓ
+   ========================= */
+
+.instruccio-exercici {
+    margin-top: 1.6rem;
+
+    text-align: center;
+
+    font-weight: 600;
+}
+
+
+
+/* =========================
+   CAPÇALERA COMPÀS
+   ========================= */
+
+.capcalera-accents-metrics {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 0.8rem;
+
+    margin: 1.5rem 0;
+}
+
+
+.capcalera-accents-metrics > span {
+    font-size: 1rem;
+
+    font-weight: 600;
+}
+
+
+#indicador-compas {
+    min-width: 70px;
+
+    padding: 0.55rem 0.8rem;
+
+    text-align: center;
+
+    font-size: 1.4rem;
+
+    font-weight: 700;
+
+    background: #fff;
+
+    border: 2px solid #333;
+
+    border-radius: 10px;
+}
+
+
+
+/* =========================
+   CONTENIDOR PULSACIONS
+   ========================= */
+
+.contenidor-pulsacions-metriques {
+    width: 100%;
+
+    margin: 1.5rem auto 2rem;
+
+    padding: 1.5rem;
+
+    box-sizing: border-box;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.75
+    );
+
+    border: 1px solid #d8d8d8;
+
+    border-radius: 14px;
+}
+
+
+.zona-pulsos {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    gap: 1.2rem;
+
+    flex-wrap: wrap;
+}
+
+
+
+/* =========================
+   PULS INDIVIDUAL
+   ========================= */
+
+.puls-metric {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 0.5rem;
+}
+
+
+.numero-puls {
+    font-size: 1.05rem;
+
+    font-weight: 700;
+}
+
+
+.boto-puls-metric {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 110px;
+    height: 70px;
+
+    padding: 0.5rem;
+
+    box-sizing: border-box;
+
+    background: #fff;
+
+    border: 2px solid #aaa;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    font: inherit;
+
+    transition:
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        background 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.boto-puls-metric:hover:not(:disabled) {
+    transform: translateY(-2px);
+
+    border-color: #555;
+
+    box-shadow: 0 5px 12px
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+}
+
+
+.boto-puls-metric:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+
+.etiqueta-accent {
+    font-size: 1rem;
+
+    font-weight: 700;
+}
+
+
+
+/* =========================
+   COLORS DE LES RESPOSTES
+   ========================= */
+
+.boto-puls-metric.fort {
+    border-color: #c92a2a;
+
+    background: #fff5f5;
+}
+
+
+.boto-puls-metric.semifort {
+    border-color: #e67700;
+
+    background: #fff9db;
+}
+
+
+.boto-puls-metric.debil {
+    border-color: #1971c2;
+
+    background: #e7f5ff;
+}
+
+
+
+/* =========================
+   RESPOSTA VALIDADA
+   ========================= */
+
+.boto-puls-metric.resposta-correcta {
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            47,
+            158,
+            68,
+            0.28
+        );
+}
+
+
+.boto-puls-metric.resposta-incorrecta {
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            201,
+            42,
+            42,
+            0.28
+        );
+}
+
+
+.boto-puls-metric:disabled {
+    cursor: default;
+}
+
+
+
+/* =========================
+   SELECTOR D'ACCENTS
+   ========================= */
+
+.selector-accents {
+    margin: 1.5rem 0;
+
+    text-align: center;
+}
+
+
+.selector-accents p {
+    margin-bottom: 0.9rem;
+
+    font-weight: 600;
+}
+
+
+.botons-accents {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 0.9rem;
+
+    flex-wrap: wrap;
+}
+
+
+.boto-accent {
+    min-width: 120px;
+
+    padding: 0.8rem 1.2rem;
+
+    border: 2px solid #bbb;
+
+    border-radius: 12px;
+
+    background: #fff;
+
+    font: inherit;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        background 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.boto-accent:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 10px
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+}
+
+
+.boto-accent:active {
+    transform: translateY(0);
+}
+
+
+
+/* =========================
+   FORT
+   ========================= */
+
+.boto-accent-fort {
+    border-color: #c92a2a;
+}
+
+
+.boto-accent-fort:hover,
+.boto-accent-fort.seleccionat {
+    background: #fff5f5;
+
+    border-color: #a51111;
+}
+
+
+.boto-accent-fort.seleccionat {
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            201,
+            42,
+            42,
+            0.18
+        );
+}
+
+
+
+/* =========================
+   SEMIFORT
+   ========================= */
+
+.boto-accent-semifort {
+    border-color: #e67700;
+}
+
+
+.boto-accent-semifort:hover,
+.boto-accent-semifort.seleccionat {
+    background: #fff9db;
+
+    border-color: #c45f00;
+}
+
+
+.boto-accent-semifort.seleccionat {
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            230,
+            119,
+            0,
+            0.18
+        );
+}
+
+
+
+/* =========================
+   DÈBIL
+   ========================= */
+
+.boto-accent-debil {
+    border-color: #1971c2;
+}
+
+
+.boto-accent-debil:hover,
+.boto-accent-debil.seleccionat {
+    background: #e7f5ff;
+
+    border-color: #145c9e;
+}
+
+
+.boto-accent-debil.seleccionat {
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            25,
+            113,
+            194,
+            0.18
+        );
+}
+
+
+
+/* =========================
+   CONTROLS
+   ========================= */
+
+.controls-accents-metrics {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    margin-top: 1.7rem;
+
+    flex-wrap: wrap;
+}
+
+
+.controls-accents-metrics .boto-secundari {
+    min-width: 130px;
+
+    padding: 0.85rem 1.4rem;
+
+    box-sizing: border-box;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.95
+    );
+
+    border: 2px solid #b8b8b8;
+
+    border-radius: 12px;
+
+    font: inherit;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        background 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.controls-accents-metrics
+.boto-secundari:hover:not(:disabled) {
+    transform: translateY(-2px);
+
+    border-color: #777;
+
+    background: #f5f5f5;
+
+    box-shadow: 0 4px 10px
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+}
+
+
+.controls-accents-metrics
+.boto-secundari:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+
+.controls-accents-metrics
+.boto-secundari:disabled {
+    opacity: 0.5;
+
+    cursor: default;
+}
+
+
+.controls-accents-metrics
+.boto-principal {
+    min-width: 130px;
+}
+
+
+
+/* =========================
+   FEEDBACK
+   ========================= */
+
+.controls-accents-metrics + .feedback,
+#feedback {
+    min-height: 28px;
+
+    margin-top: 1.2rem;
+
+    text-align: center;
+
+    font-weight: 700;
+}
+
+
+.feedback.correcte {
+    color: #2b8a3e;
+}
+
+
+.feedback.incorrecte {
+    color: #c92a2a;
+}
+
+/* =========================
+   BOTÓ COMENÇAR
+   ========================= */
+
+#explicacio #comencar-btn {
+    display: block;
+    margin: 2rem auto 0;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (
+    max-width: 750px
+) {
+
+    .contenidor-pulsacions-metriques {
+        padding: 1.2rem 0.8rem;
+    }
+
+
+    .zona-pulsos {
+        gap: 0.8rem;
+    }
+
+
+    .boto-puls-metric {
+        width: 95px;
+        height: 65px;
+    }
+
+
+    .boto-accent {
+        min-width: 105px;
+    }
+
+}
+
+
+@media (
+    max-width: 550px
+) {
+
+    .pulsacions-accent-exemple {
+        gap: 0.7rem;
+    }
+
+
+    .pulsacio-accent-exemple {
+        min-width: 70px;
+    }
+
+
+    .accent-exemple {
+        min-width: 70px;
+
+        font-size: 0.9rem;
+    }
+
+
+    .zona-pulsos {
+        gap: 0.65rem;
+    }
+
+
+    .boto-puls-metric {
+        width: 78px;
+        height: 62px;
+    }
+
+
+    .etiqueta-accent {
+        font-size: 0.88rem;
+    }
+
+
+    .botons-accents {
+        gap: 0.6rem;
+    }
+
+
+    .boto-accent {
+        min-width: 95px;
+
+        padding: 0.7rem 0.85rem;
+
+        font-size: 0.9rem;
+    }
+
+
+    .controls-accents-metrics {
+        gap: 0.7rem;
+    }
+
+}
+
+
+@media (
+    max-width: 400px
+) {
+
+    .contenidor-pulsacions-metriques {
+        padding:
+            1rem
+            0.5rem;
+    }
+
+
+    .boto-puls-metric {
+        width: 68px;
+        height: 58px;
+
+        padding: 0.3rem;
+    }
+
+
+    .numero-puls {
+        font-size: 0.95rem;
+    }
+
+
+    .etiqueta-accent {
+        font-size: 0.78rem;
+    }
+
+
+    .boto-accent {
+        min-width: 88px;
+
+        font-size: 0.85rem;
+    }
+
+}

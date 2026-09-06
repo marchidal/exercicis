@@ -1,0 +1,530 @@
+/* =========================
+   ESTILS GENERALS
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.12),
+            rgba(255, 255, 255, 0.12)
+        ),
+        url("../assets/img/fondo-notes.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* =========================
+   CONTENIDOR PRINCIPAL
+   ========================= */
+
+.exercici-container {
+    width: min(900px, 90%);
+    margin: 0 auto;
+    padding: 40px 0 60px;
+}
+
+
+/* =========================
+   CAPÇALERA
+   ========================= */
+
+.exercici-header {
+    margin-bottom: 30px;
+}
+
+.exercici-header h1 {
+    margin-top: 15px;
+    font-size: 36px;
+}
+
+.tornar {
+    color: #222;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.tornar:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   BLOCS GENERALS
+   ========================= */
+
+.explicacio,
+.part-exercici,
+.resultat-final {
+    background-color: #fff;
+
+    padding: 35px;
+
+    border: 2px solid #222;
+    border-radius: 12px;
+}
+
+.explicacio h2,
+.part-exercici h2,
+.resultat-final h2 {
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
+.explicacio p,
+.instruccio {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   EQUIVALÈNCIES
+   ========================= */
+
+.equivalencies {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+
+    margin: 30px 0;
+}
+
+.equivalencia {
+    min-width: 140px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    padding: 20px;
+
+    border: 2px solid #ddd;
+    border-radius: 10px;
+
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.lletra {
+    font-size: 28px;
+}
+
+
+/* =========================
+   BOTONS
+   ========================= */
+
+button {
+    padding: 14px 26px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    background-color: #fff;
+    color: #222;
+
+    border: 2px solid #222;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #222;
+    color: #fff;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* =========================
+   BOTÓ TORNAR
+   ========================= */
+
+.tornar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+
+    background-color: #ffffff;
+    color: #222;
+
+    border: 1px solid #d8dce2;
+    border-radius: 10px;
+
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+
+    transition:
+        background-color 0.15s ease,
+        box-shadow 0.15s ease,
+        transform 0.15s ease;
+}
+
+.tornar:hover {
+    background-color: #f5f6f8;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.09);
+}
+
+.tornar:active {
+    transform: translateY(0);
+}
+
+/* =========================
+   BOTÓ COMENÇAR
+   ========================= */
+
+#comencar-btn {
+    display: block;
+    margin: 30px auto 0;
+}
+
+/* =========================
+   PREGUNTES
+   ========================= */
+
+.pregunta,
+.pregunta-pentagrama {
+    margin-top: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 20px;
+}
+
+#pregunta-equivalencia {
+    font-size: 38px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   INPUTS
+   ========================= */
+
+input {
+    width: min(300px, 100%);
+
+    padding: 14px 16px;
+
+    font-size: 18px;
+    text-align: center;
+
+    border: 2px solid #bbb;
+    border-radius: 8px;
+
+    outline: none;
+}
+
+input:focus {
+    border-color: #222;
+}
+
+
+/* =========================
+   PENTAGRAMA
+   ========================= */
+
+#pentagrama {
+    width: min(600px, 100%);
+    min-height: 220px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #fafafa;
+
+    border: 2px solid #ddd;
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+#pentagrama svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* =========================
+   FEEDBACK
+   ========================= */
+
+.feedback {
+    min-height: 24px;
+
+    font-size: 17px;
+    font-weight: bold;
+}
+
+
+/* Ho farem servir des de JavaScript */
+
+.feedback.correcte {
+    color: green;
+}
+
+.feedback.incorrecte {
+    color: crimson;
+}
+
+
+/* =========================
+   RESULTAT FINAL
+   ========================= */
+
+.resultat-final {
+    text-align: center;
+}
+
+.resultat-final p {
+    margin: 20px 0;
+    font-size: 20px;
+}
+
+
+/* =========================
+   ELEMENTS OCULTS
+   ========================= */
+
+.ocult {
+    display: none;
+}
+
+/* =========================
+   EXEMPLE DEL PENTAGRAMA
+   ========================= */
+
+.exemple-pentagrama {
+    margin: 30px 0;
+    padding: 25px;
+
+    background-color: #fafafa;
+
+    border: 2px solid #ddd;
+    border-radius: 10px;
+}
+
+.exemple-pentagrama h3 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.exemple-pentagrama svg {
+    width: 100%;
+    max-width: 600px;
+
+    display: block;
+    margin: 0 auto;
+}
+
+
+/* Pentagrama */
+
+.linia-pentagrama {
+    stroke: #222;
+    stroke-width: 2;
+}
+
+
+/* Clau */
+
+.clau-sol {
+    font-family: serif;
+    font-size: 100px;
+}
+
+
+/* Notes */
+
+.cap-nota {
+    fill: #222;
+}
+
+.pal-nota {
+    stroke: #222;
+    stroke-width: 4;
+}
+
+.nom-nota {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* Llegenda */
+
+.llegenda-pentagrama {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+
+    margin-top: 10px;
+    font-size: 17px;
+}
+
+/* =========================
+   RESUM D'EXPERIÈNCIA
+   ========================= */
+
+.resum-xp {
+    width: min(600px, 100%);
+
+    margin: 30px auto;
+    padding: 22px;
+
+    background-color: #f7f8fa;
+
+    border: 1px solid #ddd;
+    border-radius: 12px;
+}
+
+
+.resum-xp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 12px;
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   BARRA XP FINAL
+   ========================= */
+
+.barra-xp-final {
+    position: relative;
+
+    width: 100%;
+    height: 28px;
+
+    background-color: #e9ecef;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+.barra-xp-final-progres {
+    width: 0%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #4dabf7,
+        #1971c2
+    );
+
+    border-radius: 20px;
+
+    transition: width 0.8s ease;
+}
+
+
+.text-xp-final {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 2;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    color: #222;
+}
+
+
+/* XP aconseguida */
+
+.xp-guanyada {
+    min-height: 24px;
+
+    margin-top: 12px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+
+    .llegenda-pentagrama {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .exercici-container {
+        width: 92%;
+        padding-top: 25px;
+    }
+
+    .exercici-header h1 {
+        font-size: 30px;
+    }
+
+    .explicacio,
+    .part-exercici,
+    .resultat-final {
+        padding: 25px 20px;
+    }
+
+    .equivalencies {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .equivalencia {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    #pregunta-equivalencia {
+        font-size: 32px;
+    }
+
+}

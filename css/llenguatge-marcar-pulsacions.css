@@ -1,0 +1,697 @@
+/* =========================
+   LLENGUATGE
+   MARCAR PULSACIONS
+   ========================= */
+
+
+/* =========================
+   EXEMPLE
+   ========================= */
+
+.exemple-marcar-pulsacions {
+    width: min(760px, 100%);
+
+    margin: 2rem auto;
+
+    padding: 1.5rem;
+
+    box-sizing: border-box;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.9
+    );
+
+    border: 2px solid #d6d6d6;
+    border-radius: 18px;
+
+    text-align: center;
+}
+
+
+.exemple-marcar-pulsacions h3 {
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+}
+
+
+
+/* =========================
+   COMPÀS D'EXEMPLE
+   ========================= */
+
+.compas-exemple-pulsacions {
+    width: min(620px, 100%);
+
+    margin: 1.5rem auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1rem;
+}
+
+
+.indicador-compas-exemple {
+    min-width: 54px;
+
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+
+.figures-exemple-pulsacions {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 0.75rem;
+}
+
+
+.figura-exemple-pulsacio {
+    width: 62px;
+    height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    font-size: 3.2rem;
+    line-height: 1;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.95
+    );
+
+    border: 3px solid #d3d3d3;
+    border-radius: 14px;
+}
+
+
+.figura-exemple-pulsacio.marcada {
+    border-color: #4c9f70;
+
+    background: rgba(
+        76,
+        159,
+        112,
+        0.13
+    );
+}
+
+
+
+/* =========================
+   COMPASSOS EXPLICACIÓ
+   ========================= */
+
+.compassos-explicacio {
+    width: min(700px, 100%);
+
+    margin: 2rem auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 1rem;
+}
+
+
+.compas-explicacio {
+    padding: 1.15rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.4rem;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.9
+    );
+
+    border: 2px solid #d4d4d4;
+    border-radius: 16px;
+
+    text-align: center;
+}
+
+
+.numero-compas-explicacio {
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+
+
+/* =========================
+   CAPÇALERA DEL COMPÀS
+   ========================= */
+
+.capcalera-compas-pulsacions {
+    width: min(760px, 100%);
+
+    margin: 1.5rem auto 0.8rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.6rem;
+
+    font-size: 1.1rem;
+}
+
+
+.capcalera-compas-pulsacions strong {
+    font-size: 1.6rem;
+}
+
+
+
+/* =========================
+   CONTENIDOR DEL COMPÀS
+   ========================= */
+
+.contenidor-pulsacions {
+    width: min(820px, 100%);
+    min-height: 190px;
+
+    margin: 0 auto 1.5rem;
+
+    padding: 1.4rem 1rem;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.8rem;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.95
+    );
+
+    border: 2px solid #d4d4d4;
+    border-radius: 18px;
+}
+
+
+
+/* =========================
+   BARRES DEL COMPÀS
+   ========================= */
+
+.barra-compas-pulsacions {
+    width: 4px;
+    height: 125px;
+
+    flex-shrink: 0;
+
+    background: #222;
+
+    border-radius: 2px;
+}
+
+
+
+/* =========================
+   ZONA DE FIGURES
+   ========================= */
+
+.zona-figures-pulsacions {
+    flex: 1;
+
+    min-width: 0;
+    min-height: 135px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 0.7rem;
+}
+
+
+
+/* =========================
+   FIGURA CLICABLE
+   ========================= */
+
+.figura-pulsacio {
+    width: 68px;
+    height: 92px;
+
+    padding: 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.98
+    );
+
+    border: 3px solid #d1d1d1;
+    border-radius: 15px;
+
+    font: inherit;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        background 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.simbol-figura-pulsacio {
+    display: block;
+
+    font-size: 3.6rem;
+    line-height: 1;
+}
+
+
+
+/* =========================
+   HOVER
+   ========================= */
+
+.figura-pulsacio:hover:not(:disabled) {
+    transform: translateY(-3px);
+
+    border-color: #888;
+
+    box-shadow:
+        0 5px 14px
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+}
+
+
+.figura-pulsacio:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+
+
+/* =========================
+   SELECCIONADA
+   ========================= */
+
+.figura-pulsacio.seleccionada {
+    border-color: #6584b8;
+
+    background: rgba(
+        101,
+        132,
+        184,
+        0.13
+    );
+
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            101,
+            132,
+            184,
+            0.08
+        );
+}
+
+
+
+/* =========================
+   SOLUCIÓ CORRECTA
+   ========================= */
+
+.figura-pulsacio.pulsacio-correcta {
+    border-color: #4ca06d;
+
+    background: rgba(
+        76,
+        160,
+        109,
+        0.15
+    );
+
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            76,
+            160,
+            109,
+            0.08
+        );
+}
+
+
+
+/* =========================
+   ERROR
+   ========================= */
+
+.figura-pulsacio.pulsacio-error {
+    border-color: #d15b5b;
+
+    background: rgba(
+        209,
+        91,
+        91,
+        0.15
+    );
+
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            209,
+            91,
+            91,
+            0.08
+        );
+}
+
+
+
+/* =========================
+   DESACTIVADA
+   ========================= */
+
+.figura-pulsacio:disabled {
+    cursor: default;
+
+    opacity: 1;
+}
+
+
+
+/* =========================
+   CONTROLS
+   ========================= */
+
+.controls-marcar-pulsacions {
+    width: min(620px, 100%);
+
+    margin: 1.4rem auto 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 0.8rem;
+}
+
+
+
+/* =========================
+   BOTÓ SECUNDARI
+   ========================= */
+
+.controls-marcar-pulsacions .boto-secundari {
+    min-width: 130px;
+}
+
+
+
+/* =========================
+   FEEDBACK
+   ========================= */
+
+.controls-marcar-pulsacions + .feedback {
+    margin-top: 1.4rem;
+}
+
+/* =========================
+   BOTÓ ESBORRAR
+   ========================= */
+
+.controls-marcar-pulsacions .boto-secundari {
+    min-width: 130px;
+
+    padding: 0.85rem 1.4rem;
+
+    box-sizing: border-box;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.95
+    );
+
+    border: 2px solid #b8b8b8;
+    border-radius: 12px;
+
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        background 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.controls-marcar-pulsacions
+.boto-secundari:hover:not(:disabled) {
+
+    transform: translateY(-2px);
+
+    border-color: #777;
+
+    background: #f5f5f5;
+
+    box-shadow:
+        0 4px 10px
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+}
+
+
+.controls-marcar-pulsacions
+.boto-secundari:active:not(:disabled) {
+
+    transform: translateY(0);
+}
+
+
+.controls-marcar-pulsacions
+.boto-secundari:disabled {
+
+    opacity: 0.5;
+
+    cursor: default;
+}
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (
+    max-width: 750px
+) {
+
+    .contenidor-pulsacions {
+        min-height: 170px;
+
+        padding: 1.2rem 0.8rem;
+    }
+
+
+    .barra-compas-pulsacions {
+        height: 110px;
+    }
+
+
+    .zona-figures-pulsacions {
+        min-height: 120px;
+
+        gap: 0.55rem;
+    }
+
+
+    .figura-pulsacio {
+        width: 61px;
+        height: 84px;
+    }
+
+
+    .simbol-figura-pulsacio {
+        font-size: 3.2rem;
+    }
+
+
+    .figura-exemple-pulsacio {
+        width: 56px;
+        height: 76px;
+
+        font-size: 2.9rem;
+    }
+
+}
+
+
+
+/* =========================
+   MÒBIL
+   ========================= */
+
+@media (
+    max-width: 550px
+) {
+
+    .compassos-explicacio {
+        grid-template-columns: 1fr;
+    }
+
+
+    .compas-exemple-pulsacions {
+        flex-direction: column;
+
+        gap: 0.75rem;
+    }
+
+
+    .contenidor-pulsacions {
+        min-height: 150px;
+
+        padding: 1rem 0.55rem;
+
+        gap: 0.5rem;
+    }
+
+
+    .barra-compas-pulsacions {
+        width: 3px;
+        height: 100px;
+    }
+
+
+    .zona-figures-pulsacions {
+        min-height: 105px;
+
+        gap: 0.4rem;
+    }
+
+
+    .figura-pulsacio {
+        width: 53px;
+        height: 76px;
+
+        border-radius: 12px;
+    }
+
+
+    .simbol-figura-pulsacio {
+        font-size: 2.8rem;
+    }
+
+
+    .controls-marcar-pulsacions {
+        gap: 0.6rem;
+    }
+
+
+    .controls-marcar-pulsacions
+    .boto-principal,
+    .controls-marcar-pulsacions
+    .boto-secundari {
+        flex: 1;
+
+        min-width: 120px;
+    }
+
+}
+
+
+
+/* =========================
+   MÒBIL PETIT
+   ========================= */
+
+@media (
+    max-width: 400px
+) {
+
+    .contenidor-pulsacions {
+        padding-left: 0.4rem;
+        padding-right: 0.4rem;
+    }
+
+
+    .zona-figures-pulsacions {
+        gap: 0.25rem;
+    }
+
+
+    .figura-pulsacio {
+        width: 47px;
+        height: 70px;
+    }
+
+
+    .simbol-figura-pulsacio {
+        font-size: 2.5rem;
+    }
+
+
+    .figures-exemple-pulsacions {
+        gap: 0.4rem;
+    }
+
+
+    .figura-exemple-pulsacio {
+        width: 48px;
+        height: 68px;
+
+        font-size: 2.5rem;
+    }
+
+}

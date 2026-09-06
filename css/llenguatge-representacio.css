@@ -1,0 +1,525 @@
+/* =========================
+   LLENGUATGE 3
+   REPRESENTACIÓ DE FIGURES
+   ========================= */
+
+
+/* =========================
+   EXEMPLE
+   ========================= */
+
+.exemple-representacio {
+    max-width: 650px;
+
+    margin: 2rem auto;
+
+    padding: 1.5rem;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.85
+    );
+
+    border: 2px solid #d8d8d8;
+    border-radius: 18px;
+}
+
+
+.exemple-figures-representacio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1.5rem;
+
+    margin-bottom: 1.5rem;
+}
+
+
+.figura-exemple-representacio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.4rem;
+}
+
+
+
+/* =========================
+   QUADRATS DE L'EXEMPLE
+   ========================= */
+
+.quadrats-exemple {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.5rem;
+
+    flex-wrap: wrap;
+
+    margin: 1.25rem 0;
+}
+
+
+.quadrat-exemple {
+    width: 42px;
+    height: 42px;
+
+    box-sizing: border-box;
+
+    border: 2px solid #888;
+    border-radius: 7px;
+}
+
+
+
+/* =========================
+   FIGURES DE LA PREGUNTA
+   ========================= */
+
+.zona-figures-representacio {
+    width: min(
+        600px,
+        100%
+    );
+
+    margin: 1.5rem auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 2rem;
+}
+
+
+.targeta-figura-representacio {
+    width: 150px;
+    min-height: 160px;
+
+    box-sizing: border-box;
+
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.5rem;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.92
+    );
+
+    border: 2px solid #d4d4d4;
+    border-radius: 18px;
+}
+
+
+.nom-figura-representacio {
+    font-size: 1rem;
+}
+
+
+
+/* =========================
+   UNITAT DEL QUADRAT
+   ========================= */
+
+.unitat-quadrat {
+    width: fit-content;
+
+    margin: 1rem auto 1.75rem;
+
+    padding: 0.75rem 1.2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.6rem;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.85
+    );
+
+    border-radius: 14px;
+}
+
+
+.simbol-unitat {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+
+
+/* =========================
+   SELECTORS DE FIGURA
+   ========================= */
+
+.selectors-representacio {
+    margin-top: 1.5rem;
+}
+
+
+.botons-selector-representacio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1rem;
+
+    flex-wrap: wrap;
+}
+
+
+.boto-selector-figura {
+    min-width: 150px;
+
+    padding: 0.75rem 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.65rem;
+
+    box-sizing: border-box;
+
+    border: 3px solid transparent;
+    border-radius: 14px;
+
+    font: inherit;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.boto-selector-figura:hover {
+    transform: translateY(-2px);
+}
+
+
+.boto-selector-figura.seleccionat {
+    border-color: #333;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+
+    transform: translateY(-2px);
+}
+
+
+.simbol-selector {
+    font-size: 2.4rem;
+    line-height: 1;
+}
+
+
+.nom-selector {
+    font-size: 1rem;
+}
+
+
+
+/* =========================
+   COLORS DE LES DUES FIGURES
+   ========================= */
+
+.figura-1 {
+    background: #f3b75b;
+}
+
+
+.figura-2 {
+    background: #72b7d8;
+}
+
+
+
+/* =========================
+   ZONA DE QUADRATS
+   ========================= */
+
+.zona-quadrats {
+    width: min(
+        700px,
+        100%
+    );
+
+    min-height: 100px;
+
+    margin: 2rem auto;
+
+    padding: 1.25rem;
+
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.65rem;
+
+    flex-wrap: wrap;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.9
+    );
+
+    border: 2px solid #d4d4d4;
+    border-radius: 18px;
+}
+
+
+
+/* =========================
+   QUADRAT INTERACTIU
+   ========================= */
+
+.quadrat-representacio {
+    width: 58px;
+    height: 58px;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    border: 3px solid #8f8f8f;
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.12s ease,
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+
+.quadrat-representacio:hover:not(:disabled) {
+    transform: scale(1.06);
+
+    border-color: #444;
+}
+
+
+.quadrat-representacio:active:not(:disabled) {
+    transform: scale(0.96);
+}
+
+
+
+/* =========================
+   QUADRAT BUIT
+   ========================= */
+
+.quadrat-representacio.buit {
+    background: white;
+}
+
+
+
+/* =========================
+   QUADRATS PINTATS
+   ========================= */
+
+.quadrat-representacio.figura-1 {
+    background: #f3b75b;
+
+    border-color: #b87518;
+}
+
+
+.quadrat-representacio.figura-2 {
+    background: #72b7d8;
+
+    border-color: #367d9e;
+}
+
+
+
+/* =========================
+   QUADRATS DESACTIVATS
+   ========================= */
+
+.quadrat-representacio:disabled {
+    cursor: default;
+}
+
+
+
+/* =========================
+   CONTROLS
+   ========================= */
+
+.controls-representacio {
+    margin-top: 1.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1rem;
+
+    flex-wrap: wrap;
+}
+
+
+
+/* =========================
+   BOTÓ SECUNDARI
+   ========================= */
+
+.boto-secundari {
+    min-width: 130px;
+
+    padding: 0.8rem 1.3rem;
+
+    border: 2px solid #aaa;
+    border-radius: 12px;
+
+    background: white;
+
+    font: inherit;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        border-color 0.15s ease;
+}
+
+
+.boto-secundari:hover {
+    transform: translateY(-2px);
+
+    border-color: #666;
+}
+
+
+.boto-secundari:active {
+    transform: translateY(0);
+}
+
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (
+    max-width: 700px
+) {
+
+    .zona-figures-representacio {
+        gap: 1rem;
+    }
+
+
+    .targeta-figura-representacio {
+        width: 125px;
+        min-height: 145px;
+
+        padding: 0.75rem;
+    }
+
+
+    .boto-selector-figura {
+        min-width: 130px;
+    }
+
+
+    .quadrat-representacio {
+        width: 52px;
+        height: 52px;
+    }
+
+
+    .quadrat-exemple {
+        width: 38px;
+        height: 38px;
+    }
+
+}
+
+
+
+/* =========================
+   MÒBIL PETIT
+   ========================= */
+
+@media (
+    max-width: 430px
+) {
+
+    .zona-figures-representacio {
+        gap: 0.6rem;
+    }
+
+
+    .targeta-figura-representacio {
+        width: 110px;
+        min-height: 130px;
+    }
+
+
+    .zona-quadrats {
+        gap: 0.45rem;
+
+        padding: 1rem 0.5rem;
+    }
+
+
+    .quadrat-representacio {
+        width: 46px;
+        height: 46px;
+    }
+
+
+    .botons-selector-representacio {
+        gap: 0.6rem;
+    }
+
+
+    .boto-selector-figura {
+        min-width: 115px;
+
+        padding: 0.6rem 0.75rem;
+    }
+
+
+    .simbol-selector {
+        font-size: 2rem;
+    }
+
+}

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Llenguatge 8</title>
+
+
+    <!-- =========================
+         CSS
+         ========================= -->
+
+    <link
+        rel="stylesheet"
+        href="../../../css/llenguatge.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../../../css/llenguatge-accents-metrics-ritmics.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         CONTENIDOR PRINCIPAL
+         ========================= -->
+
+    <main class="contenidor-exercici">
+
+
+        <!-- =========================
+             TÍTOL
+             ========================= -->
+
+        <h1>Llenguatge 8</h1>
+
+
+
+        <!-- =========================
+             EXPLICACIÓ
+             ========================= -->
+
+        <section
+            id="explicacio"
+            class="explicacio-exercici"
+        >
+
+            <h2>
+                Accents mètrics i figures rítmiques
+            </h2>
+
+
+            <p>
+                En aquest exercici hauràs d'identificar
+                quines figures comencen exactament
+                sobre una pulsació del compàs.
+            </p>
+
+
+            <p>
+                A més, hauràs d'indicar quin
+                <strong>accent mètric</strong>
+                correspon a aquella pulsació:
+                <strong>Fort</strong>,
+                <strong>Semifort</strong>
+                o
+                <strong>Dèbil</strong>.
+            </p>
+
+
+
+            <!-- =========================
+                 EXEMPLE 4/4
+                 ========================= -->
+
+            <div class="exemple-accents-ritmics">
+
+                <div class="compas-exemple-accents-ritmics">
+                    4/4
+                </div>
+
+
+                <div class="figures-exemple-accents-ritmics">
+
+
+                    <!-- BLANCA -->
+
+                    <div class="figura-exemple-accent-ritmic">
+
+                        <span class="simbol-exemple-accent">
+                            𝅗𝅥
+                        </span>
+
+                        <span class="text-exemple-accent fort">
+                            Fort
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- CORXERA -->
+
+                    <div class="figura-exemple-accent-ritmic">
+
+                        <span class="simbol-exemple-accent">
+                            𝅘𝅥𝅮
+                        </span>
+
+                        <span class="text-exemple-accent semifort">
+                            Semifort
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- CORXERA ENTRE PULSACIONS -->
+
+                    <div class="figura-exemple-accent-ritmic">
+
+                        <span class="simbol-exemple-accent">
+                            𝅘𝅥𝅮
+                        </span>
+
+                        <span class="text-exemple-accent sense-accent">
+                            —
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- NEGRA -->
+
+                    <div class="figura-exemple-accent-ritmic">
+
+                        <span class="simbol-exemple-accent">
+                            𝅘𝅥
+                        </span>
+
+                        <span class="text-exemple-accent debil">
+                            Dèbil
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <p>
+                En l'exemple anterior:
+            </p>
+
+
+            <ul class="llista-explicacio-accents">
+
+                <li>
+                    La <strong>blanca</strong>
+                    comença a la primera pulsació:
+                    <strong>Fort</strong>.
+                </li>
+
+                <li>
+                    La primera <strong>corxera</strong>
+                    comença a la tercera pulsació:
+                    <strong>Semifort</strong>.
+                </li>
+
+                <li>
+                    La segona <strong>corxera</strong>
+                    comença entre pulsacions,
+                    per tant no s'ha de marcar.
+                </li>
+
+                <li>
+                    La <strong>negra</strong>
+                    comença a la quarta pulsació:
+                    <strong>Dèbil</strong>.
+                </li>
+
+            </ul>
+
+
+
+            <!-- =========================
+                 PATRONS MÈTRICS
+                 ========================= -->
+
+            <div class="compassos-explicacio-accents">
+
+
+                <!-- 2/4 -->
+
+                <div class="compas-explicacio-accents">
+
+                    <div class="numero-compas-explicacio">
+                        2/4
+                    </div>
+
+                    <div class="patro-compas-explicacio">
+                        Fort · Dèbil
+                    </div>
+
+                </div>
+
+
+
+                <!-- 3/4 -->
+
+                <div class="compas-explicacio-accents">
+
+                    <div class="numero-compas-explicacio">
+                        3/4
+                    </div>
+
+                    <div class="patro-compas-explicacio">
+                        Fort · Dèbil · Dèbil
+                    </div>
+
+                </div>
+
+
+
+                <!-- 4/4 -->
+
+                <div class="compas-explicacio-accents">
+
+                    <div class="numero-compas-explicacio">
+                        4/4
+                    </div>
+
+                    <div class="patro-compas-explicacio">
+                        Fort · Dèbil · Semifort · Dèbil
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <p class="instruccio-exercici">
+
+                Selecciona un tipus d'accent
+                i després prem les figures
+                que comencen sobre aquella pulsació.
+
+                Les figures que comencen entre
+                pulsacions s'han de deixar sense marcar.
+
+            </p>
+
+
+
+            <!-- =========================
+                 COMENÇAR
+                 ========================= -->
+
+            <button
+                id="comencar-btn"
+                class="boto-principal"
+                type="button"
+            >
+                Començar
+            </button>
+
+        </section>
+
+
+
+        <!-- =========================
+             ZONA EXERCICI
+             ========================= -->
+
+        <section
+            id="zona-exercici"
+            class="zona-exercici"
+            style="display: none;"
+        >
+
+
+            <!-- =========================
+                 PROGRÉS
+                 ========================= -->
+
+            <div class="progres-pregunta">
+
+                Pregunta
+
+                <span id="pregunta-actual">
+                    1
+                </span>
+
+                de
+
+                <span id="total-preguntes">
+                    8
+                </span>
+
+            </div>
+
+
+
+            <h2>
+                Marca els accents mètrics
+            </h2>
+
+
+
+            <!-- =========================
+                 COMPÀS
+                 ========================= -->
+
+            <div class="capcalera-accents-ritmics">
+
+                <span>
+                    Compàs
+                </span>
+
+                <div id="indicador-compas">
+                    4/4
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 FIGURES
+                 ========================= -->
+
+            <div class="contenidor-figures-accents-ritmics">
+
+                <div class="barra-compas-accents-ritmics">
+                </div>
+
+
+                <div
+                    id="zona-figures-accents"
+                    class="zona-figures-accents"
+                >
+                </div>
+
+
+                <div class="barra-compas-accents-ritmics">
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 SELECTOR D'ACCENTS
+                 ========================= -->
+
+            <div class="selector-accents-ritmics">
+
+                <p>
+                    Selecciona un accent:
+                </p>
+
+
+                <div class="botons-accents-ritmics">
+
+
+                    <button
+                        id="boto-fort"
+                        class="boto-accent boto-accent-fort"
+                        type="button"
+                    >
+                        Fort
+                    </button>
+
+
+                    <button
+                        id="boto-semifort"
+                        class="boto-accent boto-accent-semifort"
+                        type="button"
+                    >
+                        Semifort
+                    </button>
+
+
+                    <button
+                        id="boto-debil"
+                        class="boto-accent boto-accent-debil"
+                        type="button"
+                    >
+                        Dèbil
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 CONTROLS
+                 ========================= -->
+
+            <div class="controls-accents-ritmics">
+
+                <button
+                    id="boto-esborrar"
+                    class="boto-secundari"
+                    type="button"
+                    disabled
+                >
+                    Esborrar
+                </button>
+
+
+                <button
+                    id="boto-comprovar"
+                    class="boto-principal"
+                    type="button"
+                    disabled
+                >
+                    Comprovar
+                </button>
+
+            </div>
+
+
+
+            <!-- =========================
+                 FEEDBACK
+                 ========================= -->
+
+            <div
+                id="feedback"
+                class="feedback"
+                aria-live="polite"
+            >
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             RESULTAT FINAL
+             ========================= -->
+        
+        <section
+            id="resultat-final"
+            class="resultat-final ocult"
+        >
+        
+            <h2>
+                Exercici completat
+            </h2>
+        
+        
+            <div id="puntuacio-final">
+            </div>
+        
+        
+            <!-- =========================
+                 XP
+                 ========================= -->
+        
+            <div
+                id="resum-xp"
+                class="resum-xp"
+            >
+        
+                <div class="resum-xp-header">
+        
+                    <strong>
+                        Llenguatge
+                    </strong>
+        
+                    <span>
+                        Nivell
+                        <strong id="nivell-xp">
+                            1
+                        </strong>
+                    </span>
+        
+                </div>
+        
+        
+                <div class="barra-xp-final">
+        
+                    <div
+                        id="barra-xp-final-progres"
+                        class="barra-xp-final-progres"
+                    >
+                    </div>
+        
+        
+                    <span
+                        id="text-xp-final"
+                        class="text-xp-final"
+                    >
+                        0 / 100 XP
+                    </span>
+        
+                </div>
+        
+        
+                <div
+                    id="xp-guanyada"
+                    class="xp-guanyada"
+                >
+                </div>
+        
+            </div>
+        
+        
+            <button
+                id="finalitzar-btn"
+                class="boto-principal"
+                type="button"
+            >
+                Finalitzar
+            </button>
+        
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+         ========================= -->
+
+    <script src="../../../js/dades-exercicis.js"></script>
+
+    <script src="../../../js/sistema-exercicis.js"></script>
+
+    <script src="../../../js/llenguatge/accents-metrics-ritmics.js"></script>
+
+    <script src="../../../js/llenguatge/exercicis/llenguatge-8.js"></script>
+
+
+
+    <!-- =========================
+         COMENÇAR EXERCICI
+         ========================= -->
+
+    <script>
+
+        const botoComencar =
+            document.getElementById(
+                "comencar-btn"
+            );
+
+
+        const explicacio =
+            document.getElementById(
+                "explicacio"
+            );
+
+
+        const zonaExercici =
+            document.getElementById(
+                "zona-exercici"
+            );
+
+
+        botoComencar.addEventListener(
+            "click",
+            () => {
+
+                explicacio.style.display =
+                    "none";
+
+
+                zonaExercici.style.display =
+                    "block";
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

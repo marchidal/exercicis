@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Llenguatge 1
+    </title>
+
+
+    <!-- =========================
+         ESTILS
+    ========================== -->
+
+    <link
+        rel="stylesheet"
+        href="../../../css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../../../css/llenguatge.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <main class="contenidor-exercici">
+
+
+        <!-- =========================
+             TÍTOL
+        ========================== -->
+
+        <h1>
+            Llenguatge 1
+        </h1>
+
+
+
+        <!-- =========================
+             EXPLICACIÓ
+        ========================== -->
+
+        <section
+            id="explicacio"
+            class="explicacio"
+        >
+
+            <h2>
+                Suma el valor de les figures
+            </h2>
+
+
+            <p>
+                Cada figura musical té
+                una durada determinada.
+            </p>
+
+
+            <p>
+                En aquest exercici hauràs
+                de sumar el valor de dues figures
+                i indicar quantes pulsacions
+                duren en total.
+            </p>
+
+
+
+            <!-- =========================
+                 FIGURES
+            ========================== -->
+
+            <div class="figures-explicacio">
+
+
+                <!-- REDONDA -->
+
+                <div class="figura-explicacio">
+
+                    <div class="simbol-figura">
+                        𝅝
+                    </div>
+
+                    <strong>
+                        Redonda
+                    </strong>
+
+                    <span>
+                        4 pulsacions
+                    </span>
+
+                </div>
+
+
+
+                <!-- BLANCA -->
+
+                <div class="figura-explicacio">
+
+                    <div class="simbol-figura">
+                        𝅗𝅥
+                    </div>
+
+                    <strong>
+                        Blanca
+                    </strong>
+
+                    <span>
+                        2 pulsacions
+                    </span>
+
+                </div>
+
+
+
+                <!-- NEGRA -->
+
+                <div class="figura-explicacio">
+
+                    <div class="simbol-figura">
+                        𝅘𝅥
+                    </div>
+
+                    <strong>
+                        Negra
+                    </strong>
+
+                    <span>
+                        1 pulsació
+                    </span>
+
+                </div>
+
+
+
+                <!-- CORXERA -->
+
+                <div class="figura-explicacio">
+
+                    <div class="simbol-figura">
+                        𝅘𝅥𝅮
+                    </div>
+
+                    <strong>
+                        Corxera
+                    </strong>
+
+                    <span>
+                        0,5 pulsacions
+                    </span>
+
+                </div>
+
+
+
+                <!-- SEMICORXERA -->
+
+                <div class="figura-explicacio">
+
+                    <div class="simbol-figura">
+                        𝅘𝅥𝅯
+                    </div>
+
+                    <strong>
+                        Semicorxera
+                    </strong>
+
+                    <span>
+                        0,25 pulsacions
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =========================
+                 EXEMPLE
+            ========================== -->
+
+            <div class="exemple-suma">
+
+                <p>
+                    Per exemple:
+                </p>
+
+
+                <div class="operacio-exemple">
+
+                    <span class="figura-exemple">
+                        𝅝
+                    </span>
+
+                    <span class="simbol-operacio">
+                        +
+                    </span>
+
+                    <span class="figura-exemple">
+                        𝅗𝅥
+                    </span>
+
+                    <span class="simbol-operacio">
+                        =
+                    </span>
+
+                    <strong>
+                        6 pulsacions
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <button
+                id="comencar-btn"
+                type="button"
+                class="boto-principal"
+            >
+                Començar
+            </button>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             ZONA D'EXERCICI
+        ========================== -->
+
+        <section
+            id="zona-exercici"
+            class="zona-exercici ocult"
+        >
+
+
+            <!-- =========================
+                 PROGRÉS
+            ========================== -->
+
+            <div class="progres-pregunta">
+
+                Pregunta
+
+                <span id="pregunta-actual">
+                    1
+                </span>
+
+                /
+
+                <span id="total-preguntes">
+                    8
+                </span>
+
+            </div>
+
+
+
+            <!-- =========================
+                 ENUNCIAT
+            ========================== -->
+
+            <div class="enunciat-suma">
+
+                <h2>
+                    Quant sumen aquestes figures?
+                </h2>
+
+            </div>
+
+
+
+            <!-- =========================
+                 OPERACIÓ
+            ========================== -->
+
+            <div class="zona-operacio-suma">
+            
+                <div
+                    id="primera-figura"
+                    class="figura-suma"
+                ></div>
+            
+                <div class="simbol-suma">
+                    +
+                </div>
+            
+                <div
+                    id="segona-figura"
+                    class="figura-suma"
+                ></div>
+            
+                <div class="simbol-suma">
+                    +
+                </div>
+            
+                <div
+                    id="tercera-figura"
+                    class="figura-suma"
+                ></div>
+            
+                <div class="simbol-suma">
+                    =
+                </div>
+            
+                <div class="interrogant-suma">
+                    ?
+                </div>
+            
+            </div>
+
+
+
+            <!-- =========================
+                 RESPOSTA
+            ========================== -->
+            
+            <div class="zona-resposta-suma">
+            
+                <label
+                    for="resposta-suma"
+                    class="instruccio-resposta"
+                >
+                    Escriu el resultat:
+                </label>
+            
+            
+                <input
+                    id="resposta-suma"
+                    class="input-resposta-suma"
+                    type="number"
+                    step="0.25"
+                    min="0"
+                    inputmode="decimal"
+                    autocomplete="off"
+                >
+            
+            
+                <span class="unitat-resposta">
+                    pulsacions
+                </span>
+            
+            </div>
+            
+            
+            
+            <!-- =========================
+                 COMPROVAR
+            ========================== -->
+            
+            <div class="controls-suma">
+            
+                <button
+                    id="boto-comprovar"
+                    type="button"
+                    class="boto-principal"
+                    disabled
+                >
+                    Comprovar
+                </button>
+            
+            </div>
+            
+            
+            
+            <!-- =========================
+                 FEEDBACK
+            ========================== -->
+            
+            <div
+                id="feedback"
+                class="feedback"
+                aria-live="polite"
+            >
+            </div>
+
+
+
+
+        </section>
+
+
+
+        <!-- =========================
+             RESULTAT FINAL
+        ========================== -->
+
+        <section
+            id="resultat-final"
+            class="resultat-final ocult"
+        >
+
+            <h2>
+                Resultat
+            </h2>
+
+
+
+            <!-- =========================
+                 PUNTUACIÓ
+            ========================== -->
+
+            <div class="puntuacio-final">
+
+                <p id="puntuacio-final">
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 RESUM XP
+            ========================== -->
+
+            <div
+                id="resum-xp"
+                class="experiencia-final resum-xp"
+            >
+
+
+                <div class="resum-xp-header">
+
+                    <strong>
+                        Llenguatge
+                    </strong>
+
+
+                    <span>
+                        Nivell
+
+                        <strong id="nivell-xp">
+                            1
+                        </strong>
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- =========================
+                     BARRA XP
+                ========================== -->
+
+                <div class="barra-xp-final">
+
+                    <div
+                        id="barra-xp-final-progres"
+                        class="barra-xp-final-progres"
+                    >
+                    </div>
+
+
+                    <div
+                        id="text-xp-final"
+                        class="text-xp-final"
+                    >
+                        0 / 50 XP
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     XP GUANYADA
+                ========================== -->
+
+                <div
+                    id="xp-guanyada"
+                    class="xp-guanyada"
+                >
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =========================
+                 FINALITZAR
+            ========================== -->
+
+            <button
+                id="finalitzar-btn"
+                type="button"
+                class="boto-principal"
+            >
+                Finalitzar
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         SISTEMA GENERAL
+    ========================== -->
+
+    <script
+        src="../../../js/dades-exercicis.js"
+    ></script>
+
+    <script
+        src="../../../js/sistema-exercicis.js"
+    ></script>
+
+
+
+    <!-- =========================
+         MOTOR DE SUMES
+    ========================== -->
+
+    <script
+        src="../../../js/llenguatge/suma.js"
+    ></script>
+
+
+
+    <!-- =========================
+         CONFIGURACIÓ
+         LLENGUATGE 1
+    ========================== -->
+
+    <script
+        src="../../../js/llenguatge/exercicis/llenguatge-1.js"
+    ></script>
+
+
+
+    <!-- =========================
+         COMENÇAR EXERCICI
+    ========================== -->
+
+    <script>
+
+        const botoComencar =
+            document.getElementById(
+                "comencar-btn"
+            );
+
+
+        const explicacio =
+            document.getElementById(
+                "explicacio"
+            );
+
+
+        const zonaExercici =
+            document.getElementById(
+                "zona-exercici"
+            );
+
+
+        botoComencar.addEventListener(
+            "click",
+            () => {
+
+                explicacio.classList.add(
+                    "ocult"
+                );
+
+
+                zonaExercici.classList.remove(
+                    "ocult"
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

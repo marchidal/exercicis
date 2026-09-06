@@ -1,0 +1,1384 @@
+/* =========================================================
+   DICTAT RÍTMIC
+========================================================= */
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+body {
+    margin: 0;
+
+    min-height: 100vh;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.72),
+            rgba(255, 255, 255, 0.72)
+        ),
+        url("../assets/img/fondo-ritmic.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* =========================================================
+   CONTENIDOR GENERAL
+========================================================= */
+
+/* =========================
+   CONTENIDOR PRINCIPAL
+   ========================= */
+
+.contenidor-exercici {
+    width: min(900px, calc(100% - 40px));
+
+    margin: 40px auto;
+
+    padding: 35px;
+
+    box-sizing: border-box;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.96
+    );
+
+    border: 2px solid #222;
+    border-radius: 14px;
+
+    box-shadow:
+        0 8px 24px
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+}
+
+/* =========================================================
+   EXPLICACIÓ
+========================================================= */
+
+.explicacio {
+    text-align: center;
+}
+
+
+.explicacio h2 {
+    margin-top: 0;
+
+    font-size: 1.7rem;
+}
+
+
+.explicacio p {
+    max-width: 650px;
+
+    margin:
+        1rem
+        auto;
+
+    line-height: 1.6;
+
+    color: #3f3f3f;
+}
+
+
+/* =========================================================
+   FIGURES DE L'EXPLICACIÓ
+========================================================= */
+
+.figures-explicacio {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 1.5rem;
+
+    margin:
+        2rem
+        0;
+}
+
+
+.figura-explicacio {
+    min-width: 150px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 0.5rem;
+
+    padding: 1.2rem;
+
+    border:
+        2px solid
+        #d0d0d0;
+
+    border-radius: 16px;
+
+    background: #fff;
+}
+
+
+.simbol-figura {
+    min-height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 4rem;
+
+    line-height: 1;
+}
+
+
+.figura-explicacio span {
+    color: #666;
+
+    font-size: 0.95rem;
+}
+
+
+/* =========================================================
+   BOTONS GENERALS
+========================================================= */
+
+button {
+    font: inherit;
+
+    cursor: pointer;
+
+    transition:
+        transform 120ms ease,
+        background 120ms ease,
+        opacity 120ms ease;
+}
+
+
+button:active:not(:disabled) {
+    transform:
+        translateY(1px);
+}
+
+
+button:disabled {
+    cursor: default;
+
+    opacity: 0.45;
+}
+
+
+/* =========================================================
+   BOTÓ PRINCIPAL
+========================================================= */
+
+.boto-principal {
+    min-height: 46px;
+
+    padding:
+        0.7rem
+        1.4rem;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #2d2d2d;
+
+    color: white;
+
+    font-weight: 700;
+}
+
+
+.boto-principal:hover:not(:disabled) {
+    background: #444;
+}
+
+
+/* =========================================================
+   BOTÓ SECUNDARI
+========================================================= */
+
+.boto-secundari {
+    min-height: 44px;
+
+    padding:
+        0.65rem
+        1.2rem;
+
+    border:
+        2px solid
+        #555;
+
+    border-radius: 10px;
+
+    background: white;
+
+    color: #333;
+
+    font-weight: 600;
+}
+
+
+.boto-secundari:hover:not(:disabled) {
+    background: #f3f3f3;
+}
+
+
+/* =========================================================
+   ZONA D'EXERCICI
+========================================================= */
+
+.zona-exercici {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 1.5rem;
+}
+
+
+/* =========================================================
+   PROGRÉS
+========================================================= */
+
+.progres-pregunta {
+    font-size: 1.05rem;
+
+    font-weight: 700;
+
+    color: #555;
+}
+
+
+/* =========================================================
+   ZONA ESCOLTAR
+========================================================= */
+
+.zona-escoltar {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 1rem;
+}
+
+
+.boto-escoltar {
+    min-height: 48px;
+
+    padding:
+        0.75rem
+        1.4rem;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #1971c2;
+
+    color: white;
+
+    font-weight: 700;
+}
+
+
+.boto-escoltar:hover:not(:disabled) {
+    background: #1864ab;
+}
+
+
+.reproduccions {
+    color: #666;
+
+    font-size: 0.95rem;
+}
+
+
+/* =========================================================
+   ZONA DE RESPOSTA
+========================================================= */
+
+.zona-resposta {
+    width: 100%;
+
+    text-align: center;
+}
+
+
+.zona-resposta h2 {
+    margin:
+        0
+        0
+        1rem;
+
+    font-size: 1.4rem;
+}
+
+
+/* =========================================================
+   LÍNIA RÍTMICA
+========================================================= */
+
+.linia-ritmica {
+    width: 100%;
+    min-height: 170px;
+
+    display: block;
+
+    padding:
+        1.5rem
+        1rem;
+
+    box-sizing: border-box;
+
+    border:
+        2px solid
+        #cfcfcf;
+
+    border-radius: 16px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.9
+        );
+
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+
+/* =========================================================
+   RESPOSTA RÍTMICA
+========================================================= */
+
+.resposta-ritmica {
+    width: max-content;
+    min-width: 100%;
+
+    min-height: 110px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0;
+}
+
+
+/* =========================================================
+   COMPÀS
+========================================================= */
+
+.compas-ritmic {
+    min-width: 0;
+    min-height: 110px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.35rem;
+
+    padding:
+        0.5rem
+        0.55rem;
+
+    box-sizing: border-box;
+
+    flex:
+        1
+        0
+        auto;
+}
+
+
+/* =========================================================
+   BARRA DE COMPÀS
+========================================================= */
+
+.barra-compas {
+    width: 3px;
+    height: 100px;
+
+    flex:
+        0
+        0
+        3px;
+
+    border-radius: 999px;
+
+    background: #222;
+}
+
+
+/* =========================================================
+   FIGURES DISPONIBLES
+========================================================= */
+
+.zona-figures {
+    width: 100%;
+
+    text-align: center;
+}
+
+
+.instruccio-figures {
+    margin:
+        0
+        0
+        0.8rem;
+
+    font-weight: 600;
+
+    color: #555;
+}
+
+
+.botons-figures {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 1rem;
+}
+
+
+/* =========================================================
+   BOTÓ DE FIGURA
+========================================================= */
+
+.boto-figura {
+    min-width: 150px;
+    min-height: 115px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.25rem;
+
+    padding:
+        0.8rem
+        1rem;
+
+    border:
+        2px solid
+        #bdbdbd;
+
+    border-radius: 14px;
+
+    background: white;
+
+    color: #222;
+
+    font-weight: 700;
+}
+
+
+.boto-figura:hover:not(:disabled) {
+    border-color: #1971c2;
+
+    background: #eef7ff;
+
+    transform:
+        translateY(-2px);
+}
+
+
+.figura-boto {
+    display: block;
+
+    font-size: 3.5rem;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   CONTROLS
+========================================================= */
+
+.controls-edicio,
+.controls-resposta,
+.zona-comprovar {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   CONTROLS HORITZONTALS
+========================================================= */
+
+.controls-resposta-horitzontals {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+
+.controls-resposta-horitzontals button {
+    margin: 0;
+}
+
+
+/* =========================================================
+   FEEDBACK
+========================================================= */
+
+.feedback {
+    min-height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        0.4rem
+        0.8rem;
+
+    border-radius: 10px;
+
+    font-size: 1.1rem;
+
+    font-weight: 700;
+
+    text-align: center;
+}
+
+
+.feedback.correcte {
+    background: #ebfbee;
+
+    color: #2b8a3e;
+}
+
+
+.feedback.incorrecte {
+    background: #fff5f5;
+
+    color: #c92a2a;
+}
+
+
+/* =========================================================
+   RESULTAT FINAL
+========================================================= */
+
+.resultat-final {
+    text-align: center;
+}
+
+
+.resultat-final h2 {
+    margin-bottom: 20px;
+
+    font-size: 26px;
+}
+
+
+#puntuacio-final {
+    margin:
+        20px
+        0;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   RESUM XP
+========================================================= */
+
+.resum-xp {
+    width: min(600px, 100%);
+
+    margin:
+        30px
+        auto;
+
+    padding: 22px;
+
+    background-color: #f7f8fa;
+
+    border:
+        1px solid
+        #ddd;
+
+    border-radius: 12px;
+}
+
+
+.resum-xp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 12px;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   BARRA XP FINAL
+========================================================= */
+
+.barra-xp-final {
+    position: relative;
+
+    width: 100%;
+    height: 28px;
+
+    background-color: #e9ecef;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+.barra-xp-final-progres {
+    width: 0%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4dabf7,
+            #1971c2
+        );
+
+    border-radius: 20px;
+
+    transition:
+        width
+        0.8s
+        ease;
+}
+
+
+.text-xp-final {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    z-index: 2;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    color: #222;
+}
+
+
+.xp-guanyada {
+    min-height: 24px;
+
+    margin-top: 12px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   ELEMENTS OCULTS
+========================================================= */
+
+.ocult {
+    display: none !important;
+}
+
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* =========================================================
+   NOTACIÓ RÍTMICA
+========================================================= */
+
+
+/* =========================================================
+   CONTENIDOR DE FIGURA
+========================================================= */
+
+.figura-ritmica {
+    position: relative;
+
+    width: 58px;
+    height: 82px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex:
+        0
+        0
+        auto;
+
+    color: #222;
+}
+
+
+/*
+ * A la resposta real reduïm lleugerament
+ * la notació completa.
+ *
+ * Això redueix caps, pliques, banderes
+ * i barres mantenint les proporcions.
+ */
+
+.resposta-ritmica .notacio-ritmica {
+    transform:
+        scale(0.88);
+
+    transform-origin:
+        center center;
+}
+
+
+/*
+ * Figura individual dins la resposta.
+ *
+ * El contenidor és una mica més estret
+ * que el contenidor de prova.
+ */
+
+.resposta-ritmica .figura-ritmica {
+    width: 52px;
+}
+
+
+/*
+ * Els grups necessiten amplada automàtica,
+ * perquè depèn del nombre de figures.
+ */
+
+.resposta-ritmica
+.figura-ritmica--grup {
+    width: auto;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   NOTA BASE
+========================================================= */
+
+.nota-ritmica {
+    position: relative;
+
+    display: inline-block;
+
+    width: 40px;
+    height: 72px;
+
+    color: #222;
+
+    flex:
+        0
+        0
+        auto;
+}
+
+
+/* =========================================================
+   CAP DE NOTA
+========================================================= */
+
+.nota-ritmica__cap {
+    position: absolute;
+
+    left: 6px;
+    bottom: 7px;
+
+    width: 27px;
+    height: 19px;
+
+    box-sizing: border-box;
+
+    border:
+        3px solid
+        currentColor;
+
+    border-radius: 50%;
+
+    transform:
+        rotate(-18deg);
+}
+
+
+.nota-ritmica__cap--ple {
+    background:
+        currentColor;
+}
+
+
+.nota-ritmica__cap--buit {
+    background:
+        white;
+}
+
+
+/* =========================================================
+   PLICA
+========================================================= */
+
+.nota-ritmica__plica {
+    position: absolute;
+
+    right: 12px;
+    bottom: 22px;
+
+    width: 3px;
+    height: 44px;
+
+    border-radius: 999px;
+
+    background:
+        currentColor;
+}
+
+
+/* =========================================================
+   REDONDA
+========================================================= */
+
+.nota-ritmica--redonda {
+    width: 44px;
+}
+
+
+.nota-ritmica--redonda
+.nota-ritmica__cap {
+    left: 4px;
+
+    width: 35px;
+    height: 21px;
+}
+
+
+/* =========================================================
+   BLANCA
+========================================================= */
+
+.nota-ritmica--blanca {
+    width: 40px;
+}
+
+
+.nota-ritmica--blanca
+.nota-ritmica__plica {
+    right: 8px;
+}
+
+
+/* =========================================================
+   NEGRA
+========================================================= */
+
+.nota-ritmica--negra {
+    width: 40px;
+}
+
+
+.nota-ritmica--negra
+.nota-ritmica__plica {
+    right: 8px;
+}
+
+
+/* =========================================================
+   CORXERA
+========================================================= */
+
+.nota-ritmica--corxera {
+    width: 46px;
+}
+
+
+/* =========================================================
+   SEMICORXERA
+========================================================= */
+
+.nota-ritmica--semicorxera {
+    width: 46px;
+}
+
+
+/* =========================================================
+   FUSA
+========================================================= */
+
+.nota-ritmica--fusa {
+    width: 46px;
+}
+
+
+/* =========================================================
+   BANDERES
+========================================================= */
+
+.nota-ritmica__bandera {
+    position: absolute;
+
+    right: -5px;
+
+    width: 18px;
+    height: 19px;
+
+    box-sizing: border-box;
+
+    border-top:
+        4px solid
+        currentColor;
+
+    border-right:
+        4px solid
+        currentColor;
+
+    border-radius:
+        0
+        12px
+        12px
+        0;
+
+    transform-origin:
+        top left;
+
+    pointer-events: none;
+}
+
+
+/* Primera bandera */
+
+.nota-ritmica__bandera--1 {
+    top: 5px;
+
+    transform:
+        skewY(28deg)
+        rotate(-7deg);
+}
+
+
+/* Segona bandera */
+
+.nota-ritmica__bandera--2 {
+    top: 15px;
+
+    transform:
+        skewY(22deg)
+        rotate(6deg);
+}
+
+
+/* Tercera bandera */
+
+.nota-ritmica__bandera--3 {
+    top: 25px;
+
+    transform:
+        skewY(18deg)
+        rotate(8deg);
+}
+
+
+/* =========================================================
+   GRUP RÍTMIC
+========================================================= */
+
+/*
+ * IMPORTANT:
+ *
+ * 46px i 8px coincideixen amb:
+ *
+ * AMPLADA_FIGURA_RITMICA = 46
+ * ESPAI_ENTRE_FIGURES = 8
+ *
+ * de barres-ritmiques.js.
+ *
+ * No s'han de canviar només al CSS.
+ */
+
+.grup-ritmic {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: flex-end;
+    justify-content: center;
+
+    gap: 8px;
+
+    flex:
+        0
+        0
+        auto;
+}
+
+
+/* =========================================================
+   FIGURA DINS DEL GRUP
+========================================================= */
+
+.grup-ritmic__figura {
+    position: relative;
+
+    width: 46px;
+
+    display: inline-flex;
+
+    align-items: flex-end;
+    justify-content: center;
+
+    flex:
+        0
+        0
+        46px;
+}
+
+
+/* =========================================================
+   BARRES
+========================================================= */
+
+.grup-ritmic__barra {
+    position: absolute;
+
+    height: 5px;
+
+    background:
+        currentColor;
+
+    border-radius: 1px;
+
+    pointer-events: none;
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   GANXOS
+========================================================= */
+
+.grup-ritmic__barra--ganxo {
+    min-width: 10px;
+}
+
+
+/* =========================================================
+   CONTENIDOR DE NOTACIÓ
+========================================================= */
+
+.notacio-ritmica {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: flex-end;
+    justify-content: center;
+
+    color: #222;
+}
+
+
+/* =========================================================
+   SÍMBOL INDIVIDUAL
+========================================================= */
+
+.simbol-ritmic {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: flex-end;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   PUNTET
+========================================================= */
+
+.puntet-ritmic {
+    position: absolute;
+
+    right: -4px;
+    bottom: 16px;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background:
+        currentColor;
+}
+
+
+/* =========================================================
+   SILENCI TEMPORAL
+========================================================= */
+
+.silenci-ritmic-temporal {
+    min-width: 40px;
+    height: 72px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 16px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   TUPLET TEMPORAL
+========================================================= */
+
+.tuplet-ritmic-temporal {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: flex-end;
+
+    padding-top: 18px;
+}
+
+
+.tuplet-ritmic-temporal__numero {
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   FALLBACK TEMPORAL
+========================================================= */
+
+.figura-ritmica-temporal {
+    font-size: 20px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   PROVES DE FIGURES
+========================================================= */
+
+.prova-figures-ritmiques {
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: center;
+
+    gap: 30px;
+
+    margin:
+        30px
+        0;
+
+    padding: 25px;
+
+    background: white;
+
+    border:
+        1px solid
+        #ddd;
+
+    border-radius: 12px;
+}
+
+
+.prova-figura-ritmica {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.prova-figura-ritmica
+> span:last-child {
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   PROVA DE NOTACIÓ
+========================================================= */
+
+.prova-notacio-ritmica {
+    max-width: 700px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+    margin:
+        30px
+        auto;
+
+    padding: 25px;
+
+    background: white;
+
+    border:
+        1px solid
+        #ddd;
+
+    border-radius: 12px;
+}
+
+
+.prova-notacio-ritmica__fila {
+    min-height: 90px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+}
+
+
+.prova-notacio-ritmica__etiqueta {
+    width: 130px;
+
+    flex:
+        0
+        0
+        130px;
+
+    font-family: monospace;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (
+    max-width: 700px
+) {
+
+    body {
+        padding:
+            1rem
+            0.5rem;
+    }
+
+
+    .contenidor-exercici {
+        padding:
+            1.3rem
+            1rem;
+    }
+
+
+    .linia-ritmica {
+        justify-content:
+            flex-start;
+
+        padding:
+            1rem
+            0.5rem;
+    }
+
+
+    .resposta-ritmica {
+        justify-content:
+            flex-start;
+    }
+
+
+    .compas-ritmic {
+        gap: 0.25rem;
+
+        padding:
+            0.5rem
+            0.35rem;
+    }
+
+
+    .boto-figura {
+        min-width: 130px;
+    }
+
+
+    .figura-boto {
+        font-size: 3rem;
+    }
+
+
+    .controls-resposta-horitzontals {
+        gap: 8px;
+    }
+}

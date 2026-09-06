@@ -1,0 +1,289 @@
+/* =========================
+   ESTILS GENERALS
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.12),
+            rgba(255, 255, 255, 0.12)
+        ),
+        url("../assets/img/fondo-llibre.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* =========================
+   CONTENIDOR D'EXERCICIS
+   ========================= */
+
+.exercicis {
+    width: 100%;
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 30px;
+    padding: 50px;
+}
+
+
+/* =========================
+   COLUMNES
+   ========================= */
+
+.columna-exercicis {
+    text-align: center;
+}
+
+.columna-exercicis h2 {
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+
+/* =========================
+   LLISTA D'EXERCICIS
+   ========================= */
+
+.llista-exercicis {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+/* =========================
+   EXERCICIS
+   ========================= */
+
+.exercici {
+    width: 100%;
+    padding: 16px 20px;
+
+    font-size: 16px;
+
+    border: 2px solid #222;
+    border-radius: 8px;
+
+    transition: 0.2s;
+}
+
+
+/* Exercici disponible */
+
+.exercici.disponible {
+    background-color: #fff;
+    color: #222;
+
+    cursor: pointer;
+}
+
+.exercici.disponible:hover {
+    background-color: #222;
+    color: #fff;
+
+    transform: translateY(-2px);
+}
+
+
+/* Exercici bloquejat */
+
+.exercici.bloquejat {
+    background-color: #ddd;
+    color: #888;
+
+    border-color: #bbb;
+
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* =========================
+   RANG DELS EXERCICIS
+   ========================= */
+
+/* D */
+
+.exercici.rang-d {
+    border-color: #6c757d;
+}
+
+.exercici.rang-d.disponible {
+    background-color: #f1f3f5;
+}
+
+
+/* C */
+
+.exercici.rang-c {
+    border-color: #2f9e44;
+}
+
+.exercici.rang-c.disponible {
+    background-color: #ebfbee;
+}
+
+
+/* B */
+
+.exercici.rang-b {
+    border-color: #1971c2;
+}
+
+.exercici.rang-b.disponible {
+    background-color: #e7f5ff;
+}
+
+
+/* A */
+
+.exercici.rang-a {
+    border-color: #9c36b5;
+}
+
+.exercici.rang-a.disponible {
+    background-color: #f8f0fc;
+}
+
+
+/* S */
+
+.exercici.rang-s {
+    border-color: #e67700;
+}
+
+.exercici.rang-s.disponible {
+    background-color: #fff4e6;
+}
+
+
+/* Exercici superat */
+
+.exercici.superat {
+    font-weight: bold;
+}
+
+
+/* Mantenim els bloquejats apagats */
+
+.exercici.bloquejat {
+    background-color: #ddd;
+    border-color: #bbb;
+    color: #888;
+
+    opacity: 0.6;
+}
+
+/* =========================
+   CONTENIDOR GENERAL
+   ========================= */
+
+main {
+    width: min(1200px, 94%);
+    margin: 0 auto;
+    padding: 35px 0 60px;
+}
+
+
+/* =========================
+   CAPÇALERA
+   ========================= */
+
+.exercicis-header {
+    margin-bottom: 35px;
+}
+
+.exercicis-header h1 {
+    margin-top: 18px;
+    font-size: 36px;
+}
+
+
+/* =========================
+   BOTÓ TORNAR
+   ========================= */
+
+.boto-tornar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+
+    background-color: #fff;
+    color: #333;
+
+    border: 1px solid #d8dce2;
+    border-radius: 10px;
+
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background-color 0.15s ease;
+}
+
+.boto-tornar:hover {
+    background-color: #f5f6f8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.09);
+}
+
+.boto-tornar:active {
+    transform: translateY(0);
+}
+
+.boto-tornar span {
+    font-size: 19px;
+    line-height: 1;
+}
+
+
+/* =========================
+   GRAELLA D'EXERCICIS
+   ========================= */
+
+.exercicis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 30px;
+}
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 900px) {
+
+    .exercicis {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .exercicis {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+    }
+
+}

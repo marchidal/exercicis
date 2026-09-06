@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dictat melòdic 7</title>
+
+    <link
+        rel="stylesheet"
+        href="../../../css/dictat-melodic.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="exercici-container">
+
+
+        <!-- =========================
+             CAPÇALERA
+             ========================= -->
+
+        <header class="exercici-header">
+
+            <a
+                href="../../exercicis.html"
+                class="tornar"
+            >
+                ← Exercicis
+            </a>
+
+            <h1>
+                Dictat melòdic 7
+            </h1>
+
+        </header>
+
+
+
+        <!-- =========================
+             EXPLICACIÓ
+             ========================= -->
+
+        <section
+            id="explicacio"
+            class="explicacio"
+        >
+
+            <h2>
+                Intervals melòdics
+            </h2>
+
+
+            <p>
+                En aquest exercici continuarem treballant
+                els <strong>intervals melòdics</strong>.
+            </p>
+
+
+            <p>
+                Escoltaràs dues notes una després de l'altra
+                i hauràs de decidir si el moviment és
+                <strong>ascendent</strong>,
+                <strong>descendent</strong>
+                o un <strong>uníson</strong>.
+            </p>
+
+
+
+            <!-- =========================
+                 ASCENDENT
+                 ========================= -->
+
+            <div class="tipus-interval">
+
+                <div class="icona-direccio">
+                    ↑
+                </div>
+
+                <div class="explicacio-direccio">
+
+                    <h3>
+                        Ascendent
+                    </h3>
+
+                    <p>
+                        La segona nota sona
+                        <strong>més aguda</strong>
+                        que la primera.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 DESCENDENT
+                 ========================= -->
+
+            <div class="tipus-interval">
+
+                <div class="icona-direccio">
+                    ↓
+                </div>
+
+                <div class="explicacio-direccio">
+
+                    <h3>
+                        Descendent
+                    </h3>
+
+                    <p>
+                        La segona nota sona
+                        <strong>més greu</strong>
+                        que la primera.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 UNÍSON
+                 ========================= -->
+
+            <div class="tipus-interval">
+
+                <div class="icona-direccio">
+                    =
+                </div>
+
+                <div class="explicacio-direccio">
+
+                    <h3>
+                        Uníson
+                    </h3>
+
+                    <p>
+                        Les dues notes tenen
+                        <strong>la mateixa altura</strong>.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 INFORMACIÓ
+                 ========================= -->
+
+            <div class="info-exercici">
+
+                <p>
+                    En aquest exercici els intervals
+                    ascendents i descendents podran ser:
+                    <strong>2a major (2M)</strong>,
+                    <strong>3a menor (3m)</strong>
+                    o <strong>3a major (3M)</strong>.
+                </p>
+
+                <p>
+                    Encara no cal identificar quin interval
+                    ha sonat. Només has de reconèixer
+                    <strong>la direcció del moviment</strong>.
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 COMENÇAR
+                 ========================= -->
+
+            <div class="contenidor-comencar">
+
+                <button
+                    id="comencar-btn"
+                    type="button"
+                >
+                    Començar
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             EXERCICI
+             ========================= -->
+
+        <section
+            id="zona-exercici"
+            class="zona-exercici ocult"
+        >
+
+
+            <!-- =========================
+                 PROGRÉS
+                 ========================= -->
+
+            <div class="capcalera-pregunta">
+
+                <span id="indicador-pregunta">
+                    Pregunta 1 / 12
+                </span>
+
+            </div>
+
+
+
+            <!-- =========================
+                 INSTRUCCIÓ
+                 ========================= -->
+
+            <div class="instruccio-audio">
+
+                <h2>
+                    Escolta les dues notes
+                </h2>
+
+                <p>
+                    Decideix com es mou el so.
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 ESCOLTAR
+                 ========================= -->
+
+            <div class="zona-audio">
+
+                <button
+                    id="escoltar-btn"
+                    class="escoltar-btn"
+                    type="button"
+                >
+
+                    <span class="icona-escoltar">
+                        ▶
+                    </span>
+
+                    Escoltar
+
+                </button>
+
+            </div>
+
+
+
+            <!-- =========================
+                 RESPOSTES
+                 ========================= -->
+
+            <div
+                id="opcions-resposta"
+                class="opcions-resposta"
+            >
+            </div>
+
+
+
+            <!-- =========================
+                 FEEDBACK
+                 ========================= -->
+
+            <p
+                id="feedback"
+                class="feedback"
+            >
+            </p>
+
+        </section>
+
+
+
+        <!-- =========================
+             RESULTAT FINAL
+             ========================= -->
+
+        <section
+            id="resultat-final"
+            class="resultat-final ocult"
+        >
+
+            <h2>
+                Exercici completat!
+            </h2>
+
+
+            <p id="puntuacio-final">
+            </p>
+
+
+
+            <!-- =========================
+                 EXPERIÈNCIA
+                 ========================= -->
+
+            <div
+                id="resum-xp"
+                class="resum-xp"
+            >
+
+                <div class="resum-xp-header">
+
+                    <strong>
+                        Dictat melòdic
+                    </strong>
+
+                    <span>
+                        Lv.
+                        <strong id="nivell-xp">
+                            1
+                        </strong>
+                    </span>
+
+                </div>
+
+
+                <div class="barra-xp-final">
+
+                    <div
+                        id="barra-xp-final-progres"
+                        class="barra-xp-final-progres"
+                    >
+                    </div>
+
+
+                    <span
+                        id="text-xp-final"
+                        class="text-xp-final"
+                    >
+                        0 / 50 XP
+                    </span>
+
+                </div>
+
+
+                <p
+                    id="xp-guanyada"
+                    class="xp-guanyada"
+                >
+                </p>
+
+            </div>
+
+
+            <button
+                id="finalitzar-btn"
+                type="button"
+            >
+                Finalitzar
+            </button>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         SISTEMA GENERAL
+         ========================= -->
+
+    <script src="../../../js/dades-exercicis.js"></script>
+    <script src="../../../js/sistema-exercicis.js"></script>
+
+
+
+    <!-- =========================
+         MOTOR MUSICAL
+         ========================= -->
+
+    <script src="../../../js/musica/notes.js"></script>
+    <script src="../../../js/musica/intervals.js"></script>
+    <script src="../../../js/musica/audio.js"></script>
+
+
+
+    <!-- =========================
+         MOTOR D'INTERVALS MELÒDICS
+         ========================= -->
+
+    <script src="../../../js/dictat-melodic/intervals-melodics.js"></script>
+
+
+
+    <!-- =========================
+         CONFIGURACIÓ EXERCICI 7
+         ========================= -->
+
+    <script src="../../../js/dictat-melodic/exercicis/dictat-melodic-7.js"></script>
+
+
+
+    <!-- =========================
+         COMENÇAR
+         ========================= -->
+
+    <script>
+
+        const explicacio =
+            document.getElementById(
+                "explicacio"
+            );
+
+        const zonaExercici =
+            document.getElementById(
+                "zona-exercici"
+            );
+
+        const comencarBtn =
+            document.getElementById(
+                "comencar-btn"
+            );
+
+
+        comencarBtn.addEventListener(
+            "click",
+            async () => {
+
+                await activarAudio();
+
+
+                explicacio.classList.add(
+                    "ocult"
+                );
+
+
+                zonaExercici.classList.remove(
+                    "ocult"
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

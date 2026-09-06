@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notes 2</title>
+
+    <link rel="stylesheet" href="../../../css/notes-1.css">
+</head>
+
+<body>
+
+    <main class="exercici-container">
+
+        <!-- =========================
+             CAPÇALERA
+             ========================= -->
+
+        <header class="exercici-header">
+
+            <a href="../../exercicis.html" class="boto-tornar">
+                <span aria-hidden="true">←</span>
+                Exercicis
+            </a>
+
+            <h1>Notes 2</h1>
+
+        </header>
+
+
+        <!-- =========================
+             EXPLICACIÓ
+             ========================= -->
+
+        <section class="explicacio">
+        
+            <h2>Abans de començar</h2>
+        
+            <p>
+                En aquest exercici aprendrem una nota nova:
+                <strong>La</strong>.
+            </p>
+        
+            <div class="equivalencies">
+        
+                <div class="equivalencia">
+                    <span class="lletra">A</span>
+                    <span>=</span>
+                    <span>La</span>
+                </div>
+        
+            </div>
+        
+            <p>
+                En clau de Sol, la nota <strong>La</strong>
+                es troba al <strong>segon espai</strong> del pentagrama,
+                entre la segona i la tercera línia.
+            </p>
+        
+        
+            <div class="exemple-pentagrama">
+        
+                <h3>Posició de la nota La</h3>
+        
+                <svg
+                    viewBox="0 0 600 240"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-label="Exemple de la nota La al pentagrama"
+                >
+        
+                    <line x1="70" y1="170" x2="530" y2="170" class="linia-pentagrama"/>
+                    <line x1="70" y1="145" x2="530" y2="145" class="linia-pentagrama"/>
+                    <line x1="70" y1="120" x2="530" y2="120" class="linia-pentagrama"/>
+                    <line x1="70" y1="95"  x2="530" y2="95"  class="linia-pentagrama"/>
+                    <line x1="70" y1="70"  x2="530" y2="70"  class="linia-pentagrama"/>
+        
+                    <text
+                        x="85"
+                        y="175"
+                        class="clau-sol">
+                        𝄞
+                    </text>
+        
+                    <ellipse
+                        cx="320"
+                        cy="132.5"
+                        rx="13"
+                        ry="9"
+                        class="cap-nota"
+                        transform="rotate(-20 320 132.5)"
+                    />
+        
+                    <line
+                        x1="332"
+                        y1="132.5"
+                        x2="332"
+                        y2="77.5"
+                        class="pal-nota"
+                    />
+        
+                    <text
+                        x="320"
+                        y="215"
+                        text-anchor="middle"
+                        class="nom-nota">
+                        La
+                    </text>
+        
+                </svg>
+        
+                <div class="llegenda-pentagrama">
+        
+                    <span>
+                        <strong>La</strong> → 2n espai
+                    </span>
+        
+                </div>
+        
+            </div>
+        
+            <p>
+                Durant l'exercici també apareixeran Mi i Sol
+                per repassar les notes que ja coneixes.
+            </p>
+        
+            <button id="comencar-btn">
+                Començar
+            </button>
+        
+        </section>
+
+
+        <!-- =========================
+             PART 1
+             ========================= -->
+
+        <section
+            id="part-1"
+            class="part-exercici ocult">
+
+            <h2>Part 1 · Equivalències</h2>
+
+            <p class="instruccio">
+                Escriu la resposta correcta.
+            </p>
+
+            <div class="pregunta">
+
+                <p id="pregunta-equivalencia"></p>
+
+                <input
+                    type="text"
+                    id="resposta-equivalencia"
+                    autocomplete="off"
+                    placeholder="Escriu la nota"
+                >
+
+                <button id="comprovar-equivalencia">
+                    Comprovar
+                </button>
+
+                <p
+                    id="feedback-equivalencia"
+                    class="feedback">
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PART 2
+             ========================= -->
+
+        <section
+            id="part-2"
+            class="part-exercici ocult">
+
+            <h2>Part 2 · Pentagrama</h2>
+
+            <p class="instruccio">
+                Mira la nota del pentagrama i escriu el seu nom.
+                Pots utilitzar qualsevol dels dos sistemes.
+            </p>
+
+            <div class="pregunta-pentagrama">
+
+                <div id="pentagrama"></div>
+
+                <input
+                    type="text"
+                    id="resposta-nota"
+                    autocomplete="off"
+                    placeholder="Mi / E, Sol / G o La / A"
+                >
+
+                <button id="comprovar-nota">
+                    Comprovar
+                </button>
+
+                <p
+                    id="feedback-nota"
+                    class="feedback">
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RESULTAT FINAL
+             ========================= -->
+
+        <section
+            id="resultat-final"
+            class="resultat-final ocult">
+
+            <h2>Exercici completat!</h2>
+
+            <p id="puntuacio-final"></p>
+
+
+            <div
+                id="resum-xp"
+                class="resum-xp">
+
+                <div class="resum-xp-header">
+
+                    <strong>Notes</strong>
+
+                    <span>
+                        Lv.
+                        <strong id="nivell-xp">1</strong>
+                    </span>
+
+                </div>
+
+                <div class="barra-xp-final">
+
+                    <div
+                        id="barra-xp-final-progres"
+                        class="barra-xp-final-progres">
+                    </div>
+
+                    <span
+                        id="text-xp-final"
+                        class="text-xp-final">
+                        0 / 50 XP
+                    </span>
+
+                </div>
+
+                <p
+                    id="xp-guanyada"
+                    class="xp-guanyada">
+                </p>
+
+            </div>
+
+
+            <button id="finalitzar-btn">
+                Finalitzar
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script src="../../../js/dades-exercicis.js"></script>
+    <script src="../../../js/sistema-exercicis.js"></script>
+    <script src="../../../js/notes/notes.js"></script>
+    <script src="../../../js/notes/notes-2.js"></script>
+
+</body>
+
+</html>

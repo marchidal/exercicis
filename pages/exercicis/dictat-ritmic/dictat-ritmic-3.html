@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Dictat rítmic 3
+    </title>
+
+
+    <!-- =========================
+         ESTILS
+    ========================== -->
+
+    <link
+        rel="stylesheet"
+        href="../../../css/dictat-ritmic.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <main class="contenidor-exercici">
+
+
+        <!-- =========================
+             TÍTOL
+        ========================== -->
+
+        <h1>
+            Dictat rítmic 3
+        </h1>
+
+
+
+        <!-- =========================
+             EXPLICACIÓ
+        ========================== -->
+
+        <section
+            id="explicacio"
+            class="explicacio"
+        >
+
+            <h2>
+                Blanca, negra i corxeres
+            </h2>
+
+
+            <p>
+                En aquest exercici escoltaràs
+                petits dictats rítmics de dos compassos.
+            </p>
+
+
+            <p>
+                Podran aparèixer la blanca,
+                la negra i dues corxeres juntes.
+            </p>
+
+
+
+            <div class="figures-explicacio">
+
+
+                <!-- BLANCA -->
+
+                <div class="figura-explicacio">
+
+                    <div class="simbol-figura">
+                        𝅗𝅥
+                    </div>
+
+                    <strong>
+                        Blanca
+                    </strong>
+
+                    <span>
+                        2 pulsacions
+                    </span>
+
+                </div>
+
+
+
+                <!-- NEGRA -->
+
+                <div class="figura-explicacio">
+
+                    <div class="simbol-figura">
+                        𝅘𝅥
+                    </div>
+
+                    <strong>
+                        Negra
+                    </strong>
+
+                    <span>
+                        1 pulsació
+                    </span>
+
+                </div>
+
+
+
+                <!-- CORXERES -->
+
+                <div class="figura-explicacio">
+
+                    <div class="simbol-figura">
+                        𝅘𝅥𝅮 𝅘𝅥𝅮
+                    </div>
+
+                    <strong>
+                        Dues corxeres
+                    </strong>
+
+                    <span>
+                        1 pulsació
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <p>
+                Les corxeres apareixeran
+                sempre de dues en dues.
+            </p>
+
+
+            <p>
+                Abans de cada dictat escoltaràs
+                un compàs complet de metrònom
+                per agafar el tempo.
+            </p>
+
+
+            <p>
+                Quan comenci el dictat,
+                el metrònom continuarà sonant
+                mentre escoltes el ritme.
+            </p>
+
+
+            <p>
+                Després escriu el ritme
+                que hagis escoltat.
+            </p>
+
+
+
+            <button
+                id="comencar-btn"
+                class="boto-principal"
+                type="button"
+            >
+                Començar
+            </button>
+
+        </section>
+
+
+
+        <!-- =========================
+             ZONA D'EXERCICI
+        ========================== -->
+
+        <section
+            id="zona-exercici"
+            class="zona-exercici ocult"
+        >
+
+
+            <!-- =========================
+                 PROGRÉS
+            ========================== -->
+
+            <div class="progres-pregunta">
+
+                Pregunta
+
+                <span id="pregunta-actual">
+                    1
+                </span>
+
+                /
+
+                <span id="total-preguntes">
+                    6
+                </span>
+
+            </div>
+
+
+
+            <!-- =========================
+                 ESCOLTAR DICTAT
+            ========================== -->
+
+            <div class="zona-escoltar">
+
+                <button
+                    id="boto-escoltar"
+                    class="boto-escoltar"
+                    type="button"
+                >
+                    ▶ Escoltar dictat
+                </button>
+
+
+                <div class="reproduccions">
+
+                    Reproduccions restants:
+
+                    <strong
+                        id="reproduccions-restants"
+                    >
+                        3
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 RESPOSTA RÍTMICA
+            ========================== -->
+
+            <div class="zona-resposta">
+
+                <h2>
+                    Escriu el ritme
+                </h2>
+
+
+                <div class="linia-ritmica">
+
+                    <!--
+                        El motor crea aquí
+                        els compassos i les figures.
+                    -->
+
+                    <div
+                        id="resposta-ritmica"
+                        class="resposta-ritmica"
+                    >
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 FIGURES DISPONIBLES
+            ========================== -->
+
+            <div class="zona-figures">
+
+                <p class="instruccio-figures">
+                    Selecciona una figura:
+                </p>
+
+
+                <div class="botons-figures">
+
+
+                    <!-- BLANCA -->
+
+                    <button
+                        type="button"
+                        class="boto-figura"
+                        data-figura="2"
+                    >
+
+                        <span class="figura-boto">
+                            𝅗𝅥
+                        </span>
+
+                        <span>
+                            Blanca
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- NEGRA -->
+
+                    <button
+                        type="button"
+                        class="boto-figura"
+                        data-figura="4"
+                    >
+
+                        <span class="figura-boto">
+                            𝅘𝅥
+                        </span>
+
+                        <span>
+                            Negra
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- CORXERA -->
+
+                    <button
+                        type="button"
+                        class="boto-figura"
+                        data-figura="8"
+                    >
+
+                        <span class="figura-boto">
+                            𝅘𝅥𝅮
+                        </span>
+
+                        <span>
+                            Corxera
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 CONTROLS DE RESPOSTA
+            ========================== -->
+
+            <div class="controls-resposta-horitzontals">
+
+                <button
+                    id="boto-esborrar"
+                    type="button"
+                    class="boto-secundari"
+                    disabled
+                >
+                    ← Esborrar
+                </button>
+
+
+                <button
+                    id="boto-escoltar-resposta"
+                    type="button"
+                    class="boto-secundari"
+                    disabled
+                >
+                    ▶ Escoltar la meva resposta
+                </button>
+
+
+                <button
+                    id="boto-comprovar"
+                    type="button"
+                    class="boto-principal"
+                    disabled
+                >
+                    Comprovar
+                </button>
+
+            </div>
+
+
+
+            <!-- =========================
+                 FEEDBACK
+            ========================== -->
+
+            <div
+                id="feedback"
+                class="feedback"
+                aria-live="polite"
+            >
+            </div>
+
+
+
+            <!-- =========================
+                 SEGÜENT
+            ========================== -->
+
+            <button
+                id="boto-seguent"
+                type="button"
+                class="boto-principal"
+                hidden
+            >
+                Següent
+            </button>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             RESULTAT FINAL
+        ========================== -->
+
+        <section
+            id="resultat-final"
+            class="resultat-final ocult"
+        >
+
+            <h2>
+                Resultat
+            </h2>
+
+
+
+            <!-- =========================
+                 PUNTUACIÓ
+            ========================== -->
+
+            <div class="puntuacio-final">
+
+                <p id="puntuacio-final">
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 RESUM XP
+            ========================== -->
+
+            <div
+                id="resum-xp"
+                class="experiencia-final resum-xp"
+            >
+
+
+                <div class="resum-xp-header">
+
+                    <strong>
+                        Dictat rítmic
+                    </strong>
+
+
+                    <span>
+                        Nivell
+
+                        <strong id="nivell-xp">
+                            1
+                        </strong>
+                    </span>
+
+                </div>
+
+
+
+                <!-- =========================
+                     BARRA XP
+                ========================== -->
+
+                <div class="barra-xp-final">
+
+                    <div
+                        id="barra-xp-final-progres"
+                        class="barra-xp-final-progres"
+                    >
+                    </div>
+
+
+                    <div
+                        id="text-xp-final"
+                        class="text-xp-final"
+                    >
+                        0 / 50 XP
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     XP GUANYADA
+                ========================== -->
+
+                <div
+                    id="xp-guanyada"
+                    class="xp-guanyada"
+                >
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =========================
+                 FINALITZAR
+            ========================== -->
+
+            <button
+                id="finalitzar-btn"
+                type="button"
+                class="boto-principal"
+            >
+                Finalitzar
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         JAVASCRIPT GENERAL
+    ========================== -->
+
+    <script
+        src="../../../js/dades-exercicis.js"
+    ></script>
+
+    <script
+        src="../../../js/sistema-exercicis.js"
+    ></script>
+
+
+
+    <!-- =========================
+         SISTEMA RÍTMIC
+    ========================== -->
+
+    <script src="../../../js/dictat-ritmic/ritme.js"></script>
+
+    <script src="../../../js/dictat-ritmic/notacio/parser-ritmic.js"></script>
+
+    <script src="../../../js/dictat-ritmic/notacio/figures-ritmiques.js"></script>
+
+    <script src="../../../js/dictat-ritmic/notacio/barres-ritmiques.js"></script>
+
+    <script src="../../../js/dictat-ritmic/notacio/notacio-ritmica.js"></script>
+
+    <script src="../../../js/dictat-ritmic/dictat-ritmic.js"></script>
+
+
+
+    <!-- =========================
+         CONFIGURACIÓ EXERCICI 3
+    ========================== -->
+
+    <script
+        src="../../../js/dictat-ritmic/exercicis/dictat-ritmic-3.js"
+    ></script>
+
+
+
+    <!-- =========================
+         COMENÇAR EXERCICI
+    ========================== -->
+
+    <script>
+
+        const botoComencar =
+            document.getElementById(
+                "comencar-btn"
+            );
+
+
+        const explicacio =
+            document.getElementById(
+                "explicacio"
+            );
+
+
+        const zonaExercici =
+            document.getElementById(
+                "zona-exercici"
+            );
+
+
+        botoComencar.addEventListener(
+            "click",
+            () => {
+
+                explicacio.classList.add(
+                    "ocult"
+                );
+
+
+                zonaExercici.classList.remove(
+                    "ocult"
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

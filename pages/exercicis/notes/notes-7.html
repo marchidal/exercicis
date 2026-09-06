@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notes 7</title>
+
+    <link rel="stylesheet" href="../../../css/notes-1.css">
+</head>
+
+<body>
+
+    <main class="exercici-container">
+
+        <!-- =========================
+             CAPÇALERA
+             ========================= -->
+
+        <header class="exercici-header">
+
+            <a href="../../exercicis.html" class="tornar">
+                ← Exercicis
+            </a>
+
+            <h1>Notes 7</h1>
+
+        </header>
+
+
+        <!-- =========================
+             EXPLICACIÓ
+             ========================= -->
+
+        <section class="explicacio">
+
+            <h2>Abans de començar</h2>
+
+            <p>
+                En aquest exercici aprendrem una nota nova:
+                <strong>Si 3</strong>.
+            </p>
+
+
+            <!-- EQUIVALÈNCIA -->
+
+            <div class="equivalencies">
+
+                <div class="equivalencia">
+
+                    <span class="lletra">
+                        B
+                    </span>
+
+                    <span>=</span>
+
+                    <span>
+                        Si
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p>
+                En clau de Sol, la nota <strong>Si 3</strong>
+                es troba a la <strong>tercera línia</strong>
+                del pentagrama.
+            </p>
+
+            <p>
+                A partir d'aquesta altura, la plica de la nota
+                s'escriu <strong>cap avall</strong> i al
+                <strong>costat esquerre</strong> del cap de la nota.
+            </p>
+
+
+            <!-- =========================
+                 EXEMPLE GRÀFIC
+                 ========================= -->
+
+            <div class="exemple-pentagrama">
+
+                <h3>Posició del Si 3</h3>
+
+                <svg
+                    viewBox="0 0 600 240"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-label="Exemple de la nota Si 3 en clau de Sol"
+                >
+
+                    <!-- Pentagrama -->
+
+                    <line
+                        x1="70"
+                        y1="170"
+                        x2="530"
+                        y2="170"
+                        class="linia-pentagrama"
+                    />
+
+                    <line
+                        x1="70"
+                        y1="145"
+                        x2="530"
+                        y2="145"
+                        class="linia-pentagrama"
+                    />
+
+                    <line
+                        x1="70"
+                        y1="120"
+                        x2="530"
+                        y2="120"
+                        class="linia-pentagrama"
+                    />
+
+                    <line
+                        x1="70"
+                        y1="95"
+                        x2="530"
+                        y2="95"
+                        class="linia-pentagrama"
+                    />
+
+                    <line
+                        x1="70"
+                        y1="70"
+                        x2="530"
+                        y2="70"
+                        class="linia-pentagrama"
+                    />
+
+
+                    <!-- Clau de Sol -->
+
+                    <text
+                        x="85"
+                        y="175"
+                        class="clau-sol">
+                        𝄞
+                    </text>
+
+
+                    <!-- Cap de la nota Si -->
+
+                    <ellipse
+                        cx="320"
+                        cy="120"
+                        rx="13"
+                        ry="9"
+                        class="cap-nota"
+                        transform="rotate(-20 320 120)"
+                    />
+
+
+                    <!-- Plica cap avall -->
+
+                    <line
+                        x1="308"
+                        y1="120"
+                        x2="308"
+                        y2="175"
+                        class="pal-nota"
+                    />
+
+
+                    <!-- Nom de la nota -->
+
+                    <text
+                        x="320"
+                        y="220"
+                        text-anchor="middle"
+                        class="nom-nota">
+                        Si 3
+                    </text>
+
+                </svg>
+
+
+                <div class="llegenda-pentagrama">
+
+                    <span>
+                        <strong>Si 3</strong>
+                        → tercera línia
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p>
+                Durant l'exercici també apareixeran les notes
+                que ja coneixes per repassar-les.
+            </p>
+
+
+            <button id="comencar-btn">
+                Començar
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             PART 1
+             EQUIVALÈNCIES
+             ========================= -->
+
+        <section
+            id="part-1"
+            class="part-exercici ocult">
+
+            <h2>
+                Part 1 · Equivalències
+            </h2>
+
+            <p class="instruccio">
+                Escriu la resposta correcta.
+            </p>
+
+
+            <div class="pregunta">
+
+                <p id="pregunta-equivalencia">
+                </p>
+
+
+                <input
+                    type="text"
+                    id="resposta-equivalencia"
+                    autocomplete="off"
+                    placeholder="Escriu la nota"
+                >
+
+
+                <button id="comprovar-equivalencia">
+                    Comprovar
+                </button>
+
+
+                <p
+                    id="feedback-equivalencia"
+                    class="feedback">
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PART 2
+             PENTAGRAMA
+             ========================= -->
+
+        <section
+            id="part-2"
+            class="part-exercici ocult">
+
+            <h2>
+                Part 2 · Pentagrama
+            </h2>
+
+            <p class="instruccio">
+                Mira la nota del pentagrama i escriu el seu nom.
+                Pots utilitzar qualsevol dels dos sistemes.
+            </p>
+
+
+            <div class="pregunta-pentagrama">
+
+                <div id="pentagrama">
+                </div>
+
+
+                <input
+                    type="text"
+                    id="resposta-nota"
+                    autocomplete="off"
+                    placeholder="Escriu el nom de la nota"
+                >
+
+
+                <button id="comprovar-nota">
+                    Comprovar
+                </button>
+
+
+                <p
+                    id="feedback-nota"
+                    class="feedback">
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RESULTAT FINAL
+             ========================= -->
+
+        <section
+            id="resultat-final"
+            class="resultat-final ocult">
+
+            <h2>
+                Exercici completat!
+            </h2>
+
+
+            <p id="puntuacio-final">
+            </p>
+
+
+            <!-- =========================
+                 EXPERIÈNCIA
+                 ========================= -->
+
+            <div
+                id="resum-xp"
+                class="resum-xp">
+
+                <div class="resum-xp-header">
+
+                    <strong>
+                        Notes
+                    </strong>
+
+                    <span>
+                        Lv.
+                        <strong id="nivell-xp">
+                            1
+                        </strong>
+                    </span>
+
+                </div>
+
+
+                <div class="barra-xp-final">
+
+                    <div
+                        id="barra-xp-final-progres"
+                        class="barra-xp-final-progres">
+                    </div>
+
+
+                    <span
+                        id="text-xp-final"
+                        class="text-xp-final">
+                        0 / 50 XP
+                    </span>
+
+                </div>
+
+
+                <p
+                    id="xp-guanyada"
+                    class="xp-guanyada">
+                </p>
+
+            </div>
+
+
+            <button id="finalitzar-btn">
+                Finalitzar
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT
+         ========================= -->
+
+    <script src="../../../js/dades-exercicis.js"></script>
+    <script src="../../../js/sistema-exercicis.js"></script>
+    <script src="../../../js/notes/notes.js"></script>
+    <script src="../../../js/notes/notes-7.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Llenguatge 6
+    </title>
+
+
+    <!-- =========================
+         ESTILS
+    ========================== -->
+
+    <link
+        rel="stylesheet"
+        href="../../../css/llenguatge.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../../../css/llenguatge-marcar-pulsacions.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <main class="contenidor-exercici">
+
+
+        <!-- =========================
+             TÍTOL
+        ========================== -->
+
+        <h1>
+            Llenguatge 6
+        </h1>
+
+
+
+        <!-- =========================
+             EXPLICACIÓ
+        ========================== -->
+
+        <section
+            id="explicacio"
+            class="explicacio"
+        >
+
+            <h2>
+                Marca les pulsacions
+            </h2>
+
+
+            <p>
+                Observa el compàs i les figures rítmiques.
+            </p>
+
+
+            <p>
+                Has de marcar les figures que
+                <strong>comencen exactament sobre una pulsació del compàs</strong>,
+                és a dir, les figures que coincideixen amb els temps del metrònom.
+            </p>
+
+
+
+            <!-- =========================
+                 EXEMPLE
+            ========================== -->
+
+            <div class="exemple-marcar-pulsacions">
+
+                <h3>
+                    Exemple
+                </h3>
+
+
+                <div class="compas-exemple-pulsacions">
+
+                    <div class="indicador-compas-exemple">
+                        4/4
+                    </div>
+
+
+                    <div class="figures-exemple-pulsacions">
+
+                        <div class="figura-exemple-pulsacio marcada">
+                            𝅗𝅥
+                        </div>
+
+                        <div class="figura-exemple-pulsacio marcada">
+                            𝅘𝅥𝅮
+                        </div>
+
+                        <div class="figura-exemple-pulsacio">
+                            𝅘𝅥𝅮
+                        </div>
+
+                        <div class="figura-exemple-pulsacio marcada">
+                            𝅘𝅥
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <p>
+                    En aquest exemple:
+                    la blanca comença al primer temps,
+                    la primera corxera al tercer
+                    i la negra al quart.
+                </p>
+
+
+                <p>
+                    La segona corxera no es marca perquè
+                    comença entre dues pulsacions.
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 COMPASSOS
+            ========================== -->
+
+            <div class="compassos-explicacio">
+
+                <div class="compas-explicacio">
+
+                    <strong class="numero-compas-explicacio">
+                        2/4
+                    </strong>
+
+                    <span>
+                        2 pulsacions
+                    </span>
+
+                </div>
+
+
+                <div class="compas-explicacio">
+
+                    <strong class="numero-compas-explicacio">
+                        3/4
+                    </strong>
+
+                    <span>
+                        3 pulsacions
+                    </span>
+
+                </div>
+
+
+                <div class="compas-explicacio">
+
+                    <strong class="numero-compas-explicacio">
+                        4/4
+                    </strong>
+
+                    <span>
+                        4 pulsacions
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 COMENÇAR
+            ========================== -->
+
+            <button
+                id="comencar-btn"
+                type="button"
+                class="boto-principal"
+            >
+                Començar
+            </button>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             ZONA D'EXERCICI
+        ========================== -->
+
+        <section
+            id="zona-exercici"
+            class="zona-exercici ocult"
+        >
+
+
+            <!-- =========================
+                 PROGRÉS
+            ========================== -->
+
+            <div class="progres-pregunta">
+
+                Pregunta
+
+                <span id="pregunta-actual">
+                    1
+                </span>
+
+                /
+
+                <span id="total-preguntes">
+                    8
+                </span>
+
+            </div>
+
+
+
+            <!-- =========================
+                 ENUNCIAT
+            ========================== -->
+
+            <div class="enunciat-suma">
+
+                <h2>
+                    Quines figures cauen sobre la pulsació?
+                </h2>
+
+
+                <p>
+                    Selecciona totes les figures que
+                    comencen exactament sobre un temps del compàs.
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 COMPÀS ACTUAL
+            ========================== -->
+
+            <div class="capcalera-compas-pulsacions">
+
+                <span>
+                    Compàs
+                </span>
+
+                <strong id="indicador-compas">
+                    4/4
+                </strong>
+
+            </div>
+
+
+
+            <!-- =========================
+                 FIGURES
+            ========================== -->
+
+            <div class="contenidor-pulsacions">
+
+
+                <span
+                    class="barra-compas-pulsacions"
+                    aria-hidden="true"
+                >
+                </span>
+
+
+                <div
+                    id="zona-figures-pulsacions"
+                    class="zona-figures-pulsacions"
+                    aria-label="Figures rítmiques del compàs"
+                >
+                </div>
+
+
+                <span
+                    class="barra-compas-pulsacions"
+                    aria-hidden="true"
+                >
+                </span>
+
+
+            </div>
+
+
+
+            <!-- =========================
+                 CONTROLS
+            ========================== -->
+
+            <div class="controls-marcar-pulsacions">
+
+
+                <button
+                    id="boto-esborrar"
+                    type="button"
+                    class="boto-secundari"
+                >
+                    Esborrar
+                </button>
+
+
+                <button
+                    id="boto-comprovar"
+                    type="button"
+                    class="boto-principal"
+                    disabled
+                >
+                    Comprovar
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =========================
+                 FEEDBACK
+            ========================== -->
+
+            <div
+                id="feedback"
+                class="feedback"
+                aria-live="polite"
+            >
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             RESULTAT FINAL
+        ========================== -->
+
+        <section
+            id="resultat-final"
+            class="resultat-final ocult"
+        >
+
+            <h2>
+                Resultat
+            </h2>
+
+
+
+            <!-- =========================
+                 PUNTUACIÓ
+            ========================== -->
+
+            <div class="puntuacio-final">
+
+                <p id="puntuacio-final">
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 XP
+            ========================== -->
+
+            <div
+                id="resum-xp"
+                class="experiencia-final resum-xp"
+            >
+
+
+                <div class="resum-xp-header">
+
+                    <strong>
+                        Llenguatge
+                    </strong>
+
+
+                    <span>
+
+                        Nivell
+
+                        <strong id="nivell-xp">
+                            1
+                        </strong>
+
+                    </span>
+
+                </div>
+
+
+
+                <div class="barra-xp-final">
+
+                    <div
+                        id="barra-xp-final-progres"
+                        class="barra-xp-final-progres"
+                    >
+                    </div>
+
+
+                    <div
+                        id="text-xp-final"
+                        class="text-xp-final"
+                    >
+                        0 / 50 XP
+                    </div>
+
+                </div>
+
+
+
+                <div
+                    id="xp-guanyada"
+                    class="xp-guanyada"
+                >
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =========================
+                 FINALITZAR
+            ========================== -->
+
+            <button
+                id="finalitzar-btn"
+                type="button"
+                class="boto-principal"
+            >
+                Finalitzar
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         SISTEMA GENERAL
+    ========================== -->
+
+    <script
+        src="../../../js/dades-exercicis.js"
+    ></script>
+
+    <script
+        src="../../../js/sistema-exercicis.js"
+    ></script>
+
+
+
+    <!-- =========================
+         MOTOR
+    ========================== -->
+
+    <script
+        src="../../../js/llenguatge/marcar-pulsacions.js"
+    ></script>
+
+
+
+    <!-- =========================
+         CONFIGURACIÓ EXERCICI 6
+    ========================== -->
+
+    <script
+        src="../../../js/llenguatge/exercicis/llenguatge-6.js"
+    ></script>
+
+
+
+    <!-- =========================
+         COMENÇAR
+    ========================== -->
+
+    <script>
+
+        const botoComencar =
+            document.getElementById(
+                "comencar-btn"
+            );
+
+
+        const explicacio =
+            document.getElementById(
+                "explicacio"
+            );
+
+
+        const zonaExercici =
+            document.getElementById(
+                "zona-exercici"
+            );
+
+
+        botoComencar.addEventListener(
+            "click",
+            () => {
+
+                explicacio.classList.add(
+                    "ocult"
+                );
+
+
+                zonaExercici.classList.remove(
+                    "ocult"
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

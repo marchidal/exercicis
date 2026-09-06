@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Llenguatge 7</title>
+
+
+    <!-- =========================
+         CSS
+         ========================= -->
+
+    <link
+        rel="stylesheet"
+        href="../../../css/llenguatge.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../../../css/llenguatge-accents-metrics.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         CONTENIDOR PRINCIPAL
+         ========================= -->
+
+    <main class="contenidor-exercici">
+
+
+        <!-- =========================
+             TÍTOL
+             ========================= -->
+
+        <h1>Llenguatge 7</h1>
+
+
+
+        <!-- =========================
+             EXPLICACIÓ
+             ========================= -->
+
+        <section
+            id="explicacio"
+            class="explicacio-exercici"
+        >
+
+            <h2>
+                Accents mètrics
+            </h2>
+
+
+            <p>
+                Les pulsacions d'un compàs
+                no tenen totes la mateixa
+                importància.
+            </p>
+
+
+            <p>
+                Segons la seva posició,
+                poden ser
+                <strong>fortes</strong>,
+                <strong>semifortes</strong>
+                o
+                <strong>dèbils</strong>.
+            </p>
+
+
+
+            <!-- =========================
+                 2/4
+                 ========================= -->
+
+            <div class="exemple-accent-metric">
+
+                <div class="compas-accent-exemple">
+                    2/4
+                </div>
+
+                <div class="pulsacions-accent-exemple">
+
+                    <div class="pulsacio-accent-exemple">
+
+                        <span class="numero-accent">
+                            1
+                        </span>
+
+                        <span class="accent-exemple fort">
+                            Fort
+                        </span>
+
+                    </div>
+
+
+                    <div class="pulsacio-accent-exemple">
+
+                        <span class="numero-accent">
+                            2
+                        </span>
+
+                        <span class="accent-exemple debil">
+                            Dèbil
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 3/4
+                 ========================= -->
+
+            <div class="exemple-accent-metric">
+
+                <div class="compas-accent-exemple">
+                    3/4
+                </div>
+
+                <div class="pulsacions-accent-exemple">
+
+                    <div class="pulsacio-accent-exemple">
+
+                        <span class="numero-accent">
+                            1
+                        </span>
+
+                        <span class="accent-exemple fort">
+                            Fort
+                        </span>
+
+                    </div>
+
+
+                    <div class="pulsacio-accent-exemple">
+
+                        <span class="numero-accent">
+                            2
+                        </span>
+
+                        <span class="accent-exemple debil">
+                            Dèbil
+                        </span>
+
+                    </div>
+
+
+                    <div class="pulsacio-accent-exemple">
+
+                        <span class="numero-accent">
+                            3
+                        </span>
+
+                        <span class="accent-exemple debil">
+                            Dèbil
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 4/4
+                 ========================= -->
+
+            <div class="exemple-accent-metric">
+
+                <div class="compas-accent-exemple">
+                    4/4
+                </div>
+
+                <div class="pulsacions-accent-exemple">
+
+                    <div class="pulsacio-accent-exemple">
+
+                        <span class="numero-accent">
+                            1
+                        </span>
+
+                        <span class="accent-exemple fort">
+                            Fort
+                        </span>
+
+                    </div>
+
+
+                    <div class="pulsacio-accent-exemple">
+
+                        <span class="numero-accent">
+                            2
+                        </span>
+
+                        <span class="accent-exemple debil">
+                            Dèbil
+                        </span>
+
+                    </div>
+
+
+                    <div class="pulsacio-accent-exemple">
+
+                        <span class="numero-accent">
+                            3
+                        </span>
+
+                        <span class="accent-exemple semifort">
+                            Semifort
+                        </span>
+
+                    </div>
+
+
+                    <div class="pulsacio-accent-exemple">
+
+                        <span class="numero-accent">
+                            4
+                        </span>
+
+                        <span class="accent-exemple debil">
+                            Dèbil
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <p class="instruccio-exercici">
+
+                Durant l'exercici,
+                selecciona un tipus d'accent
+                i després prem les pulsacions
+                que hi corresponen.
+
+            </p>
+
+
+
+            <!-- =========================
+                 COMENÇAR
+                 ========================= -->
+
+            <button
+                id="comencar-btn"
+                class="boto-principal"
+                type="button"
+            >
+                Començar
+            </button>
+
+        </section>
+
+
+
+        <!-- =========================
+             ZONA EXERCICI
+             ========================= -->
+
+        <section
+            id="zona-exercici"
+            class="zona-exercici"
+            style="display: none;"
+        >
+
+
+            <!-- =========================
+                 PROGRÉS
+                 ========================= -->
+
+            <div class="progres-pregunta">
+
+                Pregunta
+
+                <span id="pregunta-actual">
+                    1
+                </span>
+
+                de
+
+                <span id="total-preguntes">
+                    8
+                </span>
+
+            </div>
+
+
+
+            <h2>
+                Marca els accents del compàs
+            </h2>
+
+
+
+            <!-- =========================
+                 COMPÀS
+                 ========================= -->
+
+            <div class="capcalera-accents-metrics">
+
+                <span>
+                    Compàs
+                </span>
+
+                <div id="indicador-compas">
+                    4/4
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 PULSACIONS
+                 ========================= -->
+
+            <div class="contenidor-pulsacions-metriques">
+
+                <div
+                    id="zona-pulsos"
+                    class="zona-pulsos"
+                >
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 SELECTOR D'ACCENT
+                 ========================= -->
+
+            <div class="selector-accents">
+
+                <p>
+                    Selecciona un accent:
+                </p>
+
+
+                <div class="botons-accents">
+
+                    <button
+                        id="boto-fort"
+                        class="boto-accent boto-accent-fort"
+                        type="button"
+                    >
+                        Fort
+                    </button>
+
+
+                    <button
+                        id="boto-semifort"
+                        class="boto-accent boto-accent-semifort"
+                        type="button"
+                    >
+                        Semifort
+                    </button>
+
+
+                    <button
+                        id="boto-debil"
+                        class="boto-accent boto-accent-debil"
+                        type="button"
+                    >
+                        Dèbil
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 CONTROLS
+                 ========================= -->
+
+            <div class="controls-accents-metrics">
+
+                <button
+                    id="boto-esborrar"
+                    class="boto-secundari"
+                    type="button"
+                    disabled
+                >
+                    Esborrar
+                </button>
+
+
+                <button
+                    id="boto-comprovar"
+                    class="boto-principal"
+                    type="button"
+                    disabled
+                >
+                    Comprovar
+                </button>
+
+            </div>
+
+
+
+            <!-- =========================
+                 FEEDBACK
+                 ========================= -->
+
+            <div
+                id="feedback"
+                class="feedback"
+                aria-live="polite"
+            >
+            </div>
+
+
+        </section>
+
+
+
+ <!-- =========================
+     RESULTAT FINAL
+     ========================= -->
+
+<section
+    id="resultat-final"
+    class="resultat-final ocult"
+>
+
+    <h2>
+        Exercici completat
+    </h2>
+
+
+    <div id="puntuacio-final">
+    </div>
+
+
+    <!-- =========================
+         XP
+         ========================= -->
+
+    <div
+        id="resum-xp"
+        class="resum-xp"
+    >
+
+        <div class="resum-xp-header">
+
+            <strong>
+                Llenguatge
+            </strong>
+
+            <span>
+                Nivell
+                <strong id="nivell-xp">
+                    1
+                </strong>
+            </span>
+
+        </div>
+
+
+        <div class="barra-xp-final">
+
+            <div
+                id="barra-xp-final-progres"
+                class="barra-xp-final-progres"
+            >
+            </div>
+
+
+            <span
+                id="text-xp-final"
+                class="text-xp-final"
+            >
+                0 / 100 XP
+            </span>
+
+        </div>
+
+
+        <div
+            id="xp-guanyada"
+            class="xp-guanyada"
+        >
+        </div>
+
+    </div>
+
+
+    <button
+        id="finalitzar-btn"
+        class="boto-principal"
+        type="button"
+    >
+        Finalitzar
+    </button>
+
+</section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+         ========================= -->
+
+    <script src="../../../js/dades-exercicis.js"></script>
+
+    <script src="../../../js/sistema-exercicis.js"></script>
+
+    <script src="../../../js/llenguatge/accents-metrics.js"></script>
+
+    <script src="../../../js/llenguatge/exercicis/llenguatge-7.js"></script>
+
+
+
+    <!-- =========================
+         COMENÇAR EXERCICI
+         ========================= -->
+
+    <script>
+
+        const botoComencar =
+            document.getElementById(
+                "comencar-btn"
+            );
+
+
+        const explicacio =
+            document.getElementById(
+                "explicacio"
+            );
+
+
+        const zonaExercici =
+            document.getElementById(
+                "zona-exercici"
+            );
+
+
+        botoComencar.addEventListener(
+            "click",
+            () => {
+
+                explicacio.style.display =
+                    "none";
+
+
+                zonaExercici.style.display =
+                    "block";
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

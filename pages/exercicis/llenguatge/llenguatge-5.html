@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Llenguatge 5
+    </title>
+
+
+    <!-- =========================
+         ESTILS
+    ========================== -->
+
+    <link
+        rel="stylesheet"
+        href="../../../css/llenguatge.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../../../css/llenguatge-identificar-compas.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <main class="contenidor-exercici">
+
+
+        <!-- =========================
+             TÍTOL
+        ========================== -->
+
+        <h1>
+            Llenguatge 5
+        </h1>
+
+
+
+        <!-- =========================
+             EXPLICACIÓ
+        ========================== -->
+
+        <section
+            id="explicacio"
+            class="explicacio"
+        >
+
+            <h2>
+                Identifica el compàs
+            </h2>
+
+
+            <p>
+                Observa les figures rítmiques
+                i calcula quantes pulsacions
+                hi ha en total.
+            </p>
+
+
+            <p>
+                Després, indica si les figures
+                formen un compàs de
+                <strong>2/4</strong>,
+                <strong>3/4</strong>
+                o
+                <strong>4/4</strong>.
+            </p>
+
+
+
+            <!-- =========================
+                 COMPASSOS
+            ========================== -->
+
+            <div class="compassos-explicacio">
+
+
+                <div class="compas-explicacio">
+
+                    <strong class="numero-compas-explicacio">
+                        2/4
+                    </strong>
+
+                    <span>
+                        2 pulsacions
+                    </span>
+
+                </div>
+
+
+
+                <div class="compas-explicacio">
+
+                    <strong class="numero-compas-explicacio">
+                        3/4
+                    </strong>
+
+                    <span>
+                        3 pulsacions
+                    </span>
+
+                </div>
+
+
+
+                <div class="compas-explicacio">
+
+                    <strong class="numero-compas-explicacio">
+                        4/4
+                    </strong>
+
+                    <span>
+                        4 pulsacions
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =========================
+                 EXEMPLE
+            ========================== -->
+
+            <div class="exemple-identificar-compas">
+
+                <h3>
+                    Exemple
+                </h3>
+
+
+                <div class="compas-exemple-identificar">
+
+                    <span class="barra-compas">
+                    </span>
+
+
+                    <div class="figures-exemple-identificar">
+
+                        <span>
+                            𝅗𝅥
+                        </span>
+
+                        <span>
+                            𝅘𝅥
+                        </span>
+
+                    </div>
+
+
+                    <span class="barra-compas">
+                    </span>
+
+                </div>
+
+
+                <div class="calcul-exemple-compas">
+
+                    <span>
+                        2
+                    </span>
+
+                    <span>
+                        +
+                    </span>
+
+                    <span>
+                        1
+                    </span>
+
+                    <span>
+                        =
+                    </span>
+
+                    <strong>
+                        3 pulsacions
+                    </strong>
+
+                </div>
+
+
+                <p>
+                    Aquestes figures formen
+                    un compàs de
+                    <strong>3/4</strong>.
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 COMENÇAR
+            ========================== -->
+
+            <button
+                id="comencar-btn"
+                type="button"
+                class="boto-principal"
+            >
+                Començar
+            </button>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             ZONA D'EXERCICI
+        ========================== -->
+
+        <section
+            id="zona-exercici"
+            class="zona-exercici ocult"
+        >
+
+
+            <!-- =========================
+                 PROGRÉS
+            ========================== -->
+
+            <div class="progres-pregunta">
+
+                Pregunta
+
+                <span id="pregunta-actual">
+                    1
+                </span>
+
+                /
+
+                <span id="total-preguntes">
+                    8
+                </span>
+
+            </div>
+
+
+
+            <!-- =========================
+                 ENUNCIAT
+            ========================== -->
+
+            <div class="enunciat-suma">
+
+                <h2>
+                    Quin compàs és?
+                </h2>
+
+
+                <p>
+                    Compta el valor de les figures
+                    i selecciona el compàs correcte.
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 COMPÀS
+            ========================== -->
+
+            <div class="contenidor-compas-identificar">
+
+
+                <span
+                    class="barra-compas-identificar"
+                    aria-hidden="true"
+                >
+                </span>
+
+
+                <div
+                    id="zona-figures-compas"
+                    class="zona-figures-compas"
+                    aria-label="Figures del compàs"
+                >
+                </div>
+
+
+                <span
+                    class="barra-compas-identificar"
+                    aria-hidden="true"
+                >
+                </span>
+
+
+            </div>
+
+
+
+            <!-- =========================
+                 RESPOSTES
+            ========================== -->
+
+            <div
+                id="respostes-compas"
+                class="respostes-compas"
+            >
+            </div>
+
+
+
+            <!-- =========================
+                 FEEDBACK
+            ========================== -->
+
+            <div
+                id="feedback"
+                class="feedback"
+                aria-live="polite"
+            >
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             RESULTAT FINAL
+        ========================== -->
+
+        <section
+            id="resultat-final"
+            class="resultat-final ocult"
+        >
+
+            <h2>
+                Resultat
+            </h2>
+
+
+
+            <!-- =========================
+                 PUNTUACIÓ
+            ========================== -->
+
+            <div class="puntuacio-final">
+
+                <p id="puntuacio-final">
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 RESUM XP
+            ========================== -->
+
+            <div
+                id="resum-xp"
+                class="experiencia-final resum-xp"
+            >
+
+
+                <div class="resum-xp-header">
+
+                    <strong>
+                        Llenguatge
+                    </strong>
+
+
+                    <span>
+
+                        Nivell
+
+                        <strong id="nivell-xp">
+                            1
+                        </strong>
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- =========================
+                     BARRA XP
+                ========================== -->
+
+                <div class="barra-xp-final">
+
+                    <div
+                        id="barra-xp-final-progres"
+                        class="barra-xp-final-progres"
+                    >
+                    </div>
+
+
+                    <div
+                        id="text-xp-final"
+                        class="text-xp-final"
+                    >
+                        0 / 50 XP
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     XP GUANYADA
+                ========================== -->
+
+                <div
+                    id="xp-guanyada"
+                    class="xp-guanyada"
+                >
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =========================
+                 FINALITZAR
+            ========================== -->
+
+            <button
+                id="finalitzar-btn"
+                type="button"
+                class="boto-principal"
+            >
+                Finalitzar
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         SISTEMA GENERAL
+    ========================== -->
+
+    <script
+        src="../../../js/dades-exercicis.js"
+    ></script>
+
+    <script
+        src="../../../js/sistema-exercicis.js"
+    ></script>
+
+
+
+    <!-- =========================
+         MOTOR
+    ========================== -->
+
+    <script
+        src="../../../js/llenguatge/identificar-compas.js"
+    ></script>
+
+
+
+    <!-- =========================
+         CONFIGURACIÓ EXERCICI 5
+    ========================== -->
+
+    <script
+        src="../../../js/llenguatge/exercicis/llenguatge-5.js"
+    ></script>
+
+
+
+    <!-- =========================
+         COMENÇAR
+    ========================== -->
+
+    <script>
+
+        const botoComencar =
+            document.getElementById(
+                "comencar-btn"
+            );
+
+
+        const explicacio =
+            document.getElementById(
+                "explicacio"
+            );
+
+
+        const zonaExercici =
+            document.getElementById(
+                "zona-exercici"
+            );
+
+
+        botoComencar.addEventListener(
+            "click",
+            () => {
+
+                explicacio.classList.add(
+                    "ocult"
+                );
+
+
+                zonaExercici.classList.remove(
+                    "ocult"
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

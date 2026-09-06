@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dictat melòdic 3</title>
+
+    <link
+        rel="stylesheet"
+        href="../../../css/dictat-melodic.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="exercici-container">
+
+
+        <!-- =========================
+             CAPÇALERA
+             ========================= -->
+
+        <header class="exercici-header">
+
+            <a
+                href="../../exercicis.html"
+                class="tornar"
+            >
+                ← Exercicis
+            </a>
+
+            <h1>
+                Dictat melòdic 3
+            </h1>
+
+        </header>
+
+
+
+        <!-- =========================
+             EXPLICACIÓ
+             ========================= -->
+
+        <section
+            id="explicacio"
+            class="explicacio"
+        >
+
+            <h2>
+                Dictat de notes
+            </h2>
+
+
+            <p>
+                En aquest exercici escoltaràs una
+                <strong>seqüència de quatre notes</strong>.
+            </p>
+
+
+            <p>
+                De moment només utilitzarem les notes
+                <strong>Mi</strong> i <strong>Sol</strong>.
+            </p>
+
+
+            <p>
+                La <strong>primera nota</strong> del dictat
+                apareixerà ja escrita al pentagrama.
+                Així sabràs des de quina nota comença
+                la seqüència.
+            </p>
+
+
+            <div class="info-exercici">
+
+                <p>
+                    Totes les notes tindran la mateixa durada,
+                    com si fossin <strong>negres</strong>.
+                </p>
+
+                <p>
+                    Pots escoltar cada dictat un màxim de
+                    <strong>3 vegades</strong>.
+                </p>
+
+                <p>
+                    Abans de comprovar la resposta,
+                    podràs escoltar també les notes
+                    que tu has escrit.
+                </p>
+
+            </div>
+
+
+            <!-- =========================
+                 COMENÇAR
+                 ========================= -->
+
+            <div class="contenidor-comencar">
+
+                <button
+                    id="comencar-btn"
+                    type="button"
+                >
+                    Començar
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             EXERCICI
+             ========================= -->
+
+        <section
+            id="zona-exercici"
+            class="zona-exercici ocult"
+        >
+
+
+            <!-- =========================
+                 PROGRÉS
+                 ========================= -->
+
+            <div class="capcalera-pregunta">
+
+                <span id="indicador-pregunta">
+                    Pregunta 1 / 8
+                </span>
+
+            </div>
+
+
+
+            <!-- =========================
+                 INSTRUCCIÓ
+                 ========================= -->
+
+            <div class="instruccio-audio">
+
+                <h2>
+                    Escolta el dictat
+                </h2>
+
+                <p>
+                    Completa les quatre notes.
+                    La primera ja està escrita.
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 ESCOLTAR DICTAT
+                 ========================= -->
+
+            <div class="zona-audio">
+
+                <button
+                    id="escoltar-btn"
+                    class="escoltar-btn"
+                    type="button"
+                >
+
+                    <span class="icona-escoltar">
+                        ▶
+                    </span>
+
+                    Escoltar (3)
+
+                </button>
+
+            </div>
+
+
+
+            <!-- =========================
+                 PENTAGRAMA
+                 ========================= -->
+
+            <div
+                id="pentagrama-dictat"
+                class="pentagrama-dictat"
+            >
+            </div>
+
+
+
+            <!-- =========================
+                 NOTES DISPONIBLES
+                 ========================= -->
+
+            <div class="zona-notes">
+
+                <p class="instruccio-notes">
+                    Afegeix les notes:
+                </p>
+
+
+                <div
+                    id="opcions-notes"
+                    class="opcions-notes"
+                >
+                    <!--
+                        dictat-melodic.js
+                        crearà aquí:
+
+                        Mi
+                        Sol
+                    -->
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 CONTROLS DE RESPOSTA
+                 ========================= -->
+
+            <div class="controls-dictat">
+
+                <button
+                    id="esborrar-btn"
+                    type="button"
+                    disabled
+                >
+                    ← Esborrar
+                </button>
+
+
+                <button
+                    id="escoltar-resposta-btn"
+                    type="button"
+                    disabled
+                >
+                    ▶ Escoltar la meva resposta
+                </button>
+
+
+                <button
+                    id="comprovar-btn"
+                    type="button"
+                    disabled
+                >
+                    Comprovar
+                </button>
+
+            </div>
+
+
+
+            <!-- =========================
+                 FEEDBACK
+                 ========================= -->
+
+            <p
+                id="feedback"
+                class="feedback"
+            >
+            </p>
+
+        </section>
+
+
+
+        <!-- =========================
+             RESULTAT FINAL
+             ========================= -->
+
+        <section
+            id="resultat-final"
+            class="resultat-final ocult"
+        >
+
+            <h2>
+                Exercici completat!
+            </h2>
+
+
+            <p id="puntuacio-final">
+            </p>
+
+
+
+            <!-- =========================
+                 EXPERIÈNCIA
+                 ========================= -->
+
+            <div
+                id="resum-xp"
+                class="resum-xp"
+            >
+
+                <div class="resum-xp-header">
+
+                    <strong>
+                        Dictat melòdic
+                    </strong>
+
+                    <span>
+                        Lv.
+                        <strong id="nivell-xp">
+                            1
+                        </strong>
+                    </span>
+
+                </div>
+
+
+                <div class="barra-xp-final">
+
+                    <div
+                        id="barra-xp-final-progres"
+                        class="barra-xp-final-progres"
+                    >
+                    </div>
+
+
+                    <span
+                        id="text-xp-final"
+                        class="text-xp-final"
+                    >
+                        0 / 50 XP
+                    </span>
+
+                </div>
+
+
+                <p
+                    id="xp-guanyada"
+                    class="xp-guanyada"
+                >
+                </p>
+
+            </div>
+
+
+            <button
+                id="finalitzar-btn"
+                type="button"
+            >
+                Finalitzar
+            </button>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         SISTEMA GENERAL
+         ========================= -->
+
+    <script src="../../../js/dades-exercicis.js"></script>
+
+    <script src="../../../js/sistema-exercicis.js"></script>
+
+
+
+    <!-- =========================
+         MOTOR MUSICAL
+         ========================= -->
+
+    <script src="../../../js/musica/notes.js"></script>
+
+    <script src="../../../js/musica/intervals.js"></script>
+
+    <script src="../../../js/musica/audio.js"></script>
+
+
+
+    <!-- =========================
+         MOTOR DE DICTAT MELÒDIC
+         ========================= -->
+
+    <script src="../../../js/dictat-melodic/dictat-melodic.js"></script>
+
+
+
+    <!-- =========================
+         CONFIGURACIÓ EXERCICI 3
+         ========================= -->
+
+    <script src="../../../js/dictat-melodic/exercicis/dictat-melodic-3.js"></script>
+
+
+
+    <!-- =========================
+         COMENÇAR
+         ========================= -->
+
+    <script>
+
+        const explicacio =
+            document.getElementById(
+                "explicacio"
+            );
+
+        const zonaExercici =
+            document.getElementById(
+                "zona-exercici"
+            );
+
+        const comencarBtn =
+            document.getElementById(
+                "comencar-btn"
+            );
+
+
+        comencarBtn.addEventListener(
+            "click",
+            async () => {
+
+                await activarAudio();
+
+
+                explicacio.classList.add(
+                    "ocult"
+                );
+
+
+                zonaExercici.classList.remove(
+                    "ocult"
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

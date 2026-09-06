@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Llenguatge 4
+    </title>
+
+
+    <!-- =========================
+         ESTILS
+    ========================== -->
+
+    <link
+        rel="stylesheet"
+        href="../../../css/llenguatge.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../../../css/llenguatge-incorrecte.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <main class="contenidor-exercici">
+
+
+        <!-- =========================
+             TÍTOL
+        ========================== -->
+
+        <h1>
+            Llenguatge 4
+        </h1>
+
+
+
+        <!-- =========================
+             EXPLICACIÓ
+        ========================== -->
+
+        <section
+            id="explicacio"
+            class="explicacio"
+        >
+
+            <h2>
+                Quin compàs és incorrecte?
+            </h2>
+
+
+            <p>
+                En un compàs de 4/4,
+                cada compàs ha de tenir
+                exactament 4 pulsacions.
+            </p>
+
+
+            <p>
+                Veuràs quatre compassos.
+                Tres tenen la durada correcta
+                i un té més o menys pulsacions
+                de les que correspon.
+            </p>
+
+
+
+            <!-- =========================
+                 FIGURES
+            ========================== -->
+
+            <div class="figures-explicacio">
+
+
+                <div class="figura-explicacio">
+
+                    <div class="simbol-figura">
+                        𝅝
+                    </div>
+
+                    <strong>
+                        Redonda
+                    </strong>
+
+                    <span>
+                        4 pulsacions
+                    </span>
+
+                </div>
+
+
+
+                <div class="figura-explicacio">
+
+                    <div class="simbol-figura">
+                        𝅗𝅥
+                    </div>
+
+                    <strong>
+                        Blanca
+                    </strong>
+
+                    <span>
+                        2 pulsacions
+                    </span>
+
+                </div>
+
+
+
+                <div class="figura-explicacio">
+
+                    <div class="simbol-figura">
+                        𝅘𝅥
+                    </div>
+
+                    <strong>
+                        Negra
+                    </strong>
+
+                    <span>
+                        1 pulsació
+                    </span>
+
+                </div>
+
+
+
+                <div class="figura-explicacio">
+
+                    <div class="simbol-figura">
+                        𝅘𝅥𝅮
+                    </div>
+
+                    <strong>
+                        Corxera
+                    </strong>
+
+                    <span>
+                        0,5 pulsacions
+                    </span>
+
+                </div>
+
+
+
+                <div class="figura-explicacio">
+
+                    <div class="simbol-figura">
+                        𝅘𝅥𝅯
+                    </div>
+
+                    <strong>
+                        Semicorxera
+                    </strong>
+
+                    <span>
+                        0,25 pulsacions
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =========================
+                 EXEMPLE
+            ========================== -->
+
+            <div class="exemple-compas-incorrecte">
+
+                <h3>
+                    Exemple
+                </h3>
+
+
+                <div class="exemple-quatre-compassos">
+
+
+                    <div class="compas-exemple">
+
+                        <strong>
+                            Compàs 1
+                        </strong>
+
+                        <div class="figures-compas-exemple">
+                            𝅗𝅥 𝅘𝅥 𝅘𝅥
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="compas-exemple">
+
+                        <strong>
+                            Compàs 2
+                        </strong>
+
+                        <div class="figures-compas-exemple">
+                            𝅘𝅥 𝅘𝅥 𝅘𝅥 𝅘𝅥𝅮
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="compas-exemple">
+
+                        <strong>
+                            Compàs 3
+                        </strong>
+
+                        <div class="figures-compas-exemple">
+                            𝅗𝅥 𝅗𝅥
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="compas-exemple">
+
+                        <strong>
+                            Compàs 4
+                        </strong>
+
+                        <div class="figures-compas-exemple">
+                            𝅘𝅥 𝅘𝅥 𝅘𝅥 𝅘𝅥
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <p>
+                    El compàs 2 és incorrecte
+                    perquè només té 3,5 pulsacions.
+                </p>
+
+            </div>
+
+
+
+            <button
+                id="comencar-btn"
+                type="button"
+                class="boto-principal"
+            >
+                Començar
+            </button>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             ZONA D'EXERCICI
+        ========================== -->
+
+        <section
+            id="zona-exercici"
+            class="zona-exercici ocult"
+        >
+
+
+            <!-- =========================
+                 PROGRÉS
+            ========================== -->
+
+            <div class="progres-pregunta">
+
+                Pregunta
+
+                <span id="pregunta-actual">
+                    1
+                </span>
+
+                /
+
+                <span id="total-preguntes">
+                    8
+                </span>
+
+            </div>
+
+
+
+            <!-- =========================
+                 ENUNCIAT
+            ========================== -->
+
+            <div class="enunciat-suma">
+
+                <h2>
+                    Quin compàs està malament?
+                </h2>
+
+
+                <p>
+                    Tots els compassos són de
+
+                    <strong
+                        id="indicador-compas"
+                    >
+                        4/4
+                    </strong>
+
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 COMPASSOS
+            ========================== -->
+
+            <div
+                id="zona-compassos"
+                class="zona-compassos"
+            >
+            </div>
+
+
+
+            <!-- =========================
+                 FEEDBACK
+            ========================== -->
+
+            <div
+                id="feedback"
+                class="feedback"
+                aria-live="polite"
+            >
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             RESULTAT FINAL
+        ========================== -->
+
+        <section
+            id="resultat-final"
+            class="resultat-final ocult"
+        >
+
+            <h2>
+                Resultat
+            </h2>
+
+
+
+            <!-- =========================
+                 PUNTUACIÓ
+            ========================== -->
+
+            <div class="puntuacio-final">
+
+                <p id="puntuacio-final">
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 RESUM XP
+            ========================== -->
+
+            <div
+                id="resum-xp"
+                class="experiencia-final resum-xp"
+            >
+
+
+                <div class="resum-xp-header">
+
+                    <strong>
+                        Llenguatge
+                    </strong>
+
+
+                    <span>
+
+                        Nivell
+
+                        <strong id="nivell-xp">
+                            1
+                        </strong>
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- =========================
+                     BARRA XP
+                ========================== -->
+
+                <div class="barra-xp-final">
+
+                    <div
+                        id="barra-xp-final-progres"
+                        class="barra-xp-final-progres"
+                    >
+                    </div>
+
+
+                    <div
+                        id="text-xp-final"
+                        class="text-xp-final"
+                    >
+                        0 / 50 XP
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     XP GUANYADA
+                ========================== -->
+
+                <div
+                    id="xp-guanyada"
+                    class="xp-guanyada"
+                >
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =========================
+                 FINALITZAR
+            ========================== -->
+
+            <button
+                id="finalitzar-btn"
+                type="button"
+                class="boto-principal"
+            >
+                Finalitzar
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         SISTEMA GENERAL
+    ========================== -->
+
+    <script
+        src="../../../js/dades-exercicis.js"
+    ></script>
+
+    <script
+        src="../../../js/sistema-exercicis.js"
+    ></script>
+
+
+
+    <!-- =========================
+         MOTOR
+    ========================== -->
+
+    <script
+        src="../../../js/llenguatge/compas-incorrecte.js"
+    ></script>
+
+
+
+    <!-- =========================
+         CONFIGURACIÓ
+    ========================== -->
+
+    <script
+        src="../../../js/llenguatge/exercicis/llenguatge-4.js"
+    ></script>
+
+
+
+    <!-- =========================
+         COMENÇAR
+    ========================== -->
+
+    <script>
+
+        const botoComencar =
+            document.getElementById(
+                "comencar-btn"
+            );
+
+
+        const explicacio =
+            document.getElementById(
+                "explicacio"
+            );
+
+
+        const zonaExercici =
+            document.getElementById(
+                "zona-exercici"
+            );
+
+
+        botoComencar.addEventListener(
+            "click",
+            () => {
+
+                explicacio.classList.add(
+                    "ocult"
+                );
+
+
+                zonaExercici.classList.remove(
+                    "ocult"
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

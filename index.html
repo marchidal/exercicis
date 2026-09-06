@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Exercicis Musicals</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <main>
+
+        <!-- =========================
+             ALUMNE
+             ========================= -->
+
+        <section class="alumne">
+
+            <!-- Introducció del nom -->
+
+            <div id="registre-alumne">
+
+                <label for="nom-alumne">
+                    Escriu el teu nom i cognoms
+                </label>
+
+                <div class="registre-controls">
+
+                    <input
+                        type="text"
+                        id="nom-alumne"
+                        placeholder="Nom i cognoms"
+                        autocomplete="name"
+                    >
+
+                    <button id="guardar-nom-btn">
+                        Confirmar
+                    </button>
+
+                </div>
+
+                <p class="avis-nom">
+                    Comprova que el teu nom és correcte abans de confirmar-lo.
+                </p>
+
+                <p
+                    id="error-nom"
+                    class="error-nom">
+                </p>
+
+            </div>
+
+
+            <!-- Alumne ja registrat -->
+
+            <div
+                id="alumne-registrat"
+                class="ocult">
+
+                <p class="etiqueta-alumne">
+                    Alumne
+                </p>
+
+                <p id="nom-guardat"></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             NAVEGACIÓ
+             ========================= -->
+
+        <section class="menu-principal">
+
+            <button id="resultats-btn">
+                Resultats
+            </button>
+
+            <button id="exercicis-btn">
+                Exercicis
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

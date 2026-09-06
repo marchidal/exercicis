@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Llenguatge 3
+    </title>
+
+
+    <!-- =========================
+         ESTILS
+    ========================== -->
+
+    <link
+        rel="stylesheet"
+        href="../../../css/llenguatge.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../../../css/llenguatge-representacio.css"
+    >    
+
+</head>
+
+
+<body>
+
+
+    <main class="contenidor-exercici">
+
+
+        <!-- =========================
+             TÍTOL
+        ========================== -->
+
+        <h1>
+            Llenguatge 3
+        </h1>
+
+
+
+        <!-- =========================
+             EXPLICACIÓ
+        ========================== -->
+
+        <section
+            id="explicacio"
+            class="explicacio"
+        >
+
+            <h2>
+                Representa el valor de les figures
+            </h2>
+
+
+            <p>
+                Cada quadrat representa
+                el valor d'una negra.
+            </p>
+
+
+            <p>
+                Hauràs de pintar els quadrats
+                necessaris per representar
+                cadascuna de les dues figures.
+            </p>
+
+
+
+            <!-- =========================
+                 EXEMPLE
+            ========================== -->
+
+            <div class="exemple-representacio">
+
+
+                <div class="exemple-figures-representacio">
+
+
+                    <div class="figura-exemple-representacio">
+
+                        <span class="figura-exemple">
+                            𝅝
+                        </span>
+
+                        <strong>
+                            Redonda
+                        </strong>
+
+                    </div>
+
+
+                    <div class="simbol-operacio">
+                        +
+                    </div>
+
+
+                    <div class="figura-exemple-representacio">
+
+                        <span class="figura-exemple">
+                            𝅗𝅥
+                        </span>
+
+                        <strong>
+                            Blanca
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <p>
+                    Si cada quadrat representa
+                    una negra:
+                </p>
+
+
+
+                <div class="quadrats-exemple">
+
+
+                    <div class="quadrat-exemple figura-1">
+                    </div>
+
+                    <div class="quadrat-exemple figura-1">
+                    </div>
+
+                    <div class="quadrat-exemple figura-1">
+                    </div>
+
+                    <div class="quadrat-exemple figura-1">
+                    </div>
+
+
+                    <div class="quadrat-exemple figura-2">
+                    </div>
+
+                    <div class="quadrat-exemple figura-2">
+                    </div>
+
+
+                </div>
+
+
+
+                <p>
+                    La redonda ocupa 4 quadrats
+                    i la blanca 2 quadrats.
+                </p>
+
+
+            </div>
+
+
+
+            <button
+                id="comencar-btn"
+                type="button"
+                class="boto-principal"
+            >
+                Començar
+            </button>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             ZONA D'EXERCICI
+        ========================== -->
+
+        <section
+            id="zona-exercici"
+            class="zona-exercici ocult"
+        >
+
+
+            <!-- =========================
+                 PROGRÉS
+            ========================== -->
+
+            <div class="progres-pregunta">
+
+                Pregunta
+
+                <span id="pregunta-actual">
+                    1
+                </span>
+
+                /
+
+                <span id="total-preguntes">
+                    8
+                </span>
+
+            </div>
+
+
+
+            <!-- =========================
+                 ENUNCIAT
+            ========================== -->
+
+            <div class="enunciat-suma">
+
+                <h2>
+                    Representa aquestes figures
+                </h2>
+
+            </div>
+
+
+
+            <!-- =========================
+                 FIGURES DE LA PREGUNTA
+            ========================== -->
+
+            <div class="zona-figures-representacio">
+
+
+                <!-- PRIMERA FIGURA -->
+
+                <div class="targeta-figura-representacio">
+
+                    <div
+                        id="primera-figura"
+                        class="figura-suma"
+                    >
+                    </div>
+
+
+                    <strong
+                        id="nom-primera-figura"
+                        class="nom-figura-representacio"
+                    >
+                    </strong>
+
+                </div>
+
+
+
+                <!-- + -->
+
+                <div class="simbol-suma">
+                    +
+                </div>
+
+
+
+                <!-- SEGONA FIGURA -->
+
+                <div class="targeta-figura-representacio">
+
+                    <div
+                        id="segona-figura"
+                        class="figura-suma"
+                    >
+                    </div>
+
+
+                    <strong
+                        id="nom-segona-figura"
+                        class="nom-figura-representacio"
+                    >
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =========================
+                 UNITAT DEL QUADRAT
+            ========================== -->
+
+            <div class="unitat-quadrat">
+
+                <span>
+                    Cada quadrat representa:
+                </span>
+
+
+                <span
+                    id="simbol-unitat"
+                    class="simbol-unitat"
+                >
+                </span>
+
+
+                <strong
+                    id="nom-unitat"
+                >
+                </strong>
+
+            </div>
+
+
+
+            <!-- =========================
+                 SELECTORS DE COLOR
+            ========================== -->
+
+            <div class="selectors-representacio">
+
+                <p class="instruccio-resposta">
+                    Selecciona una figura
+                    i pinta els seus quadrats:
+                </p>
+
+
+                <div class="botons-selector-representacio">
+
+
+                    <!-- PRIMERA FIGURA -->
+
+                    <button
+                        id="boto-primera-figura"
+                        type="button"
+                        class="boto-selector-figura figura-1 seleccionat"
+                    >
+
+                        <span
+                            class="simbol-selector"
+                        >
+                        </span>
+
+                        <span
+                            class="nom-selector"
+                        >
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- SEGONA FIGURA -->
+
+                    <button
+                        id="boto-segona-figura"
+                        type="button"
+                        class="boto-selector-figura figura-2"
+                    >
+
+                        <span
+                            class="simbol-selector"
+                        >
+                        </span>
+
+                        <span
+                            class="nom-selector"
+                        >
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 QUADRATS
+            ========================== -->
+
+            <div
+                id="zona-quadrats"
+                class="zona-quadrats"
+            >
+            </div>
+
+
+
+            <!-- =========================
+                 CONTROLS
+            ========================== -->
+
+            <div class="controls-representacio">
+
+                <button
+                    id="boto-esborrar"
+                    type="button"
+                    class="boto-secundari"
+                >
+                    Esborrar
+                </button>
+
+
+                <button
+                    id="boto-comprovar"
+                    type="button"
+                    class="boto-principal"
+                    disabled
+                >
+                    Comprovar
+                </button>
+
+            </div>
+
+
+
+            <!-- =========================
+                 FEEDBACK
+            ========================== -->
+
+            <div
+                id="feedback"
+                class="feedback"
+                aria-live="polite"
+            >
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             RESULTAT FINAL
+        ========================== -->
+
+        <section
+            id="resultat-final"
+            class="resultat-final ocult"
+        >
+
+            <h2>
+                Resultat
+            </h2>
+
+
+
+            <!-- =========================
+                 PUNTUACIÓ
+            ========================== -->
+
+            <div class="puntuacio-final">
+
+                <p id="puntuacio-final">
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 RESUM XP
+            ========================== -->
+
+            <div
+                id="resum-xp"
+                class="experiencia-final resum-xp"
+            >
+
+
+                <div class="resum-xp-header">
+
+                    <strong>
+                        Llenguatge
+                    </strong>
+
+
+                    <span>
+                        Nivell
+
+                        <strong id="nivell-xp">
+                            1
+                        </strong>
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- =========================
+                     BARRA XP
+                ========================== -->
+
+                <div class="barra-xp-final">
+
+                    <div
+                        id="barra-xp-final-progres"
+                        class="barra-xp-final-progres"
+                    >
+                    </div>
+
+
+                    <div
+                        id="text-xp-final"
+                        class="text-xp-final"
+                    >
+                        0 / 50 XP
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     XP GUANYADA
+                ========================== -->
+
+                <div
+                    id="xp-guanyada"
+                    class="xp-guanyada"
+                >
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =========================
+                 FINALITZAR
+            ========================== -->
+
+            <button
+                id="finalitzar-btn"
+                type="button"
+                class="boto-principal"
+            >
+                Finalitzar
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         SISTEMA GENERAL
+    ========================== -->
+
+    <script
+        src="../../../js/dades-exercicis.js"
+    ></script>
+
+    <script
+        src="../../../js/sistema-exercicis.js"
+    ></script>
+
+
+
+    <!-- =========================
+         MOTOR DE REPRESENTACIÓ
+    ========================== -->
+
+    <script
+        src="../../../js/llenguatge/representacio.js"
+    ></script>
+
+
+
+    <!-- =========================
+         CONFIGURACIÓ
+         LLENGUATGE 3
+    ========================== -->
+
+    <script
+        src="../../../js/llenguatge/exercicis/llenguatge-3.js"
+    ></script>
+
+
+
+    <!-- =========================
+         COMENÇAR EXERCICI
+    ========================== -->
+
+    <script>
+
+        const botoComencar =
+            document.getElementById(
+                "comencar-btn"
+            );
+
+
+        const explicacio =
+            document.getElementById(
+                "explicacio"
+            );
+
+
+        const zonaExercici =
+            document.getElementById(
+                "zona-exercici"
+            );
+
+
+        botoComencar.addEventListener(
+            "click",
+            () => {
+
+                explicacio.classList.add(
+                    "ocult"
+                );
+
+
+                zonaExercici.classList.remove(
+                    "ocult"
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

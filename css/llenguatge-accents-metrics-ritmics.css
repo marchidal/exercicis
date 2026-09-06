@@ -1,0 +1,1051 @@
+/* =========================
+   LLENGUATGE 8
+   ACCENTS MÈTRICS RÍTMICS
+   ========================= */
+
+
+/* =========================
+   EXEMPLE EXPLICACIÓ
+   ========================= */
+
+.exemple-accents-ritmics {
+    max-width: 760px;
+
+    margin: 1.6rem auto;
+
+    padding: 1.4rem;
+
+    box-sizing: border-box;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.82
+    );
+
+    border: 1px solid #d6d6d6;
+
+    border-radius: 14px;
+}
+
+
+.compas-exemple-accents-ritmics {
+    margin-bottom: 1.2rem;
+
+    text-align: center;
+
+    font-size: 1.5rem;
+
+    font-weight: 700;
+}
+
+
+.figures-exemple-accents-ritmics {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    gap: 1rem;
+
+    flex-wrap: wrap;
+}
+
+
+.figura-exemple-accent-ritmic {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    gap: 0.55rem;
+
+    min-width: 95px;
+}
+
+
+.simbol-exemple-accent {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 70px;
+
+    min-height: 74px;
+
+    font-size: 3rem;
+
+    line-height: 1;
+}
+
+
+.text-exemple-accent {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 90px;
+
+    min-height: 38px;
+
+    padding: 0.45rem 0.7rem;
+
+    box-sizing: border-box;
+
+    background: #fff;
+
+    border: 2px solid #bbb;
+
+    border-radius: 10px;
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+}
+
+
+.text-exemple-accent.fort {
+    background: #fff5f5;
+
+    border-color: #c92a2a;
+}
+
+
+.text-exemple-accent.semifort {
+    background: #fff9db;
+
+    border-color: #e67700;
+}
+
+
+.text-exemple-accent.debil {
+    background: #e7f5ff;
+
+    border-color: #1971c2;
+}
+
+
+.text-exemple-accent.sense-accent {
+    background: #f4f4f4;
+
+    border-color: #bbb;
+
+    color: #777;
+}
+
+
+
+/* =========================
+   LLISTA EXPLICACIÓ
+   ========================= */
+
+.llista-explicacio-accents {
+    max-width: 760px;
+
+    margin:
+        1.3rem
+        auto
+        1.8rem;
+
+    padding-left: 1.5rem;
+
+    line-height: 1.7;
+}
+
+
+.llista-explicacio-accents li {
+    margin-bottom: 0.55rem;
+}
+
+
+
+/* =========================
+   COMPASSOS EXPLICACIÓ
+   ========================= */
+
+.compassos-explicacio-accents {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap: 1rem;
+
+    max-width: 820px;
+
+    margin: 1.8rem auto;
+}
+
+
+.compas-explicacio-accents {
+    padding: 1.1rem;
+
+    box-sizing: border-box;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.86
+    );
+
+    border: 1px solid #d5d5d5;
+
+    border-radius: 14px;
+
+    text-align: center;
+}
+
+
+.numero-compas-explicacio {
+    margin-bottom: 0.55rem;
+
+    font-size: 1.35rem;
+
+    font-weight: 700;
+}
+
+
+.patro-compas-explicacio {
+    line-height: 1.5;
+
+    font-size: 0.95rem;
+
+    font-weight: 600;
+}
+
+
+
+/* =========================
+   INSTRUCCIÓ
+   ========================= */
+
+.instruccio-exercici {
+    margin-top: 1.6rem;
+
+    text-align: center;
+
+    font-weight: 600;
+
+    line-height: 1.6;
+}
+
+
+
+/* =========================
+   BOTÓ COMENÇAR
+   ========================= */
+
+#explicacio #comencar-btn {
+    display: block;
+
+    margin:
+        2rem
+        auto
+        0;
+}
+
+
+
+/* =========================
+   CAPÇALERA COMPÀS
+   ========================= */
+
+.capcalera-accents-ritmics {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 0.8rem;
+
+    margin:
+        1.5rem
+        0;
+}
+
+
+.capcalera-accents-ritmics > span {
+    font-weight: 600;
+}
+
+
+#indicador-compas {
+    min-width: 70px;
+
+    padding:
+        0.55rem
+        0.8rem;
+
+    box-sizing: border-box;
+
+    background: #fff;
+
+    border: 2px solid #333;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    font-size: 1.4rem;
+
+    font-weight: 700;
+}
+
+
+
+/* =========================
+   COMPÀS AMB FIGURES
+   ========================= */
+
+.contenidor-figures-accents-ritmics {
+    display: flex;
+
+    align-items: stretch;
+
+    width: 100%;
+
+    max-width: 820px;
+
+    min-height: 150px;
+
+    margin:
+        1.6rem
+        auto
+        2rem;
+
+    padding:
+        1.2rem
+        0;
+
+    box-sizing: border-box;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.82
+    );
+
+    border-top: 1px solid #dedede;
+
+    border-bottom: 1px solid #dedede;
+
+    border-radius: 8px;
+}
+
+
+.barra-compas-accents-ritmics {
+    width: 3px;
+
+    flex: 0 0 3px;
+
+    min-height: 120px;
+
+    margin:
+        0
+        0.8rem;
+
+    background: #222;
+
+    border-radius: 3px;
+}
+
+
+.zona-figures-accents {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 0.65rem;
+
+    flex: 1;
+
+    min-width: 0;
+
+    padding:
+        0
+        0.4rem;
+
+    box-sizing: border-box;
+
+    overflow-x: auto;
+}
+
+
+
+/* =========================
+   FIGURA RÍTMICA
+   ========================= */
+
+.contenidor-figura-accent {
+    flex: 0 0 auto;
+}
+
+
+.figura-accent-ritmica {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 0.35rem;
+
+    min-width: 82px;
+
+    min-height: 108px;
+
+    padding:
+        0.55rem
+        0.45rem;
+
+    box-sizing: border-box;
+
+    background: #fff;
+
+    border: 2px solid transparent;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font: inherit;
+
+    transition:
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        background 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.figura-accent-ritmica:hover:not(:disabled) {
+    transform: translateY(-2px);
+
+    border-color: #aaa;
+
+    box-shadow:
+        0
+        5px
+        12px
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+}
+
+
+.figura-accent-ritmica:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+
+.figura-accent-ritmica:disabled {
+    cursor: default;
+}
+
+
+.simbol-figura-accent {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 66px;
+
+    font-size: 3.1rem;
+
+    line-height: 1;
+}
+
+
+.etiqueta-figura-accent {
+    min-height: 22px;
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+}
+
+
+
+/* =========================
+   ACCENTS ASSIGNATS
+   ========================= */
+
+.figura-accent-ritmica.fort {
+    background: #fff5f5;
+
+    border-color: #c92a2a;
+}
+
+
+.figura-accent-ritmica.semifort {
+    background: #fff9db;
+
+    border-color: #e67700;
+}
+
+
+.figura-accent-ritmica.debil {
+    background: #e7f5ff;
+
+    border-color: #1971c2;
+}
+
+
+
+/* =========================
+   VALIDACIÓ
+   ========================= */
+
+.figura-accent-ritmica.resposta-correcta {
+    box-shadow:
+        0
+        0
+        0
+        3px
+        rgba(
+            47,
+            158,
+            68,
+            0.3
+        );
+}
+
+
+.figura-accent-ritmica.resposta-incorrecta {
+    box-shadow:
+        0
+        0
+        0
+        3px
+        rgba(
+            201,
+            42,
+            42,
+            0.3
+        );
+}
+
+
+
+/* =========================
+   SELECTOR D'ACCENTS
+   ========================= */
+
+.selector-accents-ritmics {
+    margin:
+        1.5rem
+        0;
+
+    text-align: center;
+}
+
+
+.selector-accents-ritmics p {
+    margin-bottom: 0.9rem;
+
+    font-weight: 600;
+}
+
+
+.botons-accents-ritmics {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 0.9rem;
+
+    flex-wrap: wrap;
+}
+
+
+
+/* =========================
+   BOTONS D'ACCENT
+   ========================= */
+
+.boto-accent {
+    min-width: 120px;
+
+    padding:
+        0.8rem
+        1.2rem;
+
+    box-sizing: border-box;
+
+    background: #fff;
+
+    border: 2px solid #bbb;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font: inherit;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        background 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.boto-accent:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0
+        4px
+        10px
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+}
+
+
+.boto-accent:active {
+    transform: translateY(0);
+}
+
+
+
+/* =========================
+   FORT
+   ========================= */
+
+.boto-accent-fort {
+    border-color: #c92a2a;
+}
+
+
+.boto-accent-fort:hover,
+.boto-accent-fort.seleccionat {
+    background: #fff5f5;
+
+    border-color: #a51111;
+}
+
+
+.boto-accent-fort.seleccionat {
+    box-shadow:
+        0
+        0
+        0
+        3px
+        rgba(
+            201,
+            42,
+            42,
+            0.18
+        );
+}
+
+
+
+/* =========================
+   SEMIFORT
+   ========================= */
+
+.boto-accent-semifort {
+    border-color: #e67700;
+}
+
+
+.boto-accent-semifort:hover,
+.boto-accent-semifort.seleccionat {
+    background: #fff9db;
+
+    border-color: #c45f00;
+}
+
+
+.boto-accent-semifort.seleccionat {
+    box-shadow:
+        0
+        0
+        0
+        3px
+        rgba(
+            230,
+            119,
+            0,
+            0.18
+        );
+}
+
+
+
+/* =========================
+   DÈBIL
+   ========================= */
+
+.boto-accent-debil {
+    border-color: #1971c2;
+}
+
+
+.boto-accent-debil:hover,
+.boto-accent-debil.seleccionat {
+    background: #e7f5ff;
+
+    border-color: #145c9e;
+}
+
+
+.boto-accent-debil.seleccionat {
+    box-shadow:
+        0
+        0
+        0
+        3px
+        rgba(
+            25,
+            113,
+            194,
+            0.18
+        );
+}
+
+
+
+/* =========================
+   CONTROLS
+   ========================= */
+
+.controls-accents-ritmics {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    margin-top: 1.8rem;
+
+    flex-wrap: wrap;
+}
+
+
+.controls-accents-ritmics
+.boto-secundari {
+    min-width: 130px;
+
+    padding:
+        0.85rem
+        1.4rem;
+
+    box-sizing: border-box;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.95
+    );
+
+    border: 2px solid #b8b8b8;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font: inherit;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        background 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.controls-accents-ritmics
+.boto-secundari:hover:not(:disabled) {
+    transform: translateY(-2px);
+
+    border-color: #777;
+
+    background: #f5f5f5;
+
+    box-shadow:
+        0
+        4px
+        10px
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+}
+
+
+.controls-accents-ritmics
+.boto-secundari:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+
+.controls-accents-ritmics
+.boto-secundari:disabled {
+    opacity: 0.5;
+
+    cursor: default;
+}
+
+
+.controls-accents-ritmics
+.boto-principal {
+    min-width: 130px;
+}
+
+
+
+/* =========================
+   FEEDBACK
+   ========================= */
+
+#feedback {
+    min-height: 28px;
+
+    margin-top: 1.2rem;
+
+    text-align: center;
+
+    font-weight: 700;
+}
+
+
+.feedback.correcte {
+    color: #2b8a3e;
+}
+
+
+.feedback.incorrecte {
+    color: #c92a2a;
+}
+
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (
+    max-width: 750px
+) {
+
+    .compassos-explicacio-accents {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .contenidor-figures-accents-ritmics {
+        margin:
+            1.3rem
+            auto
+            1.7rem;
+    }
+
+
+    .barra-compas-accents-ritmics {
+        margin:
+            0
+            0.5rem;
+    }
+
+
+    .zona-figures-accents {
+        justify-content: flex-start;
+    }
+
+
+    .figura-accent-ritmica {
+        min-width: 76px;
+    }
+
+}
+
+
+@media (
+    max-width: 550px
+) {
+
+    .figures-exemple-accents-ritmics {
+        gap: 0.65rem;
+    }
+
+
+    .figura-exemple-accent-ritmic {
+        min-width: 70px;
+    }
+
+
+    .simbol-exemple-accent {
+        min-width: 60px;
+
+        min-height: 65px;
+
+        font-size: 2.6rem;
+    }
+
+
+    .text-exemple-accent {
+        min-width: 70px;
+
+        padding:
+            0.4rem
+            0.5rem;
+
+        font-size: 0.78rem;
+    }
+
+
+    .contenidor-figures-accents-ritmics {
+        min-height: 135px;
+    }
+
+
+    .barra-compas-accents-ritmics {
+        min-height: 105px;
+    }
+
+
+    .figura-accent-ritmica {
+        min-width: 68px;
+
+        min-height: 98px;
+
+        padding:
+            0.45rem
+            0.35rem;
+    }
+
+
+    .simbol-figura-accent {
+        min-height: 60px;
+
+        font-size: 2.7rem;
+    }
+
+
+    .etiqueta-figura-accent {
+        font-size: 0.75rem;
+    }
+
+
+    .botons-accents-ritmics {
+        gap: 0.6rem;
+    }
+
+
+    .boto-accent {
+        min-width: 95px;
+
+        padding:
+            0.7rem
+            0.85rem;
+
+        font-size: 0.9rem;
+    }
+
+
+    .controls-accents-ritmics {
+        gap: 0.7rem;
+    }
+
+}
+
+
+@media (
+    max-width: 400px
+) {
+
+    .exemple-accents-ritmics {
+        padding: 1rem 0.6rem;
+    }
+
+
+    .figura-exemple-accent-ritmic {
+        min-width: 60px;
+    }
+
+
+    .simbol-exemple-accent {
+        font-size: 2.35rem;
+    }
+
+
+    .text-exemple-accent {
+        min-width: 60px;
+
+        font-size: 0.7rem;
+    }
+
+
+    .barra-compas-accents-ritmics {
+        margin:
+            0
+            0.35rem;
+    }
+
+
+    .figura-accent-ritmica {
+        min-width: 62px;
+    }
+
+
+    .simbol-figura-accent {
+        font-size: 2.45rem;
+    }
+
+
+    .boto-accent {
+        min-width: 88px;
+
+        font-size: 0.84rem;
+    }
+
+}
