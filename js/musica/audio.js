@@ -13,21 +13,27 @@ let samplesCarregats = false;
 // RUTA DELS SAMPLES
 // =========================
 
-const ES_GITHUB_PAGES =
-    window.location.hostname.endsWith(
-        "github.io"
-    );
+const SCRIPT_AUDIO =
+    document.currentScript;
 
 
-const RUTA_BASE =
-    ES_GITHUB_PAGES
-        ? `/${window.location.pathname.split("/")[1]}/`
-        : "/";
+const URL_AUDIO_JS =
+    SCRIPT_AUDIO
+        ? SCRIPT_AUDIO.src
+        : window.location.href;
 
 
 const RUTA_PIANO =
-    `${RUTA_BASE}assets/audio/piano/`;
-      
+    new URL(
+        "../../assets/audio/piano/",
+        URL_AUDIO_JS
+    ).href;
+
+
+console.log(
+    "RUTA_PIANO:",
+    RUTA_PIANO
+);
 // =========================
 // OBTENIR CONTEXT D'ÀUDIO
 // =========================
