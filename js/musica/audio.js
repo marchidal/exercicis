@@ -13,10 +13,21 @@ let samplesCarregats = false;
 // RUTA DELS SAMPLES
 // =========================
 
+const ES_GITHUB_PAGES =
+    window.location.hostname.endsWith(
+        "github.io"
+    );
+
+
+const RUTA_BASE =
+    ES_GITHUB_PAGES
+        ? `/${window.location.pathname.split("/")[1]}/`
+        : "/";
+
+
 const RUTA_PIANO =
-    "/assets/audio/piano/";
-
-
+    `${RUTA_BASE}assets/audio/piano/`;
+      
 // =========================
 // OBTENIR CONTEXT D'ÀUDIO
 // =========================
