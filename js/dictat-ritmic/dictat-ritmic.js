@@ -96,45 +96,158 @@ function iniciarDictatRitmic(config) {
 
 
 
+// =========================
+// AUDIO
+// =========================
+
+   let contextAudio = null;
+   
+   let bufferDjambe = null;
+   
+   let djambeCarregat = false;
+   
+   
+   // =========================
+   // RUTA DEL SAMPLE DE DJAMBE
+   // =========================
+   //
+   // Busquem explícitament
+   // dictat-ritmic.js per calcular
+   // la ruta del sample.
+   //
+   // Així funciona tant en local
+   // com a GitHub Pages.
+   // =========================
+   
+   const SCRIPT_DICTAT_RITMIC =
+       document.querySelector(
+           'script[src*="dictat-ritmic.js"]'
+       );
+   
+   
+   const URL_DICTAT_RITMIC_JS =
+       SCRIPT_DICTAT_RITMIC
+           ? SCRIPT_DICTAT_RITMIC.src
+           : null;
+   
+   
+   const RUTA_DJAMBE =
+       URL_DICTAT_RITMIC_JS
+           ? new URL(
+               "../../assets/audio/percu/djambe.wav",
+               URL_DICTAT_RITMIC_JS
+           ).href
+           : null;
+   
+   
+   // =========================
+   // CONTEXT D'ÀUDIO
+   // =========================
+   
+   function obtenirContextAudio() {
+   
+       if (!contextAudio) {
+   
+           contextAudio =
+               new (
+                   window.AudioContext ||
+                   window.webkitAudioContext
+               )();
+       }
+   
+   
+       return contextAudio;
+   }
+   
+   
     // =========================
-    // AUDIO
+    // CARREGAR SAMPLE DE DJAMBE
     // =========================
-
-    let contextAudio = null;
-
-
-
-    function obtenirContextAudio() {
-
-        if (!contextAudio) {
-
-            contextAudio =
-                new (
-                    window.AudioContext ||
-                    window.webkitAudioContext
-                )();
+    
+    async function carregarDjambe() {
+    
+        if (djambeCarregat) {
+            return;
         }
-
-
-        return contextAudio;
-    }
-
-
-
-    async function activarAudioRitmic() {
-
+    
+    
+        if (!RUTA_DJAMBE) {
+    
+            throw new Error(
+                "No s'ha pogut determinar la ruta de djambe.wav"
+            );
+        }
+    
+    
         const context =
             obtenirContextAudio();
-
-
-        if (
-            context.state ===
-            "suspended"
-        ) {
-
-            await context.resume();
+    
+    
+        const resposta =
+            await fetch(
+                RUTA_DJAMBE
+            );
+    
+    
+        if (!resposta.ok) {
+    
+            throw new Error(
+                `No s'ha pogut carregar djambe.wav (${resposta.status}): ${RUTA_DJAMBE}`
+            );
         }
+    
+    
+        const arrayBuffer =
+            await resposta.arrayBuffer();
+    
+    
+        bufferDjambe =
+            await context.decodeAudioData(
+                arrayBuffer
+            );
+    
+    
+        djambeCarregat =
+            true;
     }
+   
+   
+   // =========================
+   // ACTIVAR ÀUDIO RÍTMIC
+   // =========================
+   
+   async function activarAudioRitmic() {
+   
+       const context =
+           obtenirContextAudio();
+   
+   
+       if (
+           context.state ===
+           "suspended"
+       ) {
+   
+           await context.resume();
+       }
+   
+   
+       if (!djambeCarregat) {
+   
+           try {
+   
+               await carregarDjambe();
+   
+           } catch (error) {
+   
+               console.error(
+                   "Error carregant el sample de djambé:",
+                   error
+               );
+   
+               throw error;
+           }
+       }
+   }
 
 
 
@@ -268,74 +381,71 @@ function iniciarDictatRitmic(config) {
     // =========================
     // COP RÍTMIC
     // =========================
-
+    
     function crearCop(
         temps
     ) {
-
+    
         const context =
             obtenirContextAudio();
-
-
-        const oscilador =
-            context.createOscillator();
-
-
+    
+    
+        if (!bufferDjambe) {
+    
+            console.warn(
+                "El sample de djambé encara no està carregat."
+            );
+    
+            return;
+        }
+    
+    
+        // =========================
+        // FONT DEL SAMPLE
+        // =========================
+    
+        const font =
+            context.createBufferSource();
+    
+    
         const guany =
             context.createGain();
-
-
-        oscilador.connect(
+    
+    
+        font.buffer =
+            bufferDjambe;
+    
+    
+        // =========================
+        // VOLUM
+        // =========================
+    
+        guany.gain.setValueAtTime(
+            0.8,
+            temps
+        );
+    
+    
+        // =========================
+        // CONNEXIONS
+        // =========================
+    
+        font.connect(
             guany
         );
-
-
+    
+    
         guany.connect(
             context.destination
         );
-
-
-        oscilador.type =
-            "triangle";
-
-
-        oscilador.frequency.setValueAtTime(
-            180,
+    
+    
+        // =========================
+        // REPRODUIR
+        // =========================
+    
+        font.start(
             temps
-        );
-
-
-        oscilador.frequency.exponentialRampToValueAtTime(
-            90,
-            temps + 0.06
-        );
-
-
-        guany.gain.setValueAtTime(
-            0.0001,
-            temps
-        );
-
-
-        guany.gain.exponentialRampToValueAtTime(
-            0.35,
-            temps + 0.005
-        );
-
-
-        guany.gain.exponentialRampToValueAtTime(
-            0.0001,
-            temps + 0.12
-        );
-
-
-        oscilador.start(
-            temps
-        );
-
-
-        oscilador.stop(
-            temps + 0.13
         );
     }
 
