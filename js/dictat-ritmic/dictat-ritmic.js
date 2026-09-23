@@ -302,75 +302,75 @@ function iniciarDictatRitmic(config) {
     }
 
 
-
+ 
     // =========================
     // CLIC DE METRÒNOM
     // =========================
-
+    
     function crearClic(
         temps,
         accent = false
     ) {
-
+    
         const context =
             obtenirContextAudio();
-
-
+    
+    
         const oscilador =
             context.createOscillator();
-
-
+    
+    
         const guany =
             context.createGain();
-
-
+    
+    
         oscilador.connect(
             guany
         );
-
-
+    
+    
         guany.connect(
             context.destination
         );
-
-
+    
+    
         oscilador.type =
             "sine";
-
-
+    
+    
         oscilador.frequency.setValueAtTime(
             accent
                 ? 1200
                 : 850,
             temps
         );
-
-
+    
+    
         guany.gain.setValueAtTime(
             0.0001,
             temps
         );
-
-
+    
+    
         guany.gain.exponentialRampToValueAtTime(
             accent
-                ? 0.18
-                : 0.11,
+                ? 0.10
+                : 0.06,
             temps + 0.005
         );
-
-
+    
+    
         guany.gain.exponentialRampToValueAtTime(
             0.0001,
             temps + 0.06
         );
-
-
+    
+    
         oscilador.start(
             temps
         );
-
-
+    
+    
         oscilador.stop(
             temps + 0.07
         );
