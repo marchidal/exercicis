@@ -21,13 +21,6 @@ const configuracioLlenguatge6 = {
     figuresDisponibles: [
 
         {
-            id: "redonda",
-            nom: "redonda",
-            simbol: "𝅝",
-            valor: 4
-        },
-
-        {
             id: "blanca",
             nom: "blanca",
             simbol: "𝅗𝅥",
@@ -46,16 +39,21 @@ const configuracioLlenguatge6 = {
             nom: "corxera",
             simbol: "𝅘𝅥𝅮",
             valor: 0.5
-        },
-
-        {
-            id: "semicorxera",
-            nom: "semicorxera",
-            simbol: "𝅘𝅥𝅯",
-            valor: 0.25
         }
 
     ],
+
+
+    // =========================
+    // REGLES DE GENERACIÓ
+    // =========================
+
+    totesLesPulsacions: true,
+
+    corxeresSempreJuntes: true,
+
+    senseSincopes: true,
+
 
 
     // =========================

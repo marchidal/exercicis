@@ -21,13 +21,6 @@ const configuracioLlenguatge8 = {
     figuresDisponibles: [
 
         {
-            id: "redonda",
-            nom: "redonda",
-            simbol: "𝅝",
-            valor: 4
-        },
-
-        {
             id: "blanca",
             nom: "blanca",
             simbol: "𝅗𝅥",
@@ -46,23 +39,53 @@ const configuracioLlenguatge8 = {
             nom: "corxera",
             simbol: "𝅘𝅥𝅮",
             valor: 0.5
-        },
-
-        {
-            id: "semicorxera",
-            nom: "semicorxera",
-            simbol: "𝅘𝅥𝅯",
-            valor: 0.25
         }
 
     ],
 
 
     // =========================
+    // REGLES DE GENERACIÓ
+    // =========================
+
+    // Aquí sí permetem síncopes.
+
+    senseSincopes: false,
+
+
+    // No utilitzem semicorxeres.
+
+    patronsSemicorxeres: false,
+
+
+    // Nombre mínim de figures
+    // que han de començar exactament
+    // sobre una pulsació del metrònom.
+
+    minimPulsacions: {
+
+        "2/4": 1,
+
+        "3/4": 2,
+
+        "4/4": 2
+
+    },
+
+
+
+    // =========================
+    // SÍNCOPES OBLIGATÒRIES
+    // =========================
+    
+    preguntesAmbSincopa: 4,
+
+
+    // =========================
     // PREGUNTES
     // =========================
 
-    totalPreguntes: 8
+    totalPreguntes: 10
 
 };
 
@@ -71,6 +94,6 @@ const configuracioLlenguatge8 = {
 // INICIAR EXERCICI
 // =========================
 
-iniciarExerciciAccentsMetricsRitmics(
+iniciarExerciciMarcarPulsacions(
     configuracioLlenguatge8
 );

@@ -324,183 +324,794 @@ function iniciarExerciciMarcarPulsacions(
     }
 
 
+// =========================
+// GENERAR SEQÜÈNCIA
+// SENSE SÍNCOPES
+// =========================
+
+function generarSequenciaSenseSincopes() {
+
+    const resultat = [];
+
 
     // =========================
-    // GENERAR SEQÜÈNCIA
+    // BUSCAR FIGURES
     // =========================
 
-    function generarSequencia() {
-    
-        const figuresValides =
-            obtenirFiguresValides();
-    
-    
+    const negra =
+        config.figuresDisponibles.find(
+            figura =>
+                figura.id === "negra"
+        );
+
+
+    const blanca =
+        config.figuresDisponibles.find(
+            figura =>
+                figura.id === "blanca"
+        );
+
+
+    const corxera =
+        config.figuresDisponibles.find(
+            figura =>
+                figura.id === "corxera"
+        );
+
+
+    const semicorxera =
+        config.figuresDisponibles.find(
+            figura =>
+                figura.id ===
+                "semicorxera"
+        );
+
+
+    // =========================
+    // PATRONS D'UNA PULSACIÓ
+    // =========================
+
+    const patronsUnaPulsacio = [];
+
+
+    // Negra
+
+    if (negra) {
+
+        patronsUnaPulsacio.push(
+            [
+                negra
+            ]
+        );
+    }
+
+
+    // Dues corxeres
+
+    if (corxera) {
+
+        patronsUnaPulsacio.push(
+            [
+                corxera,
+                corxera
+            ]
+        );
+    }
+
+
+    // =========================
+    // PATRONS AMB SEMICORXERES
+    // =========================
+
+    if (
+        config.patronsSemicorxeres ===
+        true &&
+        semicorxera
+    ) {
+
+        // 16 + 16 + 16 + 16
+
+        patronsUnaPulsacio.push(
+            [
+                semicorxera,
+                semicorxera,
+                semicorxera,
+                semicorxera
+            ]
+        );
+
+
+        // 8 + 16 + 16
+
+        if (corxera) {
+
+            patronsUnaPulsacio.push(
+                [
+                    corxera,
+                    semicorxera,
+                    semicorxera
+                ]
+            );
+
+
+            // 16 + 16 + 8
+
+            patronsUnaPulsacio.push(
+                [
+                    semicorxera,
+                    semicorxera,
+                    corxera
+                ]
+            );
+
+
+            // 16 + 8 + 16
+
+            patronsUnaPulsacio.push(
+                [
+                    semicorxera,
+                    corxera,
+                    semicorxera
+                ]
+            );
+        }
+    }
+
+
+    if (
+        patronsUnaPulsacio.length === 0
+    ) {
+
+        return null;
+    }
+
+
+    // =========================
+    // CONSTRUIR COMPÀS
+    // =========================
+
+    let posicioActual = 0;
+
+    let intents = 0;
+
+
+    while (
+        posicioActual <
+        duradaObjectiu -
+        0.000001
+    ) {
+
+        intents++;
+
+
         if (
-            figuresValides.length === 0
+            intents > 100
         ) {
-    
+
             return null;
         }
-    
-    
-        let intentsGenerals = 0;
-    
-    
-        while (
-            intentsGenerals < 500
+
+
+        const restant =
+            duradaObjectiu -
+            posicioActual;
+
+
+        const opcions = [];
+
+
+        // =========================
+        // PATRONS D'UNA PULSACIÓ
+        // =========================
+
+        if (
+            restant >=
+            1 - 0.000001
         ) {
-    
-            intentsGenerals++;
-    
-    
-            const resultat = [];
-    
-            let duradaActual = 0;
-    
-            let intentsInterns = 0;
-    
-    
-            while (
-                duradaActual <
-                duradaObjectiu -
-                0.000001
-            ) {
-    
-                intentsInterns++;
-    
-    
-                if (
-                    intentsInterns > 200
-                ) {
-    
-                    break;
+
+            patronsUnaPulsacio.forEach(
+                patro => {
+
+                    opcions.push({
+                        figures: patro,
+                        valor: 1
+                    });
                 }
+            );
+        }
+
+
+        // =========================
+        // BLANCA
+        // =========================
+
+        if (
+            blanca &&
+            restant >=
+            2 - 0.000001
+        ) {
+
+            opcions.push({
+                figures: [
+                    blanca
+                ],
+                valor: 2
+            });
+        }
+
+
+        if (
+            opcions.length === 0
+        ) {
+
+            return null;
+        }
+
+
+        const opcio =
+            obtenirElementAleatori(
+                opcions
+            );
+
+
+        resultat.push(
+            ...opcio.figures
+        );
+
+
+        posicioActual +=
+            opcio.valor;
+    }
+
+
+    // =========================
+    // EVITAR COMPÀS
+    // D'UNA SOLA FIGURA
+    // =========================
+
+    if (
+        resultat.length <= 1
+    ) {
+
+        return generarSequenciaSenseSincopes();
+    }
+
+
+    return resultat;
+}
+
+
+
+// =========================
+// OBTENIR PATRONS
+// DE SEMICORXERES
+// =========================
+
+function obtenirPatronsSemicorxeres() {
+
+    if (
+        config.patronsSemicorxeres !== true
+    ) {
+
+        return [];
+    }
+
+
+    const corxera =
+        config.figuresDisponibles.find(
+            figura =>
+                figura.id === "corxera"
+        );
+
+
+    const semicorxera =
+        config.figuresDisponibles.find(
+            figura =>
+                figura.id === "semicorxera"
+        );
+
+
+    if (!semicorxera) {
+
+        return [];
+    }
+
+
+    const patrons = [];
+
+
+    // =========================
+    // 16 + 16 + 16 + 16
+    // =========================
+
+    patrons.push({
+
+        tipus: "patro",
+
+        valor: 1,
+
+        figures: [
+            semicorxera,
+            semicorxera,
+            semicorxera,
+            semicorxera
+        ]
+
+    });
+
+
+    if (corxera) {
+
+        // =========================
+        // 8 + 16 + 16
+        // =========================
+
+        patrons.push({
+
+            tipus: "patro",
+
+            valor: 1,
+
+            figures: [
+                corxera,
+                semicorxera,
+                semicorxera
+            ]
+
+        });
+
+
+        // =========================
+        // 16 + 16 + 8
+        // =========================
+
+        patrons.push({
+
+            tipus: "patro",
+
+            valor: 1,
+
+            figures: [
+                semicorxera,
+                semicorxera,
+                corxera
+            ]
+
+        });
+
+
+        // =========================
+        // 16 + 8 + 16
+        // =========================
+
+        patrons.push({
+
+            tipus: "patro",
+
+            valor: 1,
+
+            figures: [
+                semicorxera,
+                corxera,
+                semicorxera
+            ]
+
+        });
+    }
+
+
+    return patrons;
+}
+
+// =========================
+// COMPROVAR SI HI HA SÍNCOPE
+// =========================
+
+function teSincopa(
+    sequencia
+) {
+
+    let posicio = 0;
+
+
+    for (
+        const figura of sequencia
+    ) {
+
+        const durada =
+            Number(
+                figura.valor
+            );
+
+
+        const inici =
+            posicio;
+
+
+        const final =
+            posicio +
+            durada;
+
+
+        // =========================
+        // COMENÇA FORA DE PULSACIÓ
+        // =========================
+
+        const comencaForaPulsacio =
+            Math.abs(
+                inici -
+                Math.round(inici)
+            ) >
+            0.000001;
+
+
+        // =========================
+        // TRAVESSA UNA PULSACIÓ
+        // =========================
+
+        const seguentPulsacio =
+            Math.ceil(
+                inici + 0.000001
+            );
+
+
+        const travessaPulsacio =
+            seguentPulsacio <
+            final -
+            0.000001;
+
+
+        // =========================
+        // SÍNCOPE
+        // =========================
+
+        if (
+            comencaForaPulsacio &&
+            travessaPulsacio
+        ) {
+
+            return true;
+        }
+
+
+        posicio =
+            final;
+    }
+
+
+    return false;
+}
+
+
+// =========================
+// GENERAR SEQÜÈNCIA
+// =========================
+
+function generarSequencia() {
+
+    // =========================
+    // MODE SENSE SÍNCOPES
+    // =========================
+
+    if (
+        config.senseSincopes === true
+    ) {
+
+        return generarSequenciaSenseSincopes();
+    }
+
+
+    // =========================
+    // MODE NORMAL
+    // =========================
+
+    const figuresValides =
+        obtenirFiguresValides();
+
+
+    if (
+        figuresValides.length === 0
+    ) {
+
+        return null;
+    }
+
+    // =========================
+    // FIGURES INDIVIDUALS
+    // =========================
+    
+    // Si treballem amb patrons de
+    // semicorxeres, la semicorxera
+    // NO es pot generar individualment.
+    
+    const figuresIndividuals =
+        config.patronsSemicorxeres === true
+    
+            ? figuresValides.filter(
+                figura =>
+                    figura.id !==
+                    "semicorxera"
+            )
+    
+            : figuresValides;
     
     
-                const restant =
-                    duradaObjectiu -
-                    duradaActual;
+    // =========================
+    // PATRONS DE SEMICORXERES
+    // =========================
     
-    
-                const possibles =
-                    figuresValides.filter(
+    const patronsSemicorxeres =
+        obtenirPatronsSemicorxeres();
+
+
+    let intentsGenerals = 0;
+
+
+    while (
+        intentsGenerals < 500
+    ) {
+
+        intentsGenerals++;
+
+
+        const resultat = [];
+
+        let duradaActual = 0;
+
+        let intentsInterns = 0;
+
+
+        while (
+            duradaActual <
+            duradaObjectiu -
+            0.000001
+        ) {
+
+            intentsInterns++;
+
+
+            if (
+                intentsInterns > 200
+            ) {
+
+                break;
+            }
+
+
+            const restant =
+                duradaObjectiu -
+                duradaActual;
+
+
+            // =========================
+            // OPCIONS INDIVIDUALS
+            // =========================
+            
+            const possiblesFigures =
+                figuresIndividuals
+                    .filter(
                         figura =>
                             Number(
                                 figura.valor
                             ) <=
                             restant +
                             0.000001
+                    )
+                    .map(
+                        figura => ({
+            
+                            tipus: "figura",
+            
+                            valor:
+                                Number(
+                                    figura.valor
+                                ),
+            
+                            figures: [
+                                figura
+                            ]
+            
+                        })
                     );
-    
-    
-                if (
-                    possibles.length === 0
-                ) {
-    
-                    break;
-                }
-    
-    
-                const figura =
-                    obtenirElementAleatori(
-                        possibles
-                    );
-    
-    
-                resultat.push(
-                    figura
-                );
-    
-    
-                duradaActual +=
-                    Number(
-                        figura.valor
-                    );
-            }
-    
-    
-    
+            
+            
             // =========================
-            // COMPROVAR DURADA EXACTA
+            // PATRONS POSSIBLES
             // =========================
-    
-            const compasComplet =
+            
+            // =========================
+            // ESTEM SOBRE UNA PULSACIÓ?
+            // =========================
+            
+            const estaSobrePulsacio =
                 Math.abs(
                     duradaActual -
-                    duradaObjectiu
+                    Math.round(
+                        duradaActual
+                    )
                 ) <
                 0.000001;
-    
-    
+            
+            
+            // =========================
+            // PATRONS POSSIBLES
+            // =========================
+            
+            // Els patrons amb semicorxeres
+            // només poden començar exactament
+            // sobre una pulsació.
+            //
+            // D'aquesta manera, les síncopes
+            // només es poden crear amb
+            // negres i corxeres.
+            
+            const possiblesPatrons =
+                estaSobrePulsacio
+            
+                    ? patronsSemicorxeres.filter(
+                        patro =>
+                            patro.valor <=
+                            restant +
+                            0.000001
+                    )
+            
+                    : [];
+            
+            
+            // =========================
+            // TOTES LES OPCIONS
+            // =========================
+            
+            const possibles = [
+            
+                ...possiblesFigures,
+            
+                ...possiblesPatrons
+            
+            ];
+
+
             if (
-                !compasComplet
+                possibles.length === 0
             ) {
-    
-                continue;
+
+                break;
             }
-    
-    
-    
-            // =========================
-            // EVITAR COMPASSOS
-            // AMB UNA SOLA FIGURA
-            // =========================
-    
-            if (
-                resultat.length <= 1
-            ) {
-    
-                continue;
-            }
-    
-    
-    
-            // =========================
-            // CALCULAR QUANTES FIGURES
-            // CAUEN SOBRE PULSACIÓ
-            // =========================
-    
-            const pulsacions =
-                calcularPulsacionsCorrectes(
-                    resultat
+
+
+            const opcio =
+                obtenirElementAleatori(
+                    possibles
                 );
-    
-    
-            const quantitatPulsacions =
-                pulsacions.length;
-    
-    
-    
+            
+            
             // =========================
-            // 3/4 I 4/4
-            // MÍNIM 2 FIGURES
-            // SOBRE PULSACIÓ
+            // AFEGIR FIGURA O PATRÓ
             // =========================
-    
-            if (
-                (
-                    compasActual === "3/4" ||
-                    compasActual === "4/4"
-                ) &&
-                quantitatPulsacions < 2
-            ) {
-    
-                continue;
-            }
-    
-    
-    
-            // =========================
-            // SEQÜÈNCIA VÀLIDA
-            // =========================
-    
-            return resultat;
+            
+            resultat.push(
+                ...opcio.figures
+            );
+            
+            
+            duradaActual +=
+                opcio.valor;
         }
-    
-    
-        return null;
+
+
+        // =========================
+        // DURADA EXACTA
+        // =========================
+
+        const compasComplet =
+            Math.abs(
+                duradaActual -
+                duradaObjectiu
+            ) <
+            0.000001;
+
+
+        if (
+            !compasComplet
+        ) {
+
+            continue;
+        }
+
+
+        // =========================
+        // EVITAR UNA SOLA FIGURA
+        // =========================
+
+        if (
+            resultat.length <= 1
+        ) {
+
+            continue;
+        }
+
+
+        // =========================
+        // PULSACIONS CORRECTES
+        // =========================
+
+        const pulsacions =
+            calcularPulsacionsCorrectes(
+                resultat
+            );
+
+
+        const quantitatPulsacions =
+            pulsacions.length;
+
+
+        // =========================
+        // MÍNIM DE PULSACIONS
+        // =========================
+
+        let minimPulsacions = 0;
+
+
+        if (
+            config.minimPulsacions &&
+            Number.isFinite(
+                config.minimPulsacions[
+                    compasActual
+                ]
+            )
+        ) {
+
+            minimPulsacions =
+                config.minimPulsacions[
+                    compasActual
+                ];
+        }
+
+        else if (
+            compasActual === "3/4" ||
+            compasActual === "4/4"
+        ) {
+
+            // Comportament anterior
+            minimPulsacions = 2;
+        }
+
+
+        if (
+            quantitatPulsacions <
+            minimPulsacions
+        ) {
+
+            continue;
+        }
+
+        // =========================
+        // SÍNCOPE OBLIGATÒRIA
+        // =========================
+        
+        const necessitaSincopa =
+            Number.isFinite(
+                config.preguntesAmbSincopa
+            ) &&
+            preguntaActual <=
+                config.preguntesAmbSincopa;
+        
+        
+        if (
+            necessitaSincopa &&
+            !teSincopa(resultat)
+        ) {
+        
+            continue;
+        }
+
+
+        return resultat;
     }
 
+
+    return null;
+}
 
 
     // =========================

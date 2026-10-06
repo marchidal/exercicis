@@ -118,22 +118,26 @@ function iniciarExerciciNotes(config) {
     // BARREJAR
     // =========================
 
-    function barrejar(array) {
-
+    function barrejar(
+    array,
+    obtenirClau = null
+    ) {
+    
         const copia = [...array];
-
+    
+        // Barreja inicial
         for (
             let i = copia.length - 1;
             i > 0;
             i--
         ) {
-
+    
             const j =
                 Math.floor(
                     Math.random() *
                     (i + 1)
                 );
-
+    
             [
                 copia[i],
                 copia[j]
@@ -142,7 +146,84 @@ function iniciarExerciciNotes(config) {
                 copia[i]
             ];
         }
-
+    
+    
+        // Si no s'ha indicat cap criteri,
+        // retornem la barreja normal.
+        if (!obtenirClau) {
+            return copia;
+        }
+    
+    
+        // =========================
+        // EVITAR REPETICIONS SEGUIDES
+        // =========================
+    
+        for (
+            let i = 1;
+            i < copia.length;
+            i++
+        ) {
+    
+            const clauActual =
+                obtenirClau(
+                    copia[i]
+                );
+    
+            const clauAnterior =
+                obtenirClau(
+                    copia[i - 1]
+                );
+    
+    
+            if (
+                clauActual ===
+                clauAnterior
+            ) {
+    
+                // Busquem un element posterior
+                // que sigui diferent.
+    
+                let indexCanvi = -1;
+    
+                for (
+                    let j = i + 1;
+                    j < copia.length;
+                    j++
+                ) {
+    
+                    if (
+                        obtenirClau(
+                            copia[j]
+                        ) !==
+                        clauAnterior
+                    ) {
+    
+                        indexCanvi = j;
+                        break;
+                    }
+                }
+    
+    
+                // Si l'hem trobat,
+                // intercanviem les posicions.
+    
+                if (
+                    indexCanvi !== -1
+                ) {
+    
+                    [
+                        copia[i],
+                        copia[indexCanvi]
+                    ] = [
+                        copia[indexCanvi],
+                        copia[i]
+                    ];
+                }
+            }
+        }
+    
+    
         return copia;
     }
 
@@ -163,7 +244,9 @@ function iniciarExerciciNotes(config) {
                         repeticions
                     ).fill(equivalencia);
                 }
-            )
+            ),
+            equivalencia =>
+                equivalencia.pregunta
         );
         
     // =========================
@@ -182,7 +265,9 @@ function iniciarExerciciNotes(config) {
                         repeticions
                     ).fill(nota);
                 }
-            )
+            ),
+            nota =>
+                nota.posicio
         );
      
     // =========================

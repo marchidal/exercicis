@@ -91,9 +91,45 @@ const EXERCICIS = [
         categoria: "notes",
         numero: 8,
         rang: "C",
-        xpMax: 60,
+        xpMax: 65,
         url: "exercicis/notes/notes-8.html"
-    },    
+    },
+    
+    {
+        id: "notes-9",
+        categoria: "notes",
+        numero: 9,
+        rang: "C",
+        xpMax: 65,
+        url: "exercicis/notes/notes-9.html"
+    },
+    
+    {
+        id: "notes-10",
+        categoria: "notes",
+        numero: 10,
+        rang: "C",
+        xpMax: 65,
+        url: "exercicis/notes/notes-10.html"
+    },
+    
+    {
+        id: "notes-11",
+        categoria: "notes",
+        numero: 11,
+        rang: "C",
+        xpMax: 65,
+        url: "exercicis/notes/notes-11.html"
+    },
+    
+    {
+        id: "notes-12",
+        categoria: "notes",
+        numero: 12,
+        rang: "C",
+        xpMax: 65,
+        url: "exercicis/notes/notes-12.html"
+    },
 
     // =========================
     // LLENGUATGE
@@ -140,7 +176,7 @@ const EXERCICIS = [
         categoria: "llenguatge",
         numero: 5,
         rang: "D",
-        xpMax: 60,
+        xpMax: 55,
         url: "exercicis/llenguatge/llenguatge-5.html"
     },
 
@@ -149,7 +185,7 @@ const EXERCICIS = [
         categoria: "llenguatge",
         numero: 6,
         rang: "D",
-        xpMax: 60,
+        xpMax: 55,
         url: "exercicis/llenguatge/llenguatge-6.html"
     },    
 
@@ -158,7 +194,7 @@ const EXERCICIS = [
         categoria: "llenguatge",
         numero: 7,
         rang: "D",
-        xpMax: 60,
+        xpMax: 55,
         url: "exercicis/llenguatge/llenguatge-7.html"
     },
     
@@ -167,9 +203,36 @@ const EXERCICIS = [
         categoria: "llenguatge",
         numero: 8,
         rang: "D",
-        xpMax: 60,
+        xpMax: 55,
         url: "exercicis/llenguatge/llenguatge-8.html"
-    },     
+    },
+    
+    {
+        id: "llenguatge-9",
+        categoria: "llenguatge",
+        numero: 9,
+        rang: "D",
+        xpMax: 60,
+        url: "exercicis/llenguatge/llenguatge-9.html"
+    },
+    
+    {
+        id: "llenguatge-10",
+        categoria: "llenguatge",
+        numero: 10,
+        rang: "D",
+        xpMax: 60,
+        url: "exercicis/llenguatge/llenguatge-10.html"
+    },
+    
+    {
+        id: "llenguatge-11",
+        categoria: "llenguatge",
+        numero: 11,
+        rang: "D",
+        xpMax: 60,
+        url: "exercicis/llenguatge/llenguatge-11.html"
+    }, 
     
     
     // =========================
