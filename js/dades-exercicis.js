@@ -233,6 +233,38 @@ const EXERCICIS = [
         xpMax: 60,
         url: "exercicis/llenguatge/llenguatge-11.html"
     }, 
+
+    // =========================
+    // INTERVALS
+    // =========================
+    
+    {
+    id: "intervals-1",
+    categoria: "intervals",
+    numero: 1,
+    rang: "D",
+    xpMax: 50,
+    url: "exercicis/intervals/intervals-1.html",
+    requereix: "notes-7"
+    },
+
+    {
+    id: "intervals-2",
+    categoria: "intervals",
+    numero: 2,
+    rang: "D",
+    xpMax: 50,
+    url: "exercicis/intervals/intervals-2.html"
+    },
+
+    {
+    id: "intervals-3",
+    categoria: "intervals",
+    numero: 3,
+    rang: "D",
+    xpMax: 50,
+    url: "exercicis/intervals/intervals-3.html"
+},
     
     
     // =========================

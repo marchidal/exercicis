@@ -55,15 +55,61 @@ function exerciciDesbloquejat(
     resultats
 ) {
 
+    // =========================
+    // REQUISITS ESPECIALS
+    // =========================
+
+    // Alguns exercicis poden requerir
+    // haver superat un exercici
+    // d'una altra categoria.
+    //
+    // Exemple:
+    // Intervals 1 requereix Notes 7.
+
+    if (exercici.requereix) {
+
+        const requisits = Array.isArray(
+            exercici.requereix
+        )
+            ? exercici.requereix
+            : [exercici.requereix];
+
+
+        const requisitsSuperats =
+            requisits.every(
+                id =>
+                    exerciciSuperat(
+                        id,
+                        resultats
+                    )
+            );
+
+
+        if (!requisitsSuperats) {
+            return false;
+        }
+    }
+
+
+    // =========================
+    // PRIMER EXERCICI
+    // =========================
+
     // El primer exercici de cada categoria
-    // sempre està disponible.
+    // està disponible si compleix
+    // els requisits especials.
 
     if (exercici.numero === 1) {
         return true;
     }
 
 
-    // Busquem l'exercici anterior.
+    // =========================
+    // EXERCICI ANTERIOR
+    // =========================
+
+    // Busquem l'exercici anterior
+    // dins de la mateixa categoria.
 
     const anterior =
         EXERCICIS.find(
@@ -78,13 +124,21 @@ function exerciciDesbloquejat(
     }
 
 
-    // Només es desbloqueja si l'anterior
-    // està superat amb un mínim del 75%.
+    // =========================
+    // COMPROVAR PROGRÉS
+    // =========================
+
+    // L'exercici es desbloqueja
+    // quan l'anterior està superat.
+    //
+    // El percentatge mínim necessari
+    // el controla sistema-exercicis.js.
 
     return exerciciSuperat(
         anterior.id,
         resultats
     );
+
 }
 
 

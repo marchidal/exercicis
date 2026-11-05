@@ -414,6 +414,21 @@ body {
     zoom: 0.9;
 }
 
+/* =========================================
+   EXPERIÈNCIA ACUMULADA PER CATEGORIA
+   ========================================= */
+
+.experiencia-acumulada {
+    margin: 12px 0 0;
+    font-size: 0.85rem;
+    color: #777;
+}
+
+.experiencia-acumulada strong {
+    color: #333;
+    font-weight: 700;
+}
+
 /* =========================
    RESPONSIVE
    ========================= */

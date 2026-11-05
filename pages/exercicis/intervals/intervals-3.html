@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Intervals 3 — Repàs de segones i terceres</title>
+
+    <!-- ========================= -->
+    <!-- ESTILS -->
+    <!-- ========================= -->
+
+    <link
+        rel="stylesheet"
+        href="../../../css/llenguatge.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../../../css/intervals.css"
+    >
+
+</head>
+
+<body>
+
+    <main class="contenidor-exercici">
+
+        <h1>Intervals 3</h1>
+
+
+        <!-- ======================================== -->
+        <!-- EXPLICACIÓ -->
+        <!-- ======================================== -->
+
+        <section
+            id="explicacio"
+            class="explicacio"
+        >
+
+            <h2>Repàs de segones i terceres</h2>
+
+            <p>
+                En aquest exercici repassaràs els quatre intervals
+                que has après: les <strong>segones menors (2m)</strong>,
+                les <strong>segones majors (2M)</strong>,
+                les <strong>terceres menors (3m)</strong>
+                i les <strong>terceres majors (3M)</strong>.
+            </p>
+
+            <h3>1. Com reconèixer una segona?</h3>
+
+            <p>
+                Una <strong>segona</strong> uneix dues notes consecutives
+                de l'escala. Pot ser menor o major segons la distància.
+            </p>
+
+            <div class="exemples-segones">
+                <div class="exemple-segona">
+                    <strong>Mi – Fa</strong>
+                    <span>Segona menor · ½ to</span>
+                </div>
+                <div class="exemple-segona">
+                    <strong>Do – Re</strong>
+                    <span>Segona major · 1 to</span>
+                </div>
+            </div>
+
+            <h3>2. Com reconèixer una tercera?</h3>
+
+            <p>
+                Una <strong>tercera</strong> comprèn tres graus de l'escala:
+                la nota inicial, una nota intermèdia i la nota final.
+            </p>
+
+            <div class="exemples-segones">
+                <div class="exemple-segona">
+                    <strong>Re – Fa</strong>
+                    <span>Tercera menor · 1½ tons</span>
+                </div>
+                <div class="exemple-segona">
+                    <strong>Do – Mi</strong>
+                    <span>Tercera major · 2 tons</span>
+                </div>
+            </div>
+
+            <h3>3. Compara els quatre intervals</h3>
+
+            <div class="taula-intervals-contenidor">
+                <table class="taula-intervals">
+                    <thead>
+                        <tr>
+                            <th>Interval</th>
+                            <th>Distància</th>
+                            <th>Nom</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="fila-destacada">
+                            <td>Mi – Fa</td>
+                            <td>½ to</td>
+                            <td>2m</td>
+                        </tr>
+                        <tr>
+                            <td>Do – Re</td>
+                            <td>1 to</td>
+                            <td>2M</td>
+                        </tr>
+                        <tr class="fila-destacada">
+                            <td>Re – Fa</td>
+                            <td>1½ tons</td>
+                            <td>3m</td>
+                        </tr>
+                        <tr>
+                            <td>Do – Mi</td>
+                            <td>2 tons</td>
+                            <td>3M</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="resum-explicacio-intervals">
+                <h3>Recorda!</h3>
+                <p><strong>2m</strong> = ½ to.</p>
+                <p><strong>2M</strong> = 1 to.</p>
+                <p><strong>3m</strong> = 1½ tons.</p>
+                <p><strong>3M</strong> = 2 tons.</p>
+                <p>
+                    Primer compta els graus entre les notes;
+                    després identifica la distància en tons.
+                </p>
+            </div>
+
+            <h3>Com funciona l'exercici?</h3>
+
+            <p>
+                A cada pregunta veuràs <strong>dues notes en un pentagrama</strong>.
+                Hauràs d'indicar la distància en tons i el tipus d'interval.
+            </p>
+
+            <ol class="instruccions-intervals">
+                <li>Quina distància hi ha entre les notes?</li>
+                <li>Quin interval formen?</li>
+            </ol>
+
+            <p>
+                Per encertar, <strong>les dues respostes han de ser correctes</strong>.
+                Els quatre intervals apareixeran barrejats.
+            </p>
+
+            <p>
+                L'exercici consta de <strong>12 preguntes</strong>:
+                3 segones menors, 3 segones majors,
+                3 terceres menors i 3 terceres majors.
+            </p>
+
+
+            <!-- ========================= -->
+            <!-- COMENÇAR -->
+            <!-- ========================= -->
+
+            <button
+                id="comencar-btn"
+                class="boto-principal"
+                type="button"
+            >
+
+                Començar
+
+            </button>
+
+        </section>
+
+
+
+        <!-- ======================================== -->
+        <!-- ZONA D'EXERCICI -->
+        <!-- ======================================== -->
+
+        <section
+            id="zona-exercici"
+            class="zona-exercici ocult"
+        >
+
+
+            <!-- ========================= -->
+            <!-- PROGRÉS -->
+            <!-- ========================= -->
+
+            <div class="progres-pregunta">
+
+                Pregunta
+
+                <span id="pregunta-actual">
+                    1
+                </span>
+
+                de
+
+                <span id="total-preguntes">
+                    12
+                </span>
+
+            </div>
+
+
+            <!-- ========================= -->
+            <!-- ENUNCIAT -->
+            <!-- ========================= -->
+
+            <div class="enunciat-suma">
+
+                <h2>
+                    Reconeix l'interval
+                </h2>
+
+                <p>
+                    Observa les dues notes
+                    i selecciona la distància
+                    i l'interval corresponents.
+                </p>
+
+            </div>
+
+
+            <!-- ========================= -->
+            <!-- PENTAGRAMA -->
+            <!-- ========================= -->
+
+            <div class="contenidor-pentagrama-intervals">
+
+                <div
+                    id="pentagrama-intervals"
+                    class="pentagrama-intervals"
+                    aria-label="Pentagrama amb dues notes"
+                >
+
+                    <!--
+                        El motor dibuixarà aquí
+                        el pentagrama i les notes.
+                    -->
+
+                </div>
+
+            </div>
+
+
+            <!-- ======================================== -->
+            <!-- PRIMERA RESPOSTA: DISTÀNCIA -->
+            <!-- ======================================== -->
+
+            <div class="bloc-resposta-intervals">
+
+                <h3>
+                    1. Quina distància hi ha entre les notes?
+                </h3>
+
+                <p class="ajuda-resposta-intervals">
+                    Selecciona la quantitat de tons.
+                </p>
+
+                <div
+                    id="opcions-distancies"
+                    class="graella-opcions-intervals graella-distancies"
+                >
+
+                    <!--
+                        El motor crearà els botons
+                        de distàncies.
+
+                        En aquest exercici només
+                        estaran actius:
+
+                        1½ tons
+                        2 tons
+                    -->
+
+                </div>
+
+            </div>
+
+
+            <!-- ======================================== -->
+            <!-- SEGONA RESPOSTA: INTERVAL -->
+            <!-- ======================================== -->
+
+            <div class="bloc-resposta-intervals">
+
+                <h3>
+                    2. Quin interval formen?
+                </h3>
+
+                <p class="ajuda-resposta-intervals">
+                    Selecciona el tipus d'interval.
+                </p>
+
+                <div
+                    id="opcions-intervals"
+                    class="graella-opcions-intervals graella-tipus"
+                >
+
+                    <!--
+                        El motor crearà els botons
+                        de tots els intervals.
+
+                        En aquest exercici només
+                        estaran actius:
+
+                        2m
+                        2M
+                        3m
+                        3M
+                    -->
+
+                </div>
+
+            </div>
+
+
+            <!-- ========================= -->
+            <!-- CONTROLS -->
+            <!-- ========================= -->
+
+            <div class="controls-intervals">
+
+                <button
+                    id="boto-comprovar"
+                    class="boto-principal"
+                    type="button"
+                    disabled
+                >
+
+                    Comprovar
+
+                </button>
+
+            </div>
+
+
+            <!-- ========================= -->
+            <!-- FEEDBACK -->
+            <!-- ========================= -->
+
+            <div
+                id="feedback"
+                class="feedback"
+                aria-live="polite"
+            ></div>
+
+
+        </section>
+
+
+
+        <!-- ======================================== -->
+        <!-- RESULTAT FINAL -->
+        <!-- ======================================== -->
+
+        <section
+            id="resultat-final"
+            class="resultat-final ocult"
+        >
+
+            <h2>
+                Resultat
+            </h2>
+
+
+            <!-- ========================= -->
+            <!-- PUNTUACIÓ -->
+            <!-- ========================= -->
+
+            <div class="puntuacio-final">
+
+                <p id="puntuacio-final">
+                    0 / 12
+                </p>
+
+            </div>
+
+
+            <!-- ======================================== -->
+            <!-- EXPERIÈNCIA -->
+            <!-- ======================================== -->
+
+            <div
+                id="resum-xp"
+                class="experiencia-final resum-xp"
+            >
+
+                <div class="resum-xp-header">
+
+                    <strong>
+                        Intervals
+                    </strong>
+
+                    <span id="nivell-xp">
+                        Rang D
+                    </span>
+
+                </div>
+
+
+                <!-- ========================= -->
+                <!-- BARRA D'EXPERIÈNCIA -->
+                <!-- ========================= -->
+
+                <div class="barra-xp-final">
+
+                    <div
+                        id="barra-xp-final-progres"
+                        class="barra-xp-final-progres"
+                    ></div>
+
+                </div>
+
+
+                <!-- ========================= -->
+                <!-- TEXT D'EXPERIÈNCIA -->
+                <!-- ========================= -->
+
+                <p id="text-xp-final">
+                    0 / 50 XP
+                </p>
+
+
+                <!-- ========================= -->
+                <!-- XP GUANYADA -->
+                <!-- ========================= -->
+
+                <p id="xp-guanyada">
+                    +0 XP
+                </p>
+
+            </div>
+
+
+            <!-- ========================= -->
+            <!-- FINALITZAR -->
+            <!-- ========================= -->
+
+            <button
+                id="finalitzar-btn"
+                class="boto-principal"
+                type="button"
+            >
+
+                Finalitzar
+
+            </button>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ======================================== -->
+    <!-- SCRIPTS -->
+    <!-- ======================================== -->
+
+    <!-- DADES DELS EXERCICIS -->
+
+    <script
+        src="../../../js/dades-exercicis.js"
+    ></script>
+
+
+    <!-- SISTEMA GENERAL -->
+
+    <script
+        src="../../../js/sistema-exercicis.js"
+    ></script>
+
+
+    <!-- MOTOR D'INTERVALS -->
+
+    <script
+        src="../../../js/intervals/reconeixer-intervals.js"
+    ></script>
+
+
+    <!-- CONFIGURACIÓ D'INTERVALS 3 -->
+
+    <script
+        src="../../../js/intervals/exercicis/intervals-3.js"
+    ></script>
+
+
+
+    <!-- ======================================== -->
+    <!-- INICIAR EXERCICI -->
+    <!-- ======================================== -->
+
+    <script>
+
+        document.getElementById(
+            "comencar-btn"
+        ).addEventListener(
+            "click",
+            function () {
+
+                document.getElementById(
+                    "explicacio"
+                ).classList.add(
+                    "ocult"
+                );
+
+                document.getElementById(
+                    "zona-exercici"
+                ).classList.remove(
+                    "ocult"
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

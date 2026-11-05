@@ -1,0 +1,1075 @@
+/* ============================================================
+   INTERVALS
+   ============================================================
+
+   Estils compartits per als exercicis d'intervals.
+
+   Inclou:
+   - Explicacions
+   - Taules de tons i semitons
+   - Pentagrama
+   - Respostes de distància
+   - Respostes d'interval
+   - Opcions bloquejades
+   - Feedback
+   - Disseny responsive
+
+   ============================================================ */
+
+
+/* ============================================================
+   VARIABLES
+   ============================================================ */
+
+:root {
+
+    --intervals-color-principal: #4f46e5;
+
+    --intervals-color-principal-hover: #4338ca;
+
+    --intervals-color-suau: #eef2ff;
+
+    --intervals-color-text: #1f2937;
+
+    --intervals-color-text-secundari: #6b7280;
+
+    --intervals-color-vora: #d1d5db;
+
+    --intervals-color-fons: #ffffff;
+
+    --intervals-color-bloquejat: #f3f4f6;
+
+    --intervals-color-correcte: #15803d;
+
+    --intervals-fons-correcte: #dcfce7;
+
+    --intervals-color-incorrecte: #b91c1c;
+
+    --intervals-fons-incorrecte: #fee2e2;
+
+    --intervals-radi: 12px;
+
+}
+
+
+/* ============================================================
+   EXPLICACIÓ
+   ============================================================ */
+
+.explicacio h3 {
+
+    margin-top: 28px;
+
+    margin-bottom: 12px;
+
+    color: var(
+        --intervals-color-text
+    );
+
+}
+
+
+.explicacio p {
+
+    line-height: 1.7;
+
+}
+
+
+.explicacio strong {
+
+    font-weight: 700;
+
+}
+
+
+/* ============================================================
+   AVÍS: MI-FA I SI-DO
+   ============================================================ */
+
+.avis-intervals {
+
+    margin: 20px 0;
+
+    padding: 18px 22px;
+
+    background: var(
+        --intervals-color-suau
+    );
+
+    border-left: 5px solid var(
+        --intervals-color-principal
+    );
+
+    border-radius: 0 12px 12px 0;
+
+}
+
+
+.avis-intervals p {
+
+    margin: 6px 0;
+
+}
+
+
+.avis-intervals strong {
+
+    color: var(
+        --intervals-color-principal
+    );
+
+}
+
+
+/* ============================================================
+   TAULA DE DISTÀNCIES
+   ============================================================ */
+
+.taula-intervals-contenidor {
+
+    width: 100%;
+
+    margin: 20px 0;
+
+    overflow-x: auto;
+
+}
+
+
+.taula-intervals {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: var(
+        --intervals-color-fons
+    );
+
+    border-radius: var(
+        --intervals-radi
+    );
+
+    overflow: hidden;
+
+}
+
+
+.taula-intervals th,
+.taula-intervals td {
+
+    padding: 12px 16px;
+
+    text-align: center;
+
+    border-bottom: 1px solid var(
+        --intervals-color-vora
+    );
+
+}
+
+
+.taula-intervals th {
+
+    background: var(
+        --intervals-color-principal
+    );
+
+    color: #ffffff;
+
+    font-weight: 700;
+
+}
+
+
+.taula-intervals tbody tr:last-child td {
+
+    border-bottom: none;
+
+}
+
+
+.taula-intervals .fila-destacada {
+
+    background: #fef3c7;
+
+    font-weight: 700;
+
+}
+
+
+.taula-intervals .fila-destacada td {
+
+    color: #92400e;
+
+}
+
+
+/* ============================================================
+   EXEMPLES DE SEGONES
+   ============================================================ */
+
+.exemples-segones {
+
+    display: grid;
+
+    grid-template-columns: repeat(
+        3,
+        minmax(0, 1fr)
+    );
+
+    gap: 12px;
+
+    margin: 20px 0;
+
+}
+
+
+.exemple-segona {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 90px;
+
+    padding: 16px;
+
+    background: var(
+        --intervals-color-suau
+    );
+
+    border: 1px solid #c7d2fe;
+
+    border-radius: var(
+        --intervals-radi
+    );
+
+    text-align: center;
+
+}
+
+
+.exemple-segona strong {
+
+    font-size: 1.1rem;
+
+    color: var(
+        --intervals-color-principal
+    );
+
+}
+
+
+.exemple-segona span {
+
+    font-size: 0.9rem;
+
+    color: var(
+        --intervals-color-text-secundari
+    );
+
+}
+
+
+/* ============================================================
+   EXEMPLE DESTACAT D'INTERVAL
+   ============================================================ */
+
+.exemple-interval-destacat {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 16px;
+
+    margin: 20px 0;
+
+    padding: 22px;
+
+    background: var(
+        --intervals-color-suau
+    );
+
+    border: 1px solid #c7d2fe;
+
+    border-radius: var(
+        --intervals-radi
+    );
+
+    text-align: center;
+
+}
+
+
+.exemple-interval-destacat strong {
+
+    font-size: 1.25rem;
+
+    color: var(
+        --intervals-color-principal
+    );
+
+}
+
+
+.exemple-interval-destacat span {
+
+    font-size: 1.05rem;
+
+    font-weight: 600;
+
+    color: var(
+        --intervals-color-text
+    );
+
+}
+
+
+/* ============================================================
+   RESUM DE L'EXPLICACIÓ
+   ============================================================ */
+
+.resum-explicacio-intervals {
+
+    margin: 28px 0;
+
+    padding: 20px 24px;
+
+    background: var(
+        --intervals-fons-correcte
+    );
+
+    border: 1px solid #86efac;
+
+    border-radius: var(
+        --intervals-radi
+    );
+
+}
+
+
+.resum-explicacio-intervals h3 {
+
+    margin-top: 0;
+
+    color: var(
+        --intervals-color-correcte
+    );
+
+}
+
+
+.resum-explicacio-intervals p {
+
+    margin: 10px 0;
+
+}
+
+
+/* ============================================================
+   INSTRUCCIONS
+   ============================================================ */
+
+.instruccions-intervals {
+
+    margin: 16px 0 20px;
+
+    padding-left: 28px;
+
+    line-height: 1.8;
+
+}
+
+
+.instruccions-intervals li {
+
+    margin-bottom: 8px;
+
+}
+
+
+/* ============================================================
+   CONTENIDOR DEL PENTAGRAMA
+   ============================================================ */
+
+.contenidor-pentagrama-intervals {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    margin: 26px 0 32px;
+
+    padding: 20px;
+
+    background: var(
+        --intervals-color-fons
+    );
+
+    border: 1px solid var(
+        --intervals-color-vora
+    );
+
+    border-radius: var(
+        --intervals-radi
+    );
+
+    box-sizing: border-box;
+
+}
+
+
+/* ============================================================
+   PENTAGRAMA
+   ============================================================ */
+
+.pentagrama-intervals {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    max-width: 520px;
+
+    min-height: 180px;
+
+}
+
+
+.pentagrama-svg-intervals {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    max-height: 280px;
+
+    color: var(
+        --intervals-color-text
+    );
+
+    overflow: visible;
+
+}
+
+
+/* ============================================================
+   BLOCS DE RESPOSTES
+   ============================================================ */
+
+.bloc-resposta-intervals {
+
+    margin: 26px 0;
+
+    padding: 22px;
+
+    background: var(
+        --intervals-color-fons
+    );
+
+    border: 1px solid var(
+        --intervals-color-vora
+    );
+
+    border-radius: var(
+        --intervals-radi
+    );
+
+}
+
+
+.bloc-resposta-intervals h3 {
+
+    margin-top: 0;
+
+    margin-bottom: 8px;
+
+    font-size: 1.1rem;
+
+    color: var(
+        --intervals-color-text
+    );
+
+}
+
+
+.ajuda-resposta-intervals {
+
+    margin-top: 0;
+
+    margin-bottom: 20px;
+
+    font-size: 0.9rem;
+
+    color: var(
+        --intervals-color-text-secundari
+    );
+
+}
+
+
+/* ============================================================
+   GRAELLES D'OPCIONS
+   ============================================================ */
+
+.graella-opcions-intervals {
+
+    display: grid;
+
+    gap: 10px;
+
+}
+
+
+/* ============================================================
+   GRAELLA DE DISTÀNCIES
+   ============================================================ */
+
+.graella-distancies {
+
+    grid-template-columns: repeat(
+        4,
+        minmax(0, 1fr)
+    );
+
+}
+
+
+/* ============================================================
+   GRAELLA D'INTERVALS
+   ============================================================ */
+
+.graella-tipus {
+
+    grid-template-columns: repeat(
+        6,
+        minmax(0, 1fr)
+    );
+
+}
+
+
+/* ============================================================
+   BOTONS D'OPCIONS
+   ============================================================ */
+
+.opcio-interval {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 0;
+
+    min-height: 48px;
+
+    padding: 12px 8px;
+
+    background: var(
+        --intervals-color-fons
+    );
+
+    border: 2px solid var(
+        --intervals-color-vora
+    );
+
+    border-radius: 10px;
+
+    color: var(
+        --intervals-color-text
+    );
+
+    font-family: inherit;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    line-height: 1.3;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease,
+        transform 0.15s ease;
+
+    box-sizing: border-box;
+
+}
+
+
+/* ============================================================
+   HOVER
+   ============================================================ */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .opcio-interval:not(:disabled):hover {
+
+        border-color: var(
+            --intervals-color-principal
+        );
+
+        background: var(
+            --intervals-color-suau
+        );
+
+        transform: translateY(-2px);
+
+    }
+
+}
+
+
+/* ============================================================
+   FOCUS
+   ============================================================ */
+
+.opcio-interval:focus-visible {
+
+    outline: 3px solid var(
+        --intervals-color-principal
+    );
+
+    outline-offset: 3px;
+
+}
+
+
+/* ============================================================
+   OPCIÓ SELECCIONADA
+   ============================================================ */
+
+.opcio-interval.seleccionada {
+
+    background: var(
+        --intervals-color-suau
+    );
+
+    border-color: var(
+        --intervals-color-principal
+    );
+
+    color: var(
+        --intervals-color-principal
+    );
+
+}
+
+
+/* ============================================================
+   OPCIONS BLOQUEJADES
+   ============================================================ */
+
+.opcio-interval.opcio-bloquejada {
+
+    background: var(
+        --intervals-color-bloquejat
+    );
+
+    border-color: #e5e7eb;
+
+    color: #9ca3af;
+
+    cursor: not-allowed;
+
+    opacity: 0.7;
+
+}
+
+
+/* ============================================================
+   OPCIÓ CORRECTA
+   ============================================================ */
+
+.opcio-interval.correcta,
+.opcio-interval.correcta:disabled {
+
+    background: var(
+        --intervals-fons-correcte
+    );
+
+    border-color: var(
+        --intervals-color-correcte
+    );
+
+    color: var(
+        --intervals-color-correcte
+    );
+
+    opacity: 1;
+
+}
+
+
+/* ============================================================
+   OPCIÓ INCORRECTA
+   ============================================================ */
+
+.opcio-interval.incorrecta,
+.opcio-interval.incorrecta:disabled {
+
+    background: var(
+        --intervals-fons-incorrecte
+    );
+
+    border-color: var(
+        --intervals-color-incorrecte
+    );
+
+    color: var(
+        --intervals-color-incorrecte
+    );
+
+    opacity: 1;
+
+}
+
+
+/* ============================================================
+   BOTONS DESACTIVATS DESPRÉS DE COMPROVAR
+   ============================================================ */
+
+.opcio-interval:disabled {
+
+    cursor: default;
+
+}
+
+
+/* ============================================================
+   CONTROLS
+   ============================================================ */
+
+.controls-intervals {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    margin: 30px 0 22px;
+
+}
+
+
+.controls-intervals .boto-principal {
+
+    min-width: 180px;
+
+    min-height: 48px;
+
+    padding: 12px 24px;
+
+}
+
+
+/* ============================================================
+   FEEDBACK
+   ============================================================ */
+
+.zona-exercici #feedback {
+
+    margin-top: 20px;
+
+    padding: 0;
+
+    border-radius: var(
+        --intervals-radi
+    );
+
+    line-height: 1.6;
+
+    text-align: center;
+
+}
+
+
+.zona-exercici #feedback:empty {
+
+    display: none;
+
+}
+
+
+/* ============================================================
+   FEEDBACK CORRECTE
+   ============================================================ */
+
+.zona-exercici #feedback.correcte {
+
+    padding: 16px 20px;
+
+    background: var(
+        --intervals-fons-correcte
+    );
+
+    border: 1px solid #86efac;
+
+    color: var(
+        --intervals-color-correcte
+    );
+
+}
+
+
+/* ============================================================
+   FEEDBACK INCORRECTE
+   ============================================================ */
+
+.zona-exercici #feedback.incorrecte {
+
+    padding: 16px 20px;
+
+    background: var(
+        --intervals-fons-incorrecte
+    );
+
+    border: 1px solid #fca5a5;
+
+    color: var(
+        --intervals-color-incorrecte
+    );
+
+}
+
+
+/* ============================================================
+   RESULTAT FINAL
+   ============================================================ */
+
+.resultat-final .puntuacio-final {
+
+    margin: 24px 0;
+
+    text-align: center;
+
+}
+
+
+.resultat-final #puntuacio-final {
+
+    font-size: 2rem;
+
+    font-weight: 700;
+
+}
+
+
+/* ============================================================
+   RESPONSIVE: TAULETES
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    .graella-distancies {
+
+        grid-template-columns: repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    }
+
+
+    .graella-tipus {
+
+        grid-template-columns: repeat(
+            4,
+            minmax(0, 1fr)
+        );
+
+    }
+
+
+    .bloc-resposta-intervals {
+
+        padding: 18px;
+
+    }
+
+
+    .contenidor-pentagrama-intervals {
+
+        padding: 14px;
+
+    }
+
+}
+
+
+/* ============================================================
+   RESPONSIVE: MÒBILS
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+    .exemples-segones {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .exemple-segona {
+
+        min-height: 70px;
+
+    }
+
+
+    .graella-distancies {
+
+        grid-template-columns: repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    }
+
+
+    .graella-tipus {
+
+        grid-template-columns: repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    }
+
+
+    .opcio-interval {
+
+        min-height: 46px;
+
+        padding: 10px 6px;
+
+        font-size: 0.95rem;
+
+    }
+
+
+    .bloc-resposta-intervals {
+
+        margin: 18px 0;
+
+        padding: 14px;
+
+    }
+
+
+    .bloc-resposta-intervals h3 {
+
+        font-size: 1rem;
+
+    }
+
+
+    .contenidor-pentagrama-intervals {
+
+        margin: 20px 0;
+
+        padding: 8px;
+
+    }
+
+
+    .pentagrama-intervals {
+
+        min-height: 130px;
+
+    }
+
+
+    .exemple-interval-destacat {
+
+        gap: 10px;
+
+        padding: 16px 12px;
+
+    }
+
+
+    .exemple-interval-destacat strong {
+
+        font-size: 1.05rem;
+
+    }
+
+
+    .taula-intervals th,
+    .taula-intervals td {
+
+        padding: 10px 8px;
+
+    }
+
+
+    .controls-intervals {
+
+        margin-top: 24px;
+
+    }
+
+
+    .controls-intervals .boto-principal {
+
+        width: 100%;
+
+    }
+
+}
+
+
+/* ============================================================
+   ACCESSIBILITAT: MOVIMENT REDUÏT
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .opcio-interval {
+
+        transition: none;
+
+    }
+
+
+    .opcio-interval:hover {
+
+        transform: none;
+
+    }
+
+}

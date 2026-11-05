@@ -36,9 +36,10 @@ const MULTIPLICADOR_NIVELL =
     1.2;
 
 
-const CATEGORIES = [
+const categories = [
     "notes",
     "llenguatge",
+    "intervals",
     "dictat-ritmic",
     "dictat-melodic"
 ];
@@ -373,10 +374,9 @@ function aplicarClasse(
     );
 }
 
-
-// =========================
+// ============================================================
 // ACTUALITZAR CATEGORIA
-// =========================
+// ============================================================
 
 function actualitzarCategoria(
     categoria,
@@ -384,25 +384,33 @@ function actualitzarCategoria(
     rang
 ) {
 
-    const dades =
-        calcularDadesNivell(
-            xp
-        );
+    // =========================
+    // CALCULAR NIVELL
+    // =========================
 
+    const dades =
+        calcularDadesNivell(xp);
 
     const percentatge =
         (
             dades.xpActual /
             dades.xpNecessaria
-        ) *
-        100;
+        ) * 100;
 
+
+    // =========================
+    // NIVELL
+    // =========================
 
     document.getElementById(
         `nivell-${categoria}`
     ).textContent =
         dades.nivell;
 
+
+    // =========================
+    // XP DEL NIVELL ACTUAL
+    // =========================
 
     document.getElementById(
         `xp-${categoria}`
@@ -416,11 +424,36 @@ function actualitzarCategoria(
         dades.xpNecessaria;
 
 
+    // =========================
+    // BARRA D'EXPERIÈNCIA
+    // =========================
+
     document.getElementById(
         `barra-${categoria}`
     ).style.width =
         `${percentatge}%`;
 
+
+    // =========================
+    // XP ACUMULADA
+    // =========================
+
+    const xpAcumuladaElement =
+        document.getElementById(
+            `xp-total-${categoria}`
+        );
+
+    if (xpAcumuladaElement) {
+
+        xpAcumuladaElement.textContent =
+            xp;
+
+    }
+
+
+    // =========================
+    // CLASSE
+    // =========================
 
     const classeElement =
         document.getElementById(
@@ -437,12 +470,13 @@ function actualitzarCategoria(
         rang,
         "classe-mini"
     );
+
 }
 
 
-// =========================
+// ============================================================
 // ACTUALITZAR RESULTATS
-// =========================
+// ============================================================
 
 function actualitzarResultats() {
 
@@ -452,12 +486,19 @@ function actualitzarResultats() {
 
     let xpTotal = 0;
 
-
     const rangs = {};
 
 
-    CATEGORIES.forEach(
+    // =========================
+    // RECÓRRER CATEGORIES
+    // =========================
+
+    categories.forEach(
         categoria => {
+
+            // =========================
+            // XP ACUMULADA CATEGORIA
+            // =========================
 
             const xp =
                 calcularXpCategoria(
@@ -466,8 +507,13 @@ function actualitzarResultats() {
                 );
 
 
+            // Afegir a l'experiència general
             xpTotal += xp;
 
+
+            // =========================
+            // RANG DE LA CATEGORIA
+            // =========================
 
             const rang =
                 calcularRangCategoria(
@@ -480,17 +526,22 @@ function actualitzarResultats() {
                 rang;
 
 
+            // =========================
+            // ACTUALITZAR VISUALITZACIÓ
+            // =========================
+
             actualitzarCategoria(
                 categoria,
                 xp,
                 rang
             );
+
         }
     );
 
 
     // =========================
-    // XP TOTAL
+    // XP TOTAL GENERAL
     // =========================
 
     xpTotalText.textContent =
@@ -530,6 +581,7 @@ function actualitzarResultats() {
         rangGeneral,
         "classe"
     );
+
 }
 
 
