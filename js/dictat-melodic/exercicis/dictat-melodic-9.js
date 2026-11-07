@@ -33,7 +33,7 @@ const configuracioDictatMelodic9 = {
     // PREGUNTES
     // =========================
 
-    totalPreguntes: 6,
+    totalPreguntes: 8,
 
 
     // =========================

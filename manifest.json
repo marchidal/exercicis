@@ -1,0 +1,22 @@
+{
+    "name": "Exercicis Musicals",
+    "short_name": "Música",
+    "description": "Aplicació per practicar llenguatge musical",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#5665c8",
+    "icons": [
+        {
+            "src": "/icons/llibre192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/llibre512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

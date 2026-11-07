@@ -143,6 +143,64 @@ function exerciciDesbloquejat(
 
 
 // =========================
+// OBTENIR NOM DE L'EXERCICI
+// =========================
+
+function obtenirNomExercici(boto) {
+
+    // Si existeix un nom personalitzat
+    // a data-nom, té prioritat.
+
+    if (boto.dataset.nom) {
+        return boto.dataset.nom.trim();
+    }
+
+
+    // Si ja hem guardat el nom original,
+    // el reutilitzem.
+
+    if (boto.dataset.nomOriginal) {
+        return boto.dataset.nomOriginal;
+    }
+
+
+    // Llegim el nom escrit directament
+    // al botó de l'HTML.
+
+    let nom =
+        boto.textContent.trim();
+
+
+    // Eliminem possibles indicadors
+    // de bloqueig o superació.
+    //
+    // Fem servir Unicode per evitar
+    // problemes de codificació.
+
+    nom = nom.replace(
+        /\s*[\u{1F512}\u2713]\s*$/u,
+        ""
+    );
+
+
+    // Eliminem un possible rang
+    // afegit anteriorment.
+
+    nom = nom.replace(
+        /\s*·\s*[DCBAS]\s*$/,
+        ""
+    );
+
+
+    // Guardem el nom personalitzat.
+
+    boto.dataset.nomOriginal = nom;
+
+    return nom;
+}
+
+
+// =========================
 // ACTUALITZAR BOTONS
 // =========================
 
@@ -172,6 +230,18 @@ function actualitzarExercicis() {
 
         botons.forEach((boto) => {
 
+            // =========================
+            // NOM PERSONALITZAT
+            // =========================
+
+            const nomExercici =
+                obtenirNomExercici(boto);
+
+
+            // =========================
+            // IDENTIFICAR EXERCICI
+            // =========================
+
             const numero =
                 Number(
                     boto.dataset.exercici
@@ -191,6 +261,10 @@ function actualitzarExercicis() {
             }
 
 
+            // =========================
+            // COMPROVAR ESTAT
+            // =========================
+
             const desbloquejat =
                 exerciciDesbloquejat(
                     exercici,
@@ -205,7 +279,9 @@ function actualitzarExercicis() {
                 );
 
 
-            // Eliminem classes anteriors.
+            // =========================
+            // NETEJAR CLASSES
+            // =========================
 
             boto.classList.remove(
                 "disponible",
@@ -219,14 +295,18 @@ function actualitzarExercicis() {
             );
 
 
-            // Classe de dificultat.
+            // =========================
+            // RANG
+            // =========================
 
             boto.classList.add(
                 `rang-${exercici.rang.toLowerCase()}`
             );
 
 
-            // Exercici bloquejat.
+            // =========================
+            // EXERCICI BLOQUEJAT
+            // =========================
 
             if (!desbloquejat) {
 
@@ -237,13 +317,15 @@ function actualitzarExercicis() {
                 );
 
                 boto.textContent =
-                    `Exercici ${numero} · ${exercici.rang} 🔒`;
+                    `${nomExercici} · ${exercici.rang} \u{1F512}`;
 
                 return;
             }
 
 
-            // Exercici disponible.
+            // =========================
+            // EXERCICI DISPONIBLE
+            // =========================
 
             boto.disabled = false;
 
@@ -252,7 +334,9 @@ function actualitzarExercicis() {
             );
 
 
-            // Exercici ja superat.
+            // =========================
+            // EXERCICI SUPERAT
+            // =========================
 
             if (superat) {
 
@@ -261,12 +345,16 @@ function actualitzarExercicis() {
                 );
 
                 boto.textContent =
-                    `Exercici ${numero} · ${exercici.rang} ✓`;
+                    `${nomExercici} · ${exercici.rang} \u2713`;
 
             } else {
 
+                // Exercici disponible
+                // però encara no superat.
+
                 boto.textContent =
-                    `Exercici ${numero} · ${exercici.rang}`;
+                    `${nomExercici} · ${exercici.rang}`;
+
             }
 
         });

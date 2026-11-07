@@ -8,11 +8,262 @@
     <title>Exercicis</title>
 
     <link rel="stylesheet" href="../css/exercicis.css">
+
+    <style>
+        /* =========================
+           ORGANITZACIÓ GENERAL
+           ========================= */
+
+        .pagina-exercicis {
+            width: min(1200px, calc(100% - 40px));
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+
+        /* =========================
+           CONTINUAR EXERCICIS
+           ========================= */
+
+        .seccio-continuar {
+            margin: 32px 0 42px;
+        }
+
+        .capcalera-seccio {
+            margin-bottom: 20px;
+        }
+
+        .capcalera-seccio h2 {
+            margin: 0 0 8px;
+            font-size: 1.5rem;
+        }
+
+        .capcalera-seccio p {
+            margin: 0;
+            opacity: 0.7;
+        }
+
+        .graella-continuar {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(220px, 1fr)
+            );
+            gap: 16px;
+        }
+
+        .targeta-continuar {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+
+            width: 100%;
+            padding: 22px;
+
+            border: 1px solid rgba(128, 128, 128, 0.25);
+            border-radius: 16px;
+
+            background: var(--fons-targeta, #ffffff);
+            color: inherit;
+
+            text-align: left;
+            cursor: pointer;
+
+            transition:
+                transform 0.2s,
+                box-shadow 0.2s,
+                border-color 0.2s;
+        }
+
+        .targeta-continuar:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border-color: #6b77d6;
+        }
+
+        .targeta-categoria {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.65;
+        }
+
+        .targeta-nom {
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .targeta-accio {
+            margin-top: auto;
+            color: #5665c8;
+            font-weight: 700;
+        }
+
+        .missatge-sense-pendents {
+            padding: 20px;
+            border-radius: 14px;
+            background: rgba(100, 150, 100, 0.1);
+        }
+
+        /* =========================
+           DISTRIBUCIÓ INFERIOR
+           ========================= */
+
+        .organitzacio-exercicis {
+            display: grid;
+            grid-template-columns: 240px minmax(0, 1fr);
+            gap: 28px;
+            align-items: start;
+        }
+
+        /* =========================
+           MENÚ DE CATEGORIES
+           ========================= */
+
+        .menu-categories {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            padding: 16px;
+
+            border: 1px solid rgba(128, 128, 128, 0.2);
+            border-radius: 16px;
+
+            background: var(--fons-targeta, #ffffff);
+        }
+
+        .menu-categories h2 {
+            margin: 0 0 12px;
+            padding: 0 10px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            opacity: 0.65;
+        }
+
+        .boto-categoria {
+            width: 100%;
+            padding: 14px 16px;
+
+            border: 0;
+            border-radius: 10px;
+
+            background: transparent;
+            color: inherit;
+
+            font: inherit;
+            font-weight: 600;
+            text-align: left;
+
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .boto-categoria:hover {
+            background: rgba(100, 110, 200, 0.1);
+        }
+
+        .boto-categoria.activa {
+            background: #5665c8;
+            color: #ffffff;
+        }
+
+        /* =========================
+           PANEL D'EXERCICIS
+           ========================= */
+
+        .panell-exercicis {
+            min-width: 0;
+            padding: 28px;
+
+            border: 1px solid rgba(128, 128, 128, 0.2);
+            border-radius: 16px;
+
+            background: var(--fons-targeta, #ffffff);
+        }
+
+        .columna-exercicis {
+            display: none;
+            width: 100%;
+        }
+
+        .columna-exercicis.activa {
+            display: block;
+        }
+
+        .columna-exercicis h2 {
+            margin: 0 0 24px;
+            font-size: 1.6rem;
+        }
+
+        .panell-exercicis .llista-exercicis {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fill,
+                minmax(180px, 1fr)
+            );
+            gap: 12px;
+        }
+
+        .panell-exercicis .exercici {
+            width: 100%;
+            min-height: 72px;
+            padding: 14px;
+            line-height: 1.4;
+        }
+
+        /* =========================
+           RESPONSIVE
+           ========================= */
+
+        @media (max-width: 760px) {
+
+            .pagina-exercicis {
+                width: calc(100% - 24px);
+            }
+
+            .organitzacio-exercicis {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .menu-categories {
+                flex-direction: row;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding: 10px;
+            }
+
+            .menu-categories h2 {
+                display: none;
+            }
+
+            .boto-categoria {
+                width: auto;
+                flex-shrink: 0;
+                white-space: nowrap;
+            }
+
+            .panell-exercicis {
+                padding: 18px;
+            }
+
+            .panell-exercicis .llista-exercicis {
+                grid-template-columns: repeat(
+                    auto-fill,
+                    minmax(140px, 1fr)
+                );
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <main>
+    <main class="pagina-exercicis">
 
         <!-- =========================
              CAPÇALERA
@@ -31,366 +282,595 @@
 
 
         <!-- =========================
-             GRAELLA D'EXERCICIS
+             CONTINUA ON HO VAS DEIXAR
              ========================= -->
 
-        <section class="exercicis">
+        <section
+            class="seccio-continuar"
+            id="seccio-continuar"
+        >
 
-            <!-- NOTES -->
-            <section class="columna-exercicis" data-categoria="notes">
+            <div class="capcalera-seccio">
 
-                <h2>Notes</h2>
+                <h2>Continua on ho vas deixar</h2>
 
-                <div class="llista-exercicis">
+                <p>
+                    Reprèn els exercicis que tens pendents.
+                </p>
 
-                    <button
-                        class="exercici disponible"
-                        data-exercici="1">
-                        Exercici 1.1
-                    </button>
+            </div>
 
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="2"
-                        disabled>
-                        Exercici 1.2 🔒
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="3"
-                        disabled>
-                        Exercici 1.3 🔒
-                    </button>
-
-                    <button
-                        class="exercici disponible"
-                        data-exercici="4">
-                        Exercici 1.4
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="5"
-                        disabled>
-                        Exercici 1.5 🔒
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="6"
-                        disabled>
-                        Exercici 1.6 🔒
-                    </button> 
-                    
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="7"
-                        disabled>
-                        Exercici 1.7 🔒
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="8"
-                        disabled>
-                        Exercici 2.1 🔒
-                    </button>
-                    
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="9"
-                        disabled>
-                        Exercici 2.2  🔒
-                    </button>
-                    
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="10"
-                        disabled>
-                        Exercici 2.3  🔒
-                    </button>
-                    
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="11"
-                        disabled>
-                        Exercici 2.4  🔒
-                    </button>
-                    
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="12"
-                        disabled>
-                        Exercici 12 🔒
-                    </button>  
-
-                
-                </div>
-
-            </section>
-
-
-            <!-- Valors -->
-            <section class="columna-exercicis" data-categoria="llenguatge">
-
-                <h2>Valors</h2>
-
-                <div class="llista-exercicis">
-
-                    <button
-                        class="exercici disponible"
-                        data-exercici="1">
-                        Exercici 1
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="2"
-                        disabled>
-                        Exercici 2 🔒
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="3"
-                        disabled>
-                        Exercici 3 🔒
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="4"
-                        disabled>
-                        Exercici 4 🔒
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="5"
-                        disabled>
-                        Exercici 5 🔒
-                    </button>                    
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="6"
-                        disabled>
-                        Exercici 6 🔒
-                    </button>       
-                    
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="7"
-                        disabled>
-                        Exercici 7 🔒
-                    </button>
-                    
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="8"
-                        disabled>
-                        Exercici 8 🔒
-                    </button> 
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="9"
-                        disabled>
-                        Exercici 9 🔒
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="10"
-                        disabled>
-                        Exercici 10 🔒
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="11"
-                        disabled>
-                        Exercici 11 🔒
-                    </button>       
-
-                </div>                             
-            </section>
-
-
-            <!-- INTERVALS -->
-            <section class="columna-exercicis" data-categoria="intervals">
-
-                <h2>Intervals</h2>
-
-                <div class="llista-exercicis">
-
-                    <button
-                        class="exercici disponible"
-                        data-exercici="1">
-                        Exercici 1
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="2"
-                        disabled>
-                        Exercici 2 🔒
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="3"
-                        disabled>
-                        Exercici 3 🔒
-                    </button>   
-                </div>                             
-            </section>
-            
-            
-            <!-- DICTAT RÍTMIC -->
-            <section class="columna-exercicis" data-categoria="dictat-ritmic">
-
-                <h2>Dictat rítmic</h2>
-
-                <div class="llista-exercicis">
-
-                    <button
-                        class="exercici disponible"
-                        data-exercici="1">
-                        Exercici 1
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="2"
-                        disabled>
-                        Exercici 2 🔒
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="3"
-                        disabled>
-                        Exercici 3 🔒
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="4">
-                        Exercici 4 🔒
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="5"
-                        disabled>
-                        Exercici 5 🔒
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="6"
-                        disabled>
-                        Exercici 6 🔒
-                    </button>                    
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="7"
-                        disabled>
-                        Exercici 7 🔒
-                    </button>
-
-                </div>
-
-            </section>
-
-
-            <!-- DICTAT MELÒDIC -->
-            <section class="columna-exercicis" data-categoria="dictat-melodic">
-
-                <h2>Dictat melòdic</h2>
-
-                <div class="llista-exercicis">
-
-                    <button
-                        class="exercici disponible"
-                        data-exercici="1">
-                        Exercici 1
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="2"
-                        disabled>
-                        Exercici 2 🔒
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="3"
-                        disabled>
-                        Exercici 3 🔒
-                    </button>
-
-                    <button
-                        class="exercici disponible"
-                        data-exercici="4">
-                        Exercici 4
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="5"
-                        disabled>
-                        Exercici 5 🔒
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="6"
-                        disabled>
-                        Exercici 6 🔒
-                    </button> 
-                    
-                    <button
-                        class="exercici disponible"
-                        data-exercici="7">
-                        Exercici 7
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="8"
-                        disabled>
-                        Exercici 8 🔒
-                    </button>
-
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="9"
-                        disabled>
-                        Exercici 9 🔒
-                    </button>         
-                    
-                    <button
-                        class="exercici bloquejat"
-                        data-exercici="10"
-                        disabled>
-                        Exercici 10 🔒
-                    </button>                      
-                </div>
-
-            </section>
+            <div
+                class="graella-continuar"
+                id="graella-continuar"
+            ></div>
 
         </section>
+
+
+        <!-- =========================
+             CATEGORIES I EXERCICIS
+             ========================= -->
+
+        <div class="organitzacio-exercicis">
+
+            <!-- MENÚ LATERAL -->
+
+            <nav
+                class="menu-categories"
+                aria-label="Categories d'exercicis"
+            >
+
+                <h2>Apartats</h2>
+
+                <button
+                    type="button"
+                    class="boto-categoria activa"
+                    data-categoria-menu="notes"
+                    aria-pressed="true"
+                >
+                    Notes
+                </button>
+
+                <button
+                    type="button"
+                    class="boto-categoria"
+                    data-categoria-menu="llenguatge"
+                    aria-pressed="false"
+                >
+                    Valors
+                </button>
+
+                <button
+                    type="button"
+                    class="boto-categoria"
+                    data-categoria-menu="intervals"
+                    aria-pressed="false"
+                >
+                    Intervals
+                </button>
+
+                <button
+                    type="button"
+                    class="boto-categoria"
+                    data-categoria-menu="dictat-ritmic"
+                    aria-pressed="false"
+                >
+                    Dictat rítmic
+                </button>
+
+                <button
+                    type="button"
+                    class="boto-categoria"
+                    data-categoria-menu="dictat-melodic"
+                    aria-pressed="false"
+                >
+                    Dictat melòdic
+                </button>
+
+            </nav>
+
+
+            <!-- PANEL DRET -->
+
+            <div class="panell-exercicis">
+
+                <!-- =========================
+                     NOTES
+                     ========================= -->
+
+                <section
+                    class="columna-exercicis activa"
+                    data-categoria="notes"
+                >
+
+                    <h2>Notes</h2>
+
+                    <div class="llista-exercicis">
+
+                        <button class="exercici disponible" data-exercici="1">
+                            1a Octava 1
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="2" disabled>
+                            1a Octava 2
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="3" disabled>
+                            1a Octava 3
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="4" disabled>
+                            1a Octava 4
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="5" disabled>
+                            1a Octava 5
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="6" disabled>
+                            1a Octava 6
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="7" disabled>
+                            1a Octava 7
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="8" disabled>
+                            Adicionals sup. 1
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="9" disabled>
+                            Adicionals sup. 2
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="10" disabled>
+                            Adicionals sup. 3
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="11" disabled>
+                            Adicionals sup. 4
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="12" disabled>
+                            Adicionals sup. 5
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================
+                     VALORS
+                     ========================= -->
+
+                <section
+                    class="columna-exercicis"
+                    data-categoria="llenguatge"
+                >
+
+                    <h2>Valors</h2>
+
+                    <div class="llista-exercicis">
+
+                        <button class="exercici disponible" data-exercici="1">
+                            Valors 1
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="2" disabled>
+                            Valors 2
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="3" disabled>
+                            Valors 3
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="4" disabled>
+                            Compàs 1
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="5" disabled>
+                            Compàs 2
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="6" disabled>
+                            Pulsació 1
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="7" disabled>
+                            Pulsació 2
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="8" disabled>
+                            Pulsació 3
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="9" disabled>
+                            Pulsació 4
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="10" disabled>
+                            Accents mètrics 1
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="11" disabled>
+                            Exercici 11
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================
+                     INTERVALS
+                     ========================= -->
+
+                <section
+                    class="columna-exercicis"
+                    data-categoria="intervals"
+                >
+
+                    <h2>Intervals</h2>
+
+                    <div class="llista-exercicis">
+
+                        <button class="exercici disponible" data-exercici="1">
+                            2m - 2M
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="2" disabled>
+                            3m - 3M
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="3" disabled>
+                            2m - 3M
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="4" disabled>
+                            4J - 4aum/5dis - 5J
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="5" disabled>
+                            2m - 5J
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================
+                     DICTAT RÍTMIC
+                     ========================= -->
+
+                <section
+                    class="columna-exercicis"
+                    data-categoria="dictat-ritmic"
+                >
+
+                    <h2>Dictat rítmic</h2>
+
+                    <div class="llista-exercicis">
+
+                        <button class="exercici disponible" data-exercici="1">
+                            Blanques i rodones
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="2" disabled>
+                            Negres
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="3" disabled>
+                            Corxeres 1
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="4" disabled>
+                            Corxeres 2
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="5" disabled>
+                            Semicorxeres 1
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="6" disabled>
+                            Semicorxeres 2
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="7" disabled>
+                            Resum 1
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================
+                     DICTAT MELÒDIC
+                     ========================= -->
+
+                <section
+                    class="columna-exercicis"
+                    data-categoria="dictat-melodic"
+                >
+
+                    <h2>Dictat melòdic</h2>
+
+                    <div class="llista-exercicis">
+
+                        <button class="exercici disponible" data-exercici="1">
+                            Intervals melòdics 1
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="2" disabled>
+                            Intervals harmònics 1
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="3" disabled>
+                            Dictat 2 notes
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="4" disabled>
+                            Intervals melòdics 2
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="5" disabled>
+                            Intervals harmònics 2
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="6" disabled>
+                            Dictat 3 notes
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="7" disabled>
+                            Intervals melòdics 3
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="8" disabled>
+                            Intervals harmònics 3
+                        </button>
+
+                        <button class="exercici bloquejat" data-exercici="9" disabled>
+                            Dictat 4 notes
+                        </button>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
 
     </main>
 
 
+    <!-- =========================
+         SCRIPTS
+         ========================= -->
+
     <script src="../js/dades-exercicis.js"></script>
     <script src="../js/exercicis.js"></script>
+
+    <script>
+        // =========================
+        // MENÚ DE CATEGORIES
+        // =========================
+
+        const botonsCategories =
+            document.querySelectorAll(".boto-categoria");
+
+        const seccionsCategories =
+            document.querySelectorAll(".columna-exercicis");
+
+
+        function seleccionarCategoria(categoria) {
+
+            botonsCategories.forEach((boto) => {
+
+                const activa =
+                    boto.dataset.categoriaMenu === categoria;
+
+                boto.classList.toggle("activa", activa);
+
+                boto.setAttribute(
+                    "aria-pressed",
+                    String(activa)
+                );
+
+            });
+
+
+            seccionsCategories.forEach((seccio) => {
+
+                seccio.classList.toggle(
+                    "activa",
+                    seccio.dataset.categoria === categoria
+                );
+
+            });
+
+        }
+
+
+        botonsCategories.forEach((boto) => {
+
+            boto.addEventListener("click", () => {
+
+                seleccionarCategoria(
+                    boto.dataset.categoriaMenu
+                );
+
+            });
+
+        });
+
+
+        // =========================
+        // RESUM D'EXERCICIS PENDENTS
+        // =========================
+
+        function actualitzarResumPendents() {
+
+            const graella =
+                document.getElementById("graella-continuar");
+
+            const seccio =
+                document.getElementById("seccio-continuar");
+
+            const resultats =
+                carregarResultats();
+
+            graella.innerHTML = "";
+
+            let totalPendents = 0;
+
+
+            seccionsCategories.forEach((columna) => {
+
+                const categoria =
+                    columna.dataset.categoria;
+
+                const nomCategoria =
+                    columna.querySelector("h2").textContent.trim();
+
+                const botons =
+                    Array.from(
+                        columna.querySelectorAll(".exercici")
+                    );
+
+
+                // Busquem el primer exercici
+                // desbloquejat i no superat.
+
+                const botoPendent =
+                    botons.find((boto) => {
+
+                        const numero =
+                            Number(boto.dataset.exercici);
+
+                        const exercici =
+                            EXERCICIS.find(
+                                item =>
+                                    item.categoria === categoria &&
+                                    item.numero === numero
+                            );
+
+                        if (!exercici) {
+                            return false;
+                        }
+
+                        return (
+                            exerciciDesbloquejat(
+                                exercici,
+                                resultats
+                            ) &&
+                            !exerciciSuperat(
+                                exercici.id,
+                                resultats
+                            )
+                        );
+
+                    });
+
+
+                // Si no hi ha exercicis pendents
+                // disponibles, no mostrem targeta.
+
+                if (!botoPendent) {
+                    return;
+                }
+
+
+                const numero =
+                    Number(botoPendent.dataset.exercici);
+
+                const exercici =
+                    EXERCICIS.find(
+                        item =>
+                            item.categoria === categoria &&
+                            item.numero === numero
+                    );
+
+
+                const nomExercici =
+                    obtenirNomExercici(botoPendent);
+
+
+                // Creem la targeta.
+
+                const targeta =
+                    document.createElement("button");
+
+                targeta.type = "button";
+
+                targeta.className = "targeta-continuar";
+
+
+                const etiqueta =
+                    document.createElement("span");
+
+                etiqueta.className = "targeta-categoria";
+                etiqueta.textContent = nomCategoria;
+
+
+                const nom =
+                    document.createElement("span");
+
+                nom.className = "targeta-nom";
+                nom.textContent = nomExercici;
+
+
+                const accio =
+                    document.createElement("span");
+
+                accio.className = "targeta-accio";
+                accio.textContent = "Continuar →";
+
+
+                targeta.append(
+                    etiqueta,
+                    nom,
+                    accio
+                );
+
+
+                targeta.addEventListener("click", () => {
+
+                    if (exercici.url) {
+                        window.location.href = exercici.url;
+                    } else {
+                        seleccionarCategoria(categoria);
+                    }
+
+                });
+
+
+                graella.appendChild(targeta);
+
+                totalPendents++;
+
+            });
+
+
+            // Si no queda cap exercici pendent,
+            // amaguem el resum.
+
+            seccio.hidden = totalPendents === 0;
+
+        }
+
+
+        // =========================
+        // INICI
+        // =========================
+
+        seleccionarCategoria("notes");
+
+        actualitzarResumPendents();
+    </script>
 
 </body>
 </html>
