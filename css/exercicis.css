@@ -74,12 +74,175 @@ body {
 
     font-size: 16px;
 
-    border: 2px solid #222;
+    border: 3px solid #222;
     border-radius: 8px;
 
     transition: 0.2s;
 }
 
+
+/* =========================
+   ORGANITZACIÓ GENERAL
+   ========================= */
+.pagina-exercicis {
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto;
+    padding-bottom: 60px;
+}
+/* =========================
+   CONTINUAR EXERCICIS
+   ========================= */
+.seccio-continuar {
+    margin: 32px 0 42px;
+}
+.capcalera-seccio {
+    margin-bottom: 20px;
+}
+.capcalera-seccio h2 {
+    margin: 0 0 8px;
+    font-size: 1.5rem;
+}
+.capcalera-seccio p {
+    margin: 0;
+    opacity: 0.7;
+}
+.graella-continuar {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(220px, 1fr)
+    );
+    gap: 16px;
+}
+.targeta-continuar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    padding: 22px;
+    border: 1px solid rgba(128, 128, 128, 0.25);
+    border-radius: 16px;
+    background: var(--fons-targeta, #ffffff);
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        border-color 0.2s;
+}
+.targeta-continuar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: #6b77d6;
+}
+.targeta-categoria {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.65;
+}
+.targeta-nom {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+.targeta-accio {
+    margin-top: auto;
+    color: #5665c8;
+    font-weight: 700;
+}
+.missatge-sense-pendents {
+    padding: 20px;
+    border-radius: 14px;
+    background: rgba(100, 150, 100, 0.1);
+}
+/* =========================
+   DISTRIBUCIÓ INFERIOR
+   ========================= */
+.organitzacio-exercicis {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+}
+/* =========================
+   MENÚ DE CATEGORIES
+   ========================= */
+.menu-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 16px;
+    background: var(--fons-targeta, #ffffff);
+}
+.menu-categories h2 {
+    margin: 0 0 12px;
+    padding: 0 10px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.65;
+}
+.boto-categoria {
+    width: 100%;
+    padding: 14px 16px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.boto-categoria:hover {
+    background: rgba(100, 110, 200, 0.1);
+}
+.boto-categoria.activa {
+    background: #5665c8;
+    color: #ffffff;
+}
+/* =========================
+   PANEL D'EXERCICIS
+   ========================= */
+.panell-exercicis {
+    min-width: 0;
+    padding: 28px;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 16px;
+    background: var(--fons-targeta, #ffffff);
+}
+.columna-exercicis {
+    display: none;
+    width: 100%;
+}
+.columna-exercicis.activa {
+    display: block;
+}
+.columna-exercicis h2 {
+    margin: 0 0 24px;
+    font-size: 1.6rem;
+}
+.panell-exercicis .llista-exercicis {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(180px, 1fr)
+    );
+    gap: 12px;
+}
+.panell-exercicis .exercici {
+    width: 100%;
+    min-height: 72px;
+    padding: 14px;
+    line-height: 1.4;
+}
 
 /* Exercici disponible */
 
@@ -92,7 +255,7 @@ body {
 
 .exercici.disponible:hover {
     background-color: #222;
-    color: #fff;
+    color: #3046d8;
 
     transform: translateY(-2px);
 }
@@ -266,6 +429,151 @@ main {
 
     gap: 30px;
 }
+
+/* =========================
+   TOOLTIP D'EXERCICIS BLOQUEJATS
+   ========================= */
+
+.contenidor-tooltip {
+    position: relative;
+}
+
+/* Notificació */
+
+/* =========================
+   TOOLTIP D'EXERCICIS BLOQUEJATS
+   ========================= */
+
+.tooltip-bloqueig {
+    position: absolute;
+
+    bottom: calc(100% + 14px);
+    left: 50%;
+
+    transform: translate(-50%, 6px);
+
+    width: max-content;
+    min-width: 240px;
+    max-width: 340px;
+
+    padding: 20px 24px;
+
+    background: #1e293b;
+    color: #ffffff;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.8;
+    text-align: center;
+
+    white-space: pre-line;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
+
+    z-index: 100;
+}
+
+/* Fletxa inferior */
+
+.tooltip-bloqueig::after {
+    content: "";
+
+    position: absolute;
+
+    top: 100%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border: 7px solid transparent;
+    border-top-color: #1e293b;
+}
+
+/* Mostrar quan passem el cursor */
+
+.contenidor-tooltip:hover .tooltip-bloqueig {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translate(-50%, 0);
+}
+
+/* =========================
+   TÍTOL DEL TOOLTIP
+   ========================= */
+
+.tooltip-titol {
+    font-size: 17px;
+    font-weight: 700;
+    text-align: center;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================
+   REQUADRE DELS REQUISITS
+   ========================= */
+
+.tooltip-requisits {
+    background: #334155;
+    color: #ffffff;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+
+    padding: 10px 20px;
+
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.tooltip-requisits > div + div {
+    margin-top: 6px;
+}
+
+/* =========================
+   CONTENIDOR INDIVIDUAL
+   ========================= */
+
+.contenidor-exercici {
+    position: relative;
+    width: 100%;
+}
+
+.contenidor-exercici > .exercici {
+    width: 100%;
+}
+
+/* ============================================================
+   MARCS DE LES ICONES DE CATEGORIES
+   ============================================================ */
+
+.boto-categoria img,
+.columna-exercicis h2 img,
+.targeta-continuar img {
+    border: 2px solid #af8443;
+    border-radius: 8px;
+
+
+    box-sizing: border-box;
+}
+
 /* =========================
    RESPONSIVE
    ========================= */
@@ -286,4 +594,87 @@ main {
         padding: 30px 20px;
     }
 
+}
+
+@media (max-width: 760px) {
+    .pagina-exercicis {
+        width: calc(100% - 24px);
+    }
+    .organitzacio-exercicis {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .menu-categories {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 10px;
+    }
+    .menu-categories h2 {
+        display: none;
+    }
+    .boto-categoria {
+        width: auto;
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+    .panell-exercicis {
+        padding: 18px;
+    }
+    .panell-exercicis .llista-exercicis {
+        grid-template-columns: repeat(
+            auto-fill,
+            minmax(140px, 1fr)
+        );
+    }
+}
+
+/* =========================
+   ICONES DE LES CATEGORIES
+   ========================= */
+
+/* Menú lateral i menú horitzontal en mòbil */
+.boto-categoria {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icona-categoria-menu {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 5px;
+}
+
+/* Títol de la categoria al panell d'exercicis */
+.columna-exercicis .titol-categoria {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.icona-categoria-titol {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 6px;
+}
+
+/* Etiqueta de categoria de les targetes de continuar */
+.targeta-categoria {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icona-categoria-resum {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 4px;
 }

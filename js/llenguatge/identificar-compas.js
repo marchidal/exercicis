@@ -911,7 +911,7 @@ function iniciarExerciciIdentificarCompas(
                 percentatge,
 
             nomCategoria:
-                "Llenguatge",
+                "Compassos",
 
             urlFinal:
                 "../../exercicis.html"

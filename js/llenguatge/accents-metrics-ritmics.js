@@ -97,6 +97,35 @@ function iniciarExerciciAccentsMetricsRitmics(
 
     let historialCompassos = [];
 
+    // =========================
+    // DISTRIBUCIÓ DE SÍNCOPES
+    // =========================
+    
+    const quantitatSincopes =
+        Math.min(
+            config.totalPreguntes,
+            Math.max(
+                0,
+                Math.floor(
+                    Number(config.preguntesAmbSincopa) || 0
+                )
+            )
+        );
+    
+    const preguntesSincopades =
+        new Set();
+    
+    while (
+        preguntesSincopades.size < quantitatSincopes
+    ) {
+    
+        preguntesSincopades.add(
+            Math.floor(
+                Math.random() * config.totalPreguntes
+            )
+        );
+    }
+
 
 
     // =========================
@@ -325,15 +354,139 @@ function iniciarExerciciAccentsMetricsRitmics(
     }
 
 
+    // =========================
+    // DETECTAR SÍNCOPES
+    // =========================
+    
+    function teSincopa(figures) {
+    
+        let posicioActual = 0;
+    
+        for (const figura of figures) {
+    
+            const valor =
+                Number(figura.valor);
+    
+            const posicioFinal =
+                posicioActual + valor;
+    
+            const comencaEntrePulsacions =
+                Math.abs(
+                    posicioActual -
+                    Math.round(posicioActual)
+                ) > 0.000001;
+    
+            const travessaPulsacio =
+                Math.ceil(
+                    posicioActual - 0.000001
+                ) < posicioFinal - 0.000001;
+    
+            if (
+                comencaEntrePulsacions &&
+                travessaPulsacio
+            ) {
+                return true;
+            }
+    
+            posicioActual = posicioFinal;
+        }
+    
+        return false;
+    }
+
+    // =========================
+    // PATRONS DE SEMICORXERES
+    // =========================
+    
+    function obtenirPatronsSemicorxeres() {
+    
+        if (
+            config.patronsSemicorxeres !== true
+        ) {
+            return [];
+        }
+    
+        const corxera =
+            config.figuresDisponibles.find(
+                figura =>
+                    Number(figura.valor) === 0.5
+            );
+    
+        const semicorxera =
+            config.figuresDisponibles.find(
+                figura =>
+                    Number(figura.valor) === 0.25
+            );
+    
+        if (
+            !corxera ||
+            !semicorxera
+        ) {
+            return [];
+        }
+    
+        return [
+    
+            // Quatre semicorxeres
+            [
+                semicorxera,
+                semicorxera,
+                semicorxera,
+                semicorxera
+            ],
+    
+            // Corxera + dues semicorxeres
+            [
+                corxera,
+                semicorxera,
+                semicorxera
+            ],
+    
+            // Dues semicorxeres + corxera
+            [
+                semicorxera,
+                semicorxera,
+                corxera
+            ],
+    
+            // Semicorxera + corxera + semicorxera
+            [
+                semicorxera,
+                corxera,
+                semicorxera
+            ]
+    
+        ];
+    }
 
     // =========================
     // GENERAR SEQÜÈNCIA
     // =========================
 
-    function generarSequencia() {
-
+    function generarSequencia(
+        haDeTenirSincopa = false
+    ) {
+        
         const figuresValides =
-            obtenirFiguresValides();
+            obtenirFiguresValides().filter(
+                figura => {
+        
+                    // Les semicorxeres només poden
+                    // aparèixer dins dels patrons.
+        
+                    if (
+                        config.patronsSemicorxeres === true &&
+                        Number(figura.valor) === 0.25
+                    ) {
+                        return false;
+                    }
+        
+                    return true;
+                }
+            );
+        
+        const patronsSemicorxeres =
+            obtenirPatronsSemicorxeres();
 
 
         if (
@@ -383,14 +536,53 @@ function iniciarExerciciAccentsMetricsRitmics(
                     duradaActual;
 
 
+                // =========================
+                // FIGURES POSSIBLES
+                // =========================
+
                 const possibles =
                     figuresValides.filter(
-                        figura =>
-                            Number(
-                                figura.valor
-                            ) <=
-                            restant +
-                            0.000001
+                        figura => {
+                
+                            const valor =
+                                Number(figura.valor);
+                
+                            // No superar la durada del compàs
+                            if (
+                                valor > restant + 0.000001
+                            ) {
+                                return false;
+                            }
+                
+                            // Evitar síncopes si l'exercici ho demana
+                            if (
+                                !haDeTenirSincopa
+                            ) {
+                
+                                const posicioFinal =
+                                    duradaActual + valor;
+                
+                                const comencaEntrePulsacions =
+                                    Math.abs(
+                                        duradaActual -
+                                        Math.round(duradaActual)
+                                    ) > 0.000001;
+                
+                                const travessaPulsacio =
+                                    Math.ceil(
+                                        duradaActual - 0.000001
+                                    ) < posicioFinal - 0.000001;
+                
+                                if (
+                                    comencaEntrePulsacions &&
+                                    travessaPulsacio
+                                ) {
+                                    return false;
+                                }
+                            }
+                
+                            return true;
+                        }
                     );
 
 
@@ -402,21 +594,77 @@ function iniciarExerciciAccentsMetricsRitmics(
                 }
 
 
-                const figura =
+                // =========================
+                // OPCIONS RÍTMIQUES
+                // =========================
+                
+                // Figures individuals disponibles
+                const opcions =
+                    possibles.map(
+                        figura => [figura]
+                    );
+                
+                
+                // =========================
+                // AFEGIR PATRONS DE SEMICORXERES
+                // =========================
+                
+                const comencaSobrePulsacio =
+                    Math.abs(
+                        duradaActual -
+                        Math.round(duradaActual)
+                    ) < 0.000001;
+                
+                if (
+                    config.patronsSemicorxeres === true &&
+                    comencaSobrePulsacio &&
+                    restant >= 1 - 0.000001
+                ) {
+                
+                    patronsSemicorxeres.forEach(
+                        patro => {
+                
+                            opcions.push(
+                                patro
+                            );
+                
+                        }
+                    );
+                }
+                
+                
+                // =========================
+                // ESCOLLIR OPCIÓ RÍTMICA
+                // =========================
+                
+                const opcio =
                     obtenirElementAleatori(
-                        possibles
+                        opcions
                     );
-
-
-                resultat.push(
-                    figura
+                
+                if (
+                    !opcio
+                ) {
+                    break;
+                }
+                
+                
+                // =========================
+                // AFEGIR FIGURES A LA SEQÜÈNCIA
+                // =========================
+                
+                opcio.forEach(
+                    figura => {
+                
+                        resultat.push(
+                            figura
+                        );
+                
+                        duradaActual +=
+                            Number(figura.valor);
+                
+                    }
                 );
-
-
-                duradaActual +=
-                    Number(
-                        figura.valor
-                    );
             }
 
 
@@ -469,6 +717,13 @@ function iniciarExerciciAccentsMetricsRitmics(
                 quantitatDownBeats < 2
             ) {
 
+                continue;
+            }
+
+            if (
+                haDeTenirSincopa &&
+                !teSincopa(resultat)
+            ) {
                 continue;
             }
 
@@ -994,39 +1249,19 @@ function iniciarExerciciAccentsMetricsRitmics(
         );
     }
 
-
-
     // =========================
-    // COMPROVAR SI ESTÀ COMPLET
+    // COMPROVAR SI HI HA RESPOSTA
     // =========================
-
+    
     function respostaCompleta() {
-
-        return accentsCorrectes.every(
-            (
-                accentCorrecte,
-                index
-            ) => {
-
-                // Si és una figura que
-                // no comença sobre pulsació,
-                // no cal marcar-la.
-
-                if (
-                    accentCorrecte === null
-                ) {
-
-                    return true;
-                }
-
-
-                return (
-                    typeof respostaAlumne[
-                        index
-                    ] ===
-                    "string"
-                );
-            }
+    
+        // Activar "Comprovar" quan l'alumne
+        // hagi marcat almenys una figura.
+        // No consultar els accents correctes.
+    
+        return respostaAlumne.some(
+            accent =>
+                accent !== null
         );
     }
 
@@ -1359,8 +1594,15 @@ function iniciarExerciciAccentsMetricsRitmics(
             );
 
 
+        const haDeTenirSincopa =
+            preguntesSincopades.has(
+                preguntaActual
+            );
+        
         figuresActuals =
-            generarSequencia();
+            generarSequencia(
+                haDeTenirSincopa
+            );
 
 
         if (

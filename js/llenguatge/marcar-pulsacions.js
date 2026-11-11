@@ -423,37 +423,31 @@ function generarSequenciaSenseSincopes() {
 
         // 8 + 16 + 16
 
-        if (corxera) {
-
-            patronsUnaPulsacio.push(
-                [
-                    corxera,
-                    semicorxera,
-                    semicorxera
-                ]
-            );
-
-
+        if (
+            corxera &&
+            config.semicorxeresAgrupades !== true
+        ) {
+        
+            // 8 + 16 + 16
+            patronsUnaPulsacio.push([
+                corxera,
+                semicorxera,
+                semicorxera
+            ]);
+        
             // 16 + 16 + 8
-
-            patronsUnaPulsacio.push(
-                [
-                    semicorxera,
-                    semicorxera,
-                    corxera
-                ]
-            );
-
-
+            patronsUnaPulsacio.push([
+                semicorxera,
+                semicorxera,
+                corxera
+            ]);
+        
             // 16 + 8 + 16
-
-            patronsUnaPulsacio.push(
-                [
-                    semicorxera,
-                    corxera,
-                    semicorxera
-                ]
-            );
+            patronsUnaPulsacio.push([
+                semicorxera,
+                corxera,
+                semicorxera
+            ]);
         }
     }
 
@@ -640,7 +634,10 @@ function obtenirPatronsSemicorxeres() {
     });
 
 
-    if (corxera) {
+    if (
+        corxera &&
+        config.semicorxeresAgrupades !== true
+    ) {
 
         // =========================
         // 8 + 16 + 16
@@ -1834,7 +1831,7 @@ function generarSequencia() {
                 percentatge,
 
             nomCategoria:
-                "Llenguatge",
+                "Pulsació",
 
             urlFinal:
                 "../../exercicis.html"

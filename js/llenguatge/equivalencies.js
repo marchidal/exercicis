@@ -71,6 +71,8 @@ function iniciarExerciciEquivalencies(
 
     let respostaValidada = false;
 
+    let clauPreguntaAnterior = null;
+
 
 
     // =========================
@@ -125,7 +127,18 @@ function iniciarExerciciEquivalencies(
         ];
     }
 
-
+    // =========================
+    // IDENTIFICAR PREGUNTA
+    // =========================
+    
+    function obtenirClauPregunta(parell) {
+    
+        return (
+            parell.origen.id +
+            "|" +
+            parell.equivalent.id
+        );
+    }
 
     // =========================
     // GENERAR PARELL VÀLID
@@ -281,23 +294,57 @@ function iniciarExerciciEquivalencies(
             false;
 
 
-        const parell =
-            generarParellFigures();
-
-
-        if (!parell) {
-            return;
-        }
-
-
+        // =========================
+        // EVITAR PREGUNTES CONSECUTIVES
+        // =========================
+        
+        let parell = null;
+        
+        let clauNovaPregunta = null;
+        
+        let intents = 0;
+        
+        const maxIntents = 100;
+        
+        
+        // Generem una pregunta diferent
+        // de l'anterior.
+        
+        do {
+        
+            parell = generarParellFigures();
+        
+            if (!parell) {
+                return;
+            }
+        
+            clauNovaPregunta =
+                obtenirClauPregunta(parell);
+        
+            intents++;
+        
+        } while (
+            clauNovaPregunta === clauPreguntaAnterior &&
+            intents < maxIntents
+        );
+        
+        
+        // Guardem la pregunta actual.
+        
+        clauPreguntaAnterior =
+            clauNovaPregunta;
+        
+        
+        // Assignem les figures.
+        
         figuraOrigen =
             parell.origen;
-
-
+        
+        
         figuraEquivalent =
             parell.equivalent;
-
-
+        
+        
         respostaCorrecta =
             parell.resposta;
 
@@ -514,7 +561,7 @@ function iniciarExerciciEquivalencies(
                 percentatge,
 
             nomCategoria:
-                "Llenguatge",
+                "Valors",
 
             urlFinal:
                 "../../exercicis.html"

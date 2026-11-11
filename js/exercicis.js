@@ -143,6 +143,91 @@ function exerciciDesbloquejat(
 
 
 // =========================
+// OBTENIR REQUISITS PENDENTS
+// =========================
+
+function obtenirRequisitsPendents(exercici, resultats) {
+
+    const pendents = [];
+
+    // Requisits especials d'altres categories
+
+    if (exercici.requereix) {
+
+        const requisits = Array.isArray(exercici.requereix)
+            ? exercici.requereix
+            : [exercici.requereix];
+
+        requisits.forEach(id => {
+
+            if (!exerciciSuperat(id, resultats)) {
+
+                const requisit = EXERCICIS.find(
+                    item => item.id === id
+                );
+
+                if (requisit) {
+                    pendents.push(requisit);
+                }
+            }
+        });
+    }
+
+    // Exercici anterior de la mateixa categoria
+
+    if (exercici.numero > 1) {
+
+        const anterior = EXERCICIS.find(
+            item =>
+                item.categoria === exercici.categoria &&
+                item.numero === exercici.numero - 1
+        );
+
+        if (
+            anterior &&
+            !exerciciSuperat(anterior.id, resultats)
+        ) {
+            pendents.push(anterior);
+        }
+    }
+
+    return pendents;
+}
+
+
+// =========================
+// GENERAR MISSATGE DE BLOQUEIG
+// =========================
+
+function obtenirMissatgeBloqueig(exercici, resultats) {
+
+    const pendents =
+        obtenirRequisitsPendents(exercici, resultats);
+
+    if (pendents.length === 0) {
+        return "🔒 Aquest exercici està bloquejat.";
+    }
+
+    const noms = pendents.map(item => {
+
+        const nomCategoria = item.categoria
+            .split("-")
+            .map(paraula =>
+                paraula.charAt(0).toUpperCase() +
+                paraula.slice(1)
+            )
+            .join(" ");
+
+        return `${nomCategoria} ${item.numero}`;
+    });
+
+    return {
+        titol: "🔒 Completa",
+        requisits: noms
+    };
+}
+
+// =========================
 // OBTENIR NOM DE L'EXERCICI
 // =========================
 
@@ -231,6 +316,31 @@ function actualitzarExercicis() {
         botons.forEach((boto) => {
 
             // =========================
+            // CONTENIDOR INDIVIDUAL
+            // =========================
+            
+            // Cada exercici necessita el seu
+            // propi contenidor per al tooltip.
+            
+            if (!boto.parentElement.classList.contains(
+                "contenidor-exercici"
+            )) {
+            
+                const contenidorIndividual =
+                    document.createElement("div");
+            
+                contenidorIndividual.className =
+                    "contenidor-exercici";
+            
+                boto.parentNode.insertBefore(
+                    contenidorIndividual,
+                    boto
+                );
+            
+                contenidorIndividual.appendChild(boto);
+            }
+
+            // =========================
             // NOM PERSONALITZAT
             // =========================
 
@@ -309,15 +419,70 @@ function actualitzarExercicis() {
             // =========================
 
             if (!desbloquejat) {
-
+            
                 boto.disabled = true;
-
+            
                 boto.classList.add(
                     "bloquejat"
                 );
-
+            
                 boto.textContent =
                     `${nomExercici} · ${exercici.rang} \u{1F512}`;
+            
+                // Mostrem els requisits pendents
+                // quan l'alumne passa el cursor.
+            
+                // =========================
+                // TOOLTIP DE BLOQUEIG
+                // =========================
+                
+                const missatge =
+                    obtenirMissatgeBloqueig(exercici, resultats);
+                
+                boto.removeAttribute("title");
+                
+                const contenidor = boto.parentElement;
+                
+                if (contenidor) {
+                
+                    contenidor.removeAttribute("title");
+                    contenidor.classList.add("contenidor-tooltip");
+                
+                    let tooltip =
+                        contenidor.querySelector(".tooltip-bloqueig");
+                
+                    if (!tooltip) {
+                
+                        tooltip = document.createElement("span");
+                
+                        tooltip.className = "tooltip-bloqueig";
+                
+                        contenidor.appendChild(tooltip);
+                    }
+                
+                    // =========================
+                    // CONTINGUT DEL TOOLTIP
+                    // =========================
+                    
+                    tooltip.replaceChildren();
+                    
+                    const titol = document.createElement("div");
+                    titol.className = "tooltip-titol";
+                    titol.textContent = missatge.titol;
+                    
+                    const requadre = document.createElement("div");
+                    requadre.className = "tooltip-requisits";
+                    
+                    missatge.requisits.forEach(nom => {
+                    
+                        const element = document.createElement("div");
+                        element.textContent = nom;
+                    
+                        requadre.appendChild(element);
+                    });
+                    
+                    tooltip.append(titol, requadre);
+                }
 
                 return;
             }
@@ -328,6 +493,30 @@ function actualitzarExercicis() {
             // =========================
 
             boto.disabled = false;
+
+            // Eliminar el tooltip de bloqueig
+            // quan l'exercici està disponible.
+
+            boto.removeAttribute("title");
+
+            const contenidor = boto.parentElement;
+
+            if (contenidor) {
+
+                contenidor.removeAttribute("title");
+                contenidor.classList.remove(
+                    "contenidor-tooltip"
+                );
+
+                const tooltip =
+                    contenidor.querySelector(
+                        ".tooltip-bloqueig"
+                    );
+
+                if (tooltip) {
+                    tooltip.remove();
+                }
+            }
 
             boto.classList.add(
                 "disponible"

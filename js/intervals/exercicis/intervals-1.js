@@ -75,7 +75,8 @@ const configuracioIntervals1 = {
     // "descendent"
     // "mixt"
 
-    moviment: "ascendent",
+    alteracions: "sense",
+    moviment: "mixt",
 
 
     // =========================

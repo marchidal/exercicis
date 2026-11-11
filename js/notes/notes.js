@@ -542,24 +542,59 @@ function iniciarExerciciNotes(config) {
     
     
         // =========================
-        // LÍNIA ADDICIONAL
+        // LÍNIES ADDICIONALS
         // =========================
-    
+        
         let liniaAddicional = "";
-    
-    
-        if (nota.liniaAddicional) {
-    
-            liniaAddicional = `
-                <line
-                    x1="292"
-                    y1="${notaY}"
-                    x2="348"
-                    y2="${notaY}"
-                    stroke="black"
-                    stroke-width="2"
-                />
-            `;
+        
+        // Les cinc línies del pentagrama ocupen
+        // les posicions 1, 2, 3, 4 i 5.
+        //
+        // Les línies addicionals superiors
+        // comencen a la posició 6.
+        //
+        // Les línies addicionals inferiors
+        // comencen a la posició 0.
+        
+        if (posicio > 5) {
+        
+            for (let i = 6; i <= posicio; i++) {
+        
+                const y =
+                    primeraLiniaY -
+                    ((i - 1) * distanciaLinies);
+        
+                liniaAddicional += `
+                    <line
+                        x1="292"
+                        y1="${y}"
+                        x2="348"
+                        y2="${y}"
+                        stroke="black"
+                        stroke-width="2"
+                    />
+                `;
+            }
+        
+        } else if (posicio < 1) {
+        
+            for (let i = 0; i >= posicio; i--) {
+        
+                const y =
+                    primeraLiniaY -
+                    ((i - 1) * distanciaLinies);
+        
+                liniaAddicional += `
+                    <line
+                        x1="292"
+                        y1="${y}"
+                        x2="348"
+                        y2="${y}"
+                        stroke="black"
+                        stroke-width="2"
+                    />
+                `;
+            }
         }
     
     

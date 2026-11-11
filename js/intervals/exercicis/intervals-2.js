@@ -36,7 +36,8 @@ const configuracioIntervals2 = {
     // MOVIMENT
     // =========================
 
-    moviment: "ascendent",
+    alteracions: "sense",
+    moviment: "mixt",
 
     // =========================
     // PREGUNTES

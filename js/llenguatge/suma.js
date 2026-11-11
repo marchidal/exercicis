@@ -70,6 +70,8 @@ function iniciarExerciciSumes(
 
     let figuresActuals = [];
 
+    let clauPreguntaAnterior = null;
+
     let respostaCorrecta = 0;
 
     let respostaValidada = false;
@@ -137,7 +139,17 @@ function iniciarExerciciSumes(
         ];
     }
 
-
+    // =========================
+    // IDENTIFICAR COMBINACIÓ
+    // =========================
+    
+    function obtenirClauPregunta(figures) {
+    
+        return figures
+            .map(figura => figura.id)
+            .sort()
+            .join("|");
+    }
 
     // =========================
     // VALOR DE FIGURA
@@ -313,20 +325,34 @@ function iniciarExerciciSumes(
             false;
 
 
-        figuresActuals =
-            [];
-
-
-        for (
-            let i = 0;
-            i < quantitatFigures;
-            i++
-        ) {
-
-            figuresActuals.push(
-                obtenirFiguraAleatoria()
-            );
-        }
+        // =========================
+        // EVITAR REPETICIONS CONSECUTIVES
+        // =========================
+        
+        let novaCombinacio;
+        let clauNovaPregunta;
+        
+        do {
+        
+            novaCombinacio = [];
+        
+            for (let i = 0; i < quantitatFigures; i++) {
+        
+                novaCombinacio.push(
+                    obtenirFiguraAleatoria()
+                );
+            }
+        
+            clauNovaPregunta =
+                obtenirClauPregunta(novaCombinacio);
+        
+        } while (
+            clauNovaPregunta === clauPreguntaAnterior
+        );
+        
+        figuresActuals = novaCombinacio;
+        
+        clauPreguntaAnterior = clauNovaPregunta;
 
 
 
@@ -560,7 +586,7 @@ function iniciarExerciciSumes(
                 percentatge,
 
             nomCategoria:
-                "Llenguatge",
+                "Valors",
 
             urlFinal:
                 "../../exercicis.html"

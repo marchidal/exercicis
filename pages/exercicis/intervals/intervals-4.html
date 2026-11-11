@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Intervals 4 — Quartes i quintes</title>
+
+    <!-- ========================= -->
+    <!-- ESTILS -->
+    <!-- ========================= -->
+
+    <link
+        rel="stylesheet"
+        href="../../../css/llenguatge.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../../../css/intervals.css"
+    >
+
+</head>
+
+<body>
+
+    <main class="contenidor-exercici">
+
+        <h1>Intervals 4</h1>
+
+
+        <!-- ======================================== -->
+        <!-- EXPLICACIÓ -->
+        <!-- ======================================== -->
+
+        <section
+            id="explicacio"
+            class="explicacio"
+        >
+
+            <h2>Quartes i quintes</h2>
+
+            <p>
+                En aquest exercici aprendràs a reconèixer la
+                <strong>quarta justa (4J)</strong>, la
+                <strong>quarta augmentada (4aug)</strong>, la
+                <strong>quinta disminuïda (5dis)</strong> i la
+                <strong>quinta justa (5J)</strong>.
+            </p>
+
+            <h3>1. Com reconèixer una quarta?</h3>
+
+            <p>
+                Una <strong>quarta</strong> comprèn quatre graus de l'escala,
+                comptant la nota inicial i la final. Pot ser justa o augmentada.
+            </p>
+
+            <div class="exemples-segones">
+                <div class="exemple-segona">
+                    <strong>Do – Fa</strong>
+                    <span>Quarta justa · 2½ tons</span>
+                </div>
+                <div class="exemple-segona">
+                    <strong>Si – Fa</strong>
+                    <span>Quarta augmentada · 3 tons</span>
+                </div>
+            </div>
+
+            <h3>2. Com reconèixer una quinta?</h3>
+
+            <p>
+                Una <strong>quinta</strong> comprèn cinc graus de l'escala,
+                comptant la nota inicial i la final. Pot ser disminuïda o justa.
+            </p>
+
+            <div class="exemples-segones">
+                <div class="exemple-segona">
+                    <strong>Fa – Si</strong>
+                    <span>Quinta disminuïda · 3 tons</span>
+                </div>
+                <div class="exemple-segona">
+                    <strong>Do – Sol</strong>
+                    <span>Quinta justa · 3½ tons</span>
+                </div>
+            </div>
+
+            <h3>3. Compara els quatre intervals</h3>
+
+            <div class="taula-intervals-contenidor">
+                <table class="taula-intervals">
+                    <thead>
+                        <tr>
+                            <th>Interval</th>
+                            <th>Distància</th>
+                            <th>Nom</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="fila-destacada">
+                            <td>Do – Fa</td>
+                            <td>2½ tons</td>
+                            <td>4J</td>
+                        </tr>
+                        <tr>
+                            <td>Si – Fa</td>
+                            <td>3 tons</td>
+                            <td>4aug</td>
+                        </tr>
+                        <tr class="fila-destacada">
+                            <td>Si – Sol</td>
+                            <td>3 tons</td>
+                            <td>5dis</td>
+                        </tr>
+                        <tr>
+                            <td>Do – Sol</td>
+                            <td>3½ tons</td>
+                            <td>5J</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="resum-explicacio-intervals">
+                <h3>Recorda!</h3>
+                <p><strong>4J</strong> = 2½ tons.</p>
+                <p><strong>4aug</strong> = 3 tons.</p>
+                <p><strong>5dis</strong> = 3 tons.</p>
+                <p><strong>5J</strong> = 3½ tons.</p>
+                <p>
+                    La quarta augmentada i la quinta disminuïda tenen
+                    la mateixa distància en tons, però no el mateix
+                    nombre de graus. Primer compta els graus;
+                    després identifica la distància.
+                </p>
+            </div>
+
+            <h3>Com funciona l'exercici?</h3>
+
+            <p>
+                A cada pregunta veuràs <strong>dues notes en un pentagrama</strong>.
+                Hauràs d'indicar la distància en tons i el tipus d'interval.
+            </p>
+
+            <ol class="instruccions-intervals">
+                <li>Quina distància hi ha entre les notes?</li>
+                <li>Quin interval formen?</li>
+            </ol>
+
+            <p>
+                Per encertar, <strong>les dues respostes han de ser correctes</strong>.
+                Els quatre intervals apareixeran barrejats.
+            </p>
+
+            <p>
+                L'exercici consta de <strong>12 preguntes</strong>:
+                3 quartes justes, 3 quartes augmentades,
+                3 quintes disminuïdes i 3 quintes justes.
+            </p>
+
+
+            <!-- ========================= -->
+            <!-- COMENÇAR -->
+            <!-- ========================= -->
+
+            <button
+                id="comencar-btn"
+                class="boto-principal"
+                type="button"
+            >
+
+                Començar
+
+            </button>
+
+        </section>
+
+
+
+        <!-- ======================================== -->
+        <!-- ZONA D'EXERCICI -->
+        <!-- ======================================== -->
+
+        <section
+            id="zona-exercici"
+            class="zona-exercici ocult"
+        >
+
+
+            <!-- ========================= -->
+            <!-- PROGRÉS -->
+            <!-- ========================= -->
+
+            <div class="progres-pregunta">
+
+                Pregunta
+
+                <span id="pregunta-actual">
+                    1
+                </span>
+
+                de
+
+                <span id="total-preguntes">
+                    12
+                </span>
+
+            </div>
+
+
+            <!-- ========================= -->
+            <!-- ENUNCIAT -->
+            <!-- ========================= -->
+
+            <div class="enunciat-suma">
+
+                <h2>
+                    Reconeix l'interval
+                </h2>
+
+                <p>
+                    Observa les dues notes
+                    i selecciona la distància
+                    i l'interval corresponents.
+                </p>
+
+            </div>
+
+
+            <!-- ========================= -->
+            <!-- PENTAGRAMA -->
+            <!-- ========================= -->
+
+            <div class="contenidor-pentagrama-intervals">
+
+                <div
+                    id="pentagrama-intervals"
+                    class="pentagrama-intervals"
+                    aria-label="Pentagrama amb dues notes"
+                >
+
+                    <!--
+                        El motor dibuixarà aquí
+                        el pentagrama i les notes.
+                    -->
+
+                </div>
+
+            </div>
+
+
+            <!-- ======================================== -->
+            <!-- PRIMERA RESPOSTA: DISTÀNCIA -->
+            <!-- ======================================== -->
+
+            <div class="bloc-resposta-intervals">
+
+                <h3>
+                    1. Quina distància hi ha entre les notes?
+                </h3>
+
+                <p class="ajuda-resposta-intervals">
+                    Selecciona la quantitat de tons.
+                </p>
+
+                <div
+                    id="opcions-distancies"
+                    class="graella-opcions-intervals graella-distancies"
+                >
+
+                    <!--
+                        El motor crearà els botons
+                        de distàncies.
+
+                        En aquest exercici només
+                        estaran actius:
+
+                        1½ tons
+                        2 tons
+                    -->
+
+                </div>
+
+            </div>
+
+
+            <!-- ======================================== -->
+            <!-- SEGONA RESPOSTA: INTERVAL -->
+            <!-- ======================================== -->
+
+            <div class="bloc-resposta-intervals">
+
+                <h3>
+                    2. Quin interval formen?
+                </h3>
+
+                <p class="ajuda-resposta-intervals">
+                    Selecciona el tipus d'interval.
+                </p>
+
+                <div
+                    id="opcions-intervals"
+                    class="graella-opcions-intervals graella-tipus"
+                >
+
+                    <!--
+                        El motor crearà els botons
+                        de tots els intervals.
+
+                        En aquest exercici només
+                        estaran actius:
+
+                        4J
+                        4aug
+                        5dis
+                        5J
+                    -->
+
+                </div>
+
+            </div>
+
+
+            <!-- ========================= -->
+            <!-- CONTROLS -->
+            <!-- ========================= -->
+
+            <div class="controls-intervals">
+
+                <button
+                    id="boto-comprovar"
+                    class="boto-principal"
+                    type="button"
+                    disabled
+                >
+
+                    Comprovar
+
+                </button>
+
+            </div>
+
+
+            <!-- ========================= -->
+            <!-- FEEDBACK -->
+            <!-- ========================= -->
+
+            <div
+                id="feedback"
+                class="feedback"
+                aria-live="polite"
+            ></div>
+
+
+        </section>
+
+
+
+        <!-- ======================================== -->
+        <!-- RESULTAT FINAL -->
+        <!-- ======================================== -->
+
+        <section
+            id="resultat-final"
+            class="resultat-final ocult"
+        >
+
+            <h2>
+                Resultat
+            </h2>
+
+
+            <!-- ========================= -->
+            <!-- PUNTUACIÓ -->
+            <!-- ========================= -->
+
+            <div class="puntuacio-final">
+
+                <p id="puntuacio-final">
+                    0 / 12
+                </p>
+
+            </div>
+
+
+            <!-- ======================================== -->
+            <!-- EXPERIÈNCIA -->
+            <!-- ======================================== -->
+
+            <div
+                id="resum-xp"
+                class="experiencia-final resum-xp"
+            >
+
+                <div class="resum-xp-header">
+
+                    <strong>
+                        Intervals
+                    </strong>
+
+                    <span id="nivell-xp">
+                        Rang D
+                    </span>
+
+                </div>
+
+
+                <!-- ========================= -->
+                <!-- BARRA D'EXPERIÈNCIA -->
+                <!-- ========================= -->
+
+                <div class="barra-xp-final">
+
+                    <div
+                        id="barra-xp-final-progres"
+                        class="barra-xp-final-progres"
+                    ></div>
+
+                </div>
+
+
+                <!-- ========================= -->
+                <!-- TEXT D'EXPERIÈNCIA -->
+                <!-- ========================= -->
+
+                <p id="text-xp-final">
+                    0 / 50 XP
+                </p>
+
+
+                <!-- ========================= -->
+                <!-- XP GUANYADA -->
+                <!-- ========================= -->
+
+                <p id="xp-guanyada">
+                    +0 XP
+                </p>
+
+            </div>
+
+
+            <!-- ========================= -->
+            <!-- FINALITZAR -->
+            <!-- ========================= -->
+
+            <button
+                id="finalitzar-btn"
+                class="boto-principal"
+                type="button"
+            >
+
+                Finalitzar
+
+            </button>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ======================================== -->
+    <!-- SCRIPTS -->
+    <!-- ======================================== -->
+
+    <!-- DADES DELS EXERCICIS -->
+
+    <script
+        src="../../../js/dades-exercicis.js"
+    ></script>
+
+
+    <!-- SISTEMA GENERAL -->
+
+    <script
+        src="../../../js/sistema-exercicis.js"
+    ></script>
+
+
+    <!-- MOTOR D'INTERVALS -->
+
+    <script
+        src="../../../js/intervals/reconeixer-intervals.js"
+    ></script>
+
+
+    <!-- CONFIGURACIÓ D'INTERVALS 4 -->
+
+    <script
+        src="../../../js/intervals/exercicis/intervals-4.js"
+    ></script>
+
+
+
+    <!-- ======================================== -->
+    <!-- INICIAR EXERCICI -->
+    <!-- ======================================== -->
+
+    <script>
+
+        document.getElementById(
+            "comencar-btn"
+        ).addEventListener(
+            "click",
+            function () {
+
+                document.getElementById(
+                    "explicacio"
+                ).classList.add(
+                    "ocult"
+                );
+
+                document.getElementById(
+                    "zona-exercici"
+                ).classList.remove(
+                    "ocult"
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

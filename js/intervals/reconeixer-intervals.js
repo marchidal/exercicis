@@ -70,6 +70,20 @@ const TIPUS_INTERVALS = [
         grau: 4,
         semitons: 5
     },
+    
+    {
+        id: "4aug",
+        nom: "Quarta augmentada",
+        grau: 4,
+        semitons: 6
+    },
+    
+    {
+        id: "5dis",
+        nom: "Quinta disminuïda",
+        grau: 5,
+        semitons: 6
+    },
 
     {
         id: "5J",
@@ -245,22 +259,17 @@ function obtenirDistanciaInterval(
 
 
 // ============================================================
-// CALCULAR ALTURA ABSOLUTA D'UNA NOTA
+// CALCULAR ALTURA ABSOLUTA AMB ALTERACIONS
 // ============================================================
 
-function calcularSemitoAbsolut(
-    nota
-) {
+function calcularSemitoAbsolut(nota) {
 
-    const definicio =
-        NOTES_INTERVALS[
-            nota.index
-        ];
-
+    const definicio = NOTES_INTERVALS[nota.index];
 
     return (
         nota.octava * 12 +
-        definicio.semito
+        definicio.semito +
+        (nota.alteracio || 0)
     );
 
 }
@@ -349,19 +358,16 @@ function identificarInterval(
 
 
 // ============================================================
-// CREAR NOTA
+// CREAR NOTA AMB ALTERACIÓ OPCIONAL
 // ============================================================
 
 function crearNotaInterval(
     index,
-    octava
+    octava,
+    alteracio = 0
 ) {
 
-    const definicio =
-        NOTES_INTERVALS[
-            index
-        ];
-
+    const definicio = NOTES_INTERVALS[index];
 
     return {
 
@@ -373,7 +379,10 @@ function crearNotaInterval(
 
         lletra: definicio.lletra,
 
-        semito: definicio.semito
+        semito: definicio.semito,
+
+        // -1 = bemoll, 0 = natural, 1 = sostingut
+        alteracio: alteracio
 
     };
 
@@ -485,21 +494,68 @@ function generarParellesInterval(idInterval) {
             posicio2 / 7
         );
 
-        const nota2 = crearNotaInterval(
+        // ========================================================
+        // SEGONA NOTA AMB ALTERACIÓ
+        // ========================================================
+        
+        const nota2Natural = crearNotaInterval(
             index2,
             octava2
         );
+        
+        // Calculem la distància natural entre les dues notes.
+        const distanciaNatural = calcularDistanciaSemitons(
+            nota1,
+            nota2Natural
+        );
+        
+        // Calculem l'alteració necessària per obtenir l'interval.
+        const alteracioNecessaria =
+            tipus.semitons - distanciaNatural;
 
-        // =========================
-        // COMPROVAR INTERVAL
-        // =========================
-
-        const intervalCalculat =
-            identificarInterval(
-                nota1,
-                nota2
-            );
-
+        // ========================================================
+        // FILTRAR LES ALTERACIONS SEGONS LA CONFIGURACIÓ
+        // ========================================================
+        
+        const modeAlteracions =
+            configuracioIntervals.alteracions || "mixt";
+        
+        // Només notes naturals
+        if (
+            modeAlteracions === "sense" &&
+            alteracioNecessaria !== 0
+        ) {
+            continue;
+        }
+        
+        // Només intervals amb alteracions
+        if (
+            modeAlteracions === "amb" &&
+            alteracioNecessaria === 0
+        ) {
+            continue;
+        }    
+        
+        // Només permetem bemolls, naturals i sostinguts.
+        if (
+            alteracioNecessaria < -1 ||
+            alteracioNecessaria > 1
+        ) {
+            continue;
+        }
+        
+        const nota2 = crearNotaInterval(
+            index2,
+            octava2,
+            alteracioNecessaria
+        );
+        
+        // Comprovem que el resultat sigui l'interval correcte.
+        const intervalCalculat = identificarInterval(
+            nota1,
+            nota2
+        );
+        
         if (
             !intervalCalculat ||
             intervalCalculat.id !== idInterval
@@ -672,24 +728,29 @@ function generarPreguntesIntervals() {
     }
 
     // ========================================================
-    // IDENTIFICAR UNA PARELLA DE NOTES
+    // IDENTIFICAR UNA PARELLA AMB ALTERACIONS
     // ========================================================
-
+    
     function obtenirClauParella(parella) {
-
-        const nota1 =
-            parella.nota1.lletra +
-            parella.nota1.octava;
-
-        const nota2 =
-            parella.nota2.lletra +
-            parella.nota2.octava;
-
+    
+        function obtenirClauNota(nota) {
+    
+            return (
+                nota.lletra +
+                (nota.alteracio || 0) +
+                nota.octava
+            );
+    
+        }
+    
+        const nota1 = obtenirClauNota(parella.nota1);
+        const nota2 = obtenirClauNota(parella.nota2);
+    
         // La clau és independent del moviment.
-
         return [nota1, nota2]
             .sort()
             .join("-");
+    
     }
 
     // ========================================================
@@ -830,17 +891,20 @@ function generarPreguntesIntervals() {
 
 
 // ============================================================
-// FORMAT DEL NOM DE LA NOTA
+// FORMAT DEL NOM DE LA NOTA AMB ALTERACIÓ
 // ============================================================
 
-function obtenirNomNotaInterval(
-    nota
-) {
+function obtenirNomNotaInterval(nota) {
 
-    return (
-        nota.nom +
-        nota.octava
-    );
+    let simbol = "";
+
+    if (nota.alteracio === 1) {
+        simbol = "♯";
+    } else if (nota.alteracio === -1) {
+        simbol = "♭";
+    }
+
+    return nota.nom + simbol + nota.octava;
 
 }
 
@@ -1011,6 +1075,41 @@ function dibuixarPentagramaIntervals(nota1, nota2) {
         const y = obtenirYNota(nota);
 
         // ----------------------------------------------------
+        // DIBUIXAR ALTERACIÓ
+        // ----------------------------------------------------
+        
+        if (nota.alteracio) {
+        
+            const simbolAlteracio =
+                nota.alteracio === 1 ? "♯" : "♭";
+        
+            const alteracio = document.createElementNS(
+                svgNS,
+                "text"
+            );
+        
+            alteracio.setAttribute("x", x - 38);
+        
+            alteracio.setAttribute("y", y + 12);
+        
+            alteracio.setAttribute("font-size", 38);
+        
+            alteracio.setAttribute(
+                "font-family",
+                '"Noto Music", "Bravura", "Segoe UI Symbol", serif'
+            );
+        
+            alteracio.setAttribute(
+                "fill",
+                "currentColor"
+            );
+        
+            alteracio.textContent = simbolAlteracio;
+        
+            svg.appendChild(alteracio);
+        }
+
+        // ----------------------------------------------------
         // LÍNIES ADDICIONALS INFERIORS
         // ----------------------------------------------------
 
@@ -1086,7 +1185,7 @@ function dibuixarPentagramaIntervals(nota1, nota2) {
         // PLICA
         // ----------------------------------------------------
 
-        const plicaAmunt = y >= 130;
+        const plicaAmunt = y > 130;
 
         const xPlica =
             plicaAmunt ? x + 12 : x - 12;

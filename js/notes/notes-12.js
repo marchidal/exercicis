@@ -197,11 +197,12 @@ const configuracioNotes = {
         // =========================
         // NOTA NOVA: LA4
         // =========================
-
+        
         {
             nom: "la",
             alternatives: ["la", "a"],
             posicio: 6,
+            liniaAddicional: true,
             pes: 6
         }
 

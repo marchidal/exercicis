@@ -1,0 +1,108 @@
+/* =========================
+   ZONA DE RESPOSTA · VALORS
+   ========================= */
+
+.zona-resposta-suma {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin: 24px auto;
+}
+
+/* Text de la pregunta */
+
+.instruccio-resposta {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Camp de resposta */
+
+.input-resposta-suma {
+    width: 100px;
+    height: 48px;
+    box-sizing: border-box;
+
+    padding: 8px 12px;
+
+    border: 2px solid #d8dce8;
+    border-radius: 12px;
+
+    background-color: #f8f9ff;
+    color: #252a40;
+
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+/* Quan l'alumne selecciona el camp */
+
+.input-resposta-suma:focus {
+    border-color: #6675d8;
+    background-color: #ffffff;
+
+    box-shadow: 0 0 0 4px rgba(102, 117, 216, 0.12);
+}
+
+/* Quan el camp està desactivat */
+
+.input-resposta-suma:disabled {
+    background-color: #eeeeee;
+    color: #888;
+    cursor: not-allowed;
+}
+
+/* Eliminar les fletxes del camp numèric */
+
+.input-resposta-suma::-webkit-inner-spin-button,
+.input-resposta-suma::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-resposta-suma {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+/* Unitat de la resposta */
+
+.unitat-resposta {
+    font-size: 14px;
+    color: #666;
+}
+
+/* =========================
+   ADAPTACIÓ A MÒBILS
+   ========================= */
+
+@media (max-width: 480px) {
+
+    .zona-resposta-suma {
+        gap: 10px;
+    }
+
+    .instruccio-resposta {
+        width: 100%;
+        text-align: center;
+    }
+
+    .input-resposta-suma {
+        width: 110px;
+        font-size: 18px;
+    }
+
+}

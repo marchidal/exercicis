@@ -1797,122 +1797,104 @@ function iniciarDictatRitmic(config) {
 
 
 
-    // =========================
-    // COMPROVAR RESPOSTA
-    // =========================
-
     function comprovarResposta() {
-
-        if (
-            respostaValidada
-        ) {
-
+    
+        if (respostaValidada) {
             return;
         }
-
-
-
+    
         const duradaResposta =
             obtenirDuradaResposta();
-
-
+    
         const duradaTotal =
             obtenirDuradaTotalDictat();
-
-
-
+    
         if (
             Math.abs(
                 duradaResposta -
                 duradaTotal
-            ) >
-            0.000001
+            ) > 0.000001
         ) {
-
             return;
         }
-
-
-
+    
         const respostaCorrecta =
             aplanarDictat(
                 dictatActual
             );
-
-
+    
         const correcte =
             compararSequenciesRitmiques(
                 respostaAlumne,
                 respostaCorrecta
             );
-
-
-        respostaValidada =
-            true;
-
-
-
+    
+        // Evitem que es pugui comprovar
+        // la mateixa resposta dues vegades.
+    
+        respostaValidada = true;
+    
         if (correcte) {
-
+    
             encerts++;
-
-
+    
             if (feedback) {
-
+    
                 feedback.textContent =
                     "Correcte!";
-
-
+    
                 feedback.className =
                     "feedback correcte";
             }
-
+    
         } else {
-
+    
             if (feedback) {
-
+    
                 feedback.textContent =
                     "No és correcte.";
-
-
+    
                 feedback.className =
                     "feedback incorrecte";
             }
         }
-
-
-
+    
+        // =========================
+        // AMAGAR BOTONS
+        // =========================
+    
         if (botoComprovar) {
-
-            botoComprovar.hidden =
-                true;
+            botoComprovar.hidden = true;
         }
-
-
-
+    
+        // El botó Següent ja no és necessari.
+    
         if (botoSeguent) {
-
-            botoSeguent.hidden =
-                false;
-
-
-            if (
-                preguntaActual >=
-                config.totalPreguntes
-            ) {
-
-                botoSeguent.textContent =
-                    "Veure resultat";
-
-            } else {
-
-                botoSeguent.textContent =
-                    "Següent";
-            }
+            botoSeguent.hidden = true;
         }
-
-
+    
         actualitzarBotons();
+    
+        // Ens assegurem que Següent
+        // continuï amagat després
+        // d'actualitzar els botons.
+    
+        if (botoSeguent) {
+            botoSeguent.hidden = true;
+        }
+    
+        // =========================
+        // AVANÇ AUTOMÀTIC
+        // =========================
+    
+        // Mostrem el resultat durant
+        // 1,5 segons abans de continuar.
+    
+        setTimeout(() => {
+    
+            novaPregunta();
+    
+        }, 1500);
     }
 
 

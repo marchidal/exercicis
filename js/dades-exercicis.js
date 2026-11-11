@@ -132,107 +132,209 @@ const EXERCICIS = [
     },
 
     // =========================
-    // LLENGUATGE
+    // VALORS
     // =========================
-
+    
     {
-        id: "llenguatge-1",
-        categoria: "llenguatge",
+        id: "valors-1",
+        categoria: "valors",
         numero: 1,
         rang: "D",
         xpMax: 50,
-        url: "exercicis/llenguatge/llenguatge-1.html"
+        url: "exercicis/llenguatge/valors-1.html"
     },
-
+    
     {
-        id: "llenguatge-2",
-        categoria: "llenguatge",
+        id: "valors-2",
+        categoria: "valors",
         numero: 2,
         rang: "D",
         xpMax: 50,
-        url: "exercicis/llenguatge/llenguatge-2.html"
+        url: "exercicis/llenguatge/valors-2.html"
     },
-
+    
     {
-        id: "llenguatge-3",
-        categoria: "llenguatge",
+        id: "valors-3",
+        categoria: "valors",
         numero: 3,
         rang: "D",
         xpMax: 50,
-        url: "exercicis/llenguatge/llenguatge-3.html"
+        url: "exercicis/llenguatge/valors-3.html"
     },
 
     {
-        id: "llenguatge-4",
-        categoria: "llenguatge",
+        id: "valors-4",
+        categoria: "valors",
         numero: 4,
         rang: "D",
         xpMax: 50,
-        url: "exercicis/llenguatge/llenguatge-4.html"
+        url: "exercicis/llenguatge/valors-4.html"
     },
-
+    
     {
-        id: "llenguatge-5",
-        categoria: "llenguatge",
+        id: "valors-5",
+        categoria: "valors",
         numero: 5,
-        rang: "D",
-        xpMax: 55,
-        url: "exercicis/llenguatge/llenguatge-5.html"
-    },
-
+        rang: "C",
+        xpMax: 60,
+        url: "exercicis/llenguatge/valors-5.html"
+    },    
+    
     {
-        id: "llenguatge-6",
-        categoria: "llenguatge",
+        id: "valors-6",
+        categoria: "valors",
         numero: 6,
-        rang: "D",
-        xpMax: 55,
-        url: "exercicis/llenguatge/llenguatge-6.html"
+        rang: "C",
+        xpMax: 60,
+        url: "exercicis/llenguatge/valors-6.html"
     },    
 
+    // =========================
+    // COMPASSOS
+    // =========================
+    
     {
-        id: "llenguatge-7",
-        categoria: "llenguatge",
-        numero: 7,
+        id: "compassos-1",
+        categoria: "compassos",
+        numero: 1,
         rang: "D",
-        xpMax: 55,
-        url: "exercicis/llenguatge/llenguatge-7.html"
+        xpMax: 50,
+        url: "exercicis/llenguatge/compassos-1.html",
+        requereix: "valors-2"
     },
     
     {
-        id: "llenguatge-8",
-        categoria: "llenguatge",
-        numero: 8,
+        id: "compassos-2",
+        categoria: "compassos",
+        numero: 2,
         rang: "D",
-        xpMax: 55,
-        url: "exercicis/llenguatge/llenguatge-8.html"
+        xpMax: 50,
+        url: "exercicis/llenguatge/compassos-2.html"
+    },
+
+    {
+        id: "compassos-3",
+        categoria: "compassos",
+        numero: 3,
+        rang: "D",
+        xpMax: 50,
+        url: "exercicis/llenguatge/compassos-3.html"
     },
     
     {
-        id: "llenguatge-9",
-        categoria: "llenguatge",
-        numero: 9,
+        id: "compassos-4",
+        categoria: "compassos",
+        numero: 4,
         rang: "D",
+        xpMax: 50,
+        url: "exercicis/llenguatge/compassos-4.html"
+    },
+    
+    {
+        id: "compassos-5",
+        categoria: "compassos",
+        numero: 5,
+        rang: "C",
         xpMax: 60,
-        url: "exercicis/llenguatge/llenguatge-9.html"
+        url: "exercicis/llenguatge/compassos-5.html",
+        requereix: "valors-6"
+    },    
+ 
+    {
+        id: "compassos-6",
+        categoria: "compassos",
+        numero: 6,
+        rang: "C",
+        xpMax: 60,
+        url: "exercicis/llenguatge/compassos-6.html"
+    },      
+    
+    // =========================
+    // PULSACIÓ
+    // =========================
+    
+    {
+        id: "pulsacio-1",
+        categoria: "pulsacio",
+        numero: 1,
+        rang: "D",
+        xpMax: 50,
+        url: "exercicis/llenguatge/pulsacio-1.html",
+        requereix: "compassos-4"
     },
     
     {
-        id: "llenguatge-10",
-        categoria: "llenguatge",
-        numero: 10,
-        rang: "D",
+        id: "pulsacio-2",
+        categoria: "pulsacio",
+        numero: 2,
+        rang: "C",
         xpMax: 60,
-        url: "exercicis/llenguatge/llenguatge-10.html"
+        url: "exercicis/llenguatge/pulsacio-2.html",
+        requereix: "compassos-6"
     },
     
     {
-        id: "llenguatge-11",
-        categoria: "llenguatge",
-        numero: 11,
-        rang: "D",
+        id: "pulsacio-3",
+        categoria: "pulsacio",
+        numero: 3,
+        rang: "C",
         xpMax: 60,
-        url: "exercicis/llenguatge/llenguatge-11.html"
-    }, 
+        url: "exercicis/llenguatge/pulsacio-3.html"
+    },
+    
+    {
+        id: "pulsacio-4",
+        categoria: "pulsacio",
+        numero: 4,
+        rang: "C",
+        xpMax: 60,
+        url: "exercicis/llenguatge/pulsacio-4.html"
+    },
+    
+    
+    // =========================
+    // ACCENTS MÈTRICS
+    // =========================
+    
+    {
+        id: "accents-metrics-1",
+        categoria: "accents-metrics",
+        numero: 1,
+        rang: "D",
+        xpMax: 50,
+        url: "exercicis/llenguatge/accents-metrics-1.html",
+        requereix: "pulsacio-1"
+    },
+
+    {
+        id: "accents-metrics-2",
+        categoria: "accents-metrics",
+        numero: 2,
+        rang: "C",
+        xpMax: 60,
+        url: "exercicis/llenguatge/accents-metrics-2.html",
+        requereix: "pulsacio-2"
+    },
+
+    {
+        id: "accents-metrics-3",
+        categoria: "accents-metrics",
+        numero: 3,
+        rang: "C",
+        xpMax: 60,
+        url: "exercicis/llenguatge/accents-metrics-3.html",
+        requereix: "pulsacio-3"
+    },
+
+    {
+        id: "accents-metrics-4",
+        categoria: "accents-metrics",
+        numero: 4,
+        rang: "C",
+        xpMax: 60,
+        url: "exercicis/llenguatge/accents-metrics-4.html",
+        requereix: "pulsacio-4"
+    },
 
     // =========================
     // INTERVALS
@@ -264,7 +366,26 @@ const EXERCICIS = [
     rang: "D",
     xpMax: 50,
     url: "exercicis/intervals/intervals-3.html"
-},
+    },
+
+    {
+    id: "intervals-4",
+    categoria: "intervals",
+    numero: 4,
+    rang: "C",
+    xpMax: 50,
+    url: "exercicis/intervals/intervals-4.html",
+    requereix: "notes-12"
+    },
+
+    {
+    id: "intervals-5",
+    categoria: "intervals",
+    numero: 5,
+    rang: "C",
+    xpMax: 50,
+    url: "exercicis/intervals/intervals-5.html",
+    },
     
     
     // =========================

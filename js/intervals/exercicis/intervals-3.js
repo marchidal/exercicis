@@ -28,7 +28,8 @@ const configuracioIntervals3 = {
     ],
 
     // Moviment de les notes
-    moviment: "ascendent",
+    alteracions: "sense",
+    moviment: "mixt",
 
     // Nombre total de preguntes
     totalPreguntes: 8,

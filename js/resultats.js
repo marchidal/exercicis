@@ -38,7 +38,10 @@ const MULTIPLICADOR_NIVELL =
 
 const categories = [
     "notes",
-    "llenguatge",
+    "valors",
+    "compassos",
+    "pulsacio",
+    "accents-metrics",
     "intervals",
     "dictat-ritmic",
     "dictat-melodic"

@@ -1276,7 +1276,7 @@ function iniciarExerciciCompasIncorrecte(
                 percentatge,
 
             nomCategoria:
-                "Llenguatge",
+                "Compassos",
 
             urlFinal:
                 "../../exercicis.html"
