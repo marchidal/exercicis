@@ -13,6 +13,13 @@ const configuracioLlenguatge5 = {
         "4/4"
     ],
 
+    // =========================
+    // PATRONS DE SEMICORXERES
+    // =========================
+    
+    patronsSemicorxeres: true,
+    semicorxeresAgrupades: false,
+
 
     // =========================
     // FIGURES DISPONIBLES

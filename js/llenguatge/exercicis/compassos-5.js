@@ -4,6 +4,10 @@ const configuracioLlenguatge4 = {
 
     compas: "4/4",
 
+    // Activar les combinacions rítmiques de semicorxeres.
+    patronsSemicorxeres: true,
+    semicorxeresAgrupades: false,
+
     figuresDisponibles: [
 
         {
@@ -38,7 +42,8 @@ const configuracioLlenguatge4 = {
 
     quantitatCompassos: 4,
 
-    totalPreguntes: 10
+    totalPreguntes: 10,
+
 };
 
 

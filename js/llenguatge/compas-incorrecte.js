@@ -347,101 +347,244 @@ function iniciarExerciciCompasIncorrecte(
     // D'UNA DURADA CONCRETA
     // =========================
 
-    function generarSequenciaDurada(
-        duradaDesitjada
-    ) {
-
-        let intentsGenerals = 0;
-
-
-        while (
-            intentsGenerals < 300
-        ) {
-
-            intentsGenerals++;
-
-
-            const resultat = [];
-
-            let duradaActual = 0;
-
-            let intentsInterns = 0;
-
-
-            while (
-                duradaActual <
-                duradaDesitjada -
-                0.000001
-            ) {
-
-                intentsInterns++;
-
-
-                if (
-                    intentsInterns > 200
+    // =========================
+    // GENERAR SEQÜÈNCIA
+    // D'UNA DURADA CONCRETA
+    // =========================
+    
+    function generarSequenciaDurada(duradaDesitjada) {
+    
+        // Mantenir el generador original
+        // als exercicis sense patrons.
+        if (config.patronsSemicorxeres !== true) {
+    
+            let intentsGenerals = 0;
+    
+            while (intentsGenerals < 300) {
+    
+                intentsGenerals++;
+    
+                const resultat = [];
+                let duradaActual = 0;
+                let intentsInterns = 0;
+    
+                while (
+                    duradaActual <
+                    duradaDesitjada - 0.000001
                 ) {
-
-                    break;
+    
+                    intentsInterns++;
+    
+                    if (intentsInterns > 200) {
+                        break;
+                    }
+    
+                    const restant =
+                        duradaDesitjada - duradaActual;
+    
+                    const figuresPossibles =
+                        figuresValides.filter(
+                            figura =>
+                                Number(figura.valor) <=
+                                restant + 0.000001
+                        );
+    
+                    if (figuresPossibles.length === 0) {
+                        break;
+                    }
+    
+                    const figura =
+                        obtenirElementAleatori(
+                            figuresPossibles
+                        );
+    
+                    resultat.push(figura);
+    
+                    duradaActual += Number(figura.valor);
                 }
-
-
-                const restant =
-                    duradaDesitjada -
-                    duradaActual;
-
-
-                const figuresPossibles =
-                    figuresValides.filter(
-                        figura =>
-                            Number(
-                                figura.valor
-                            ) <=
-                            restant +
-                            0.000001
-                    );
-
-
+    
                 if (
-                    figuresPossibles.length === 0
+                    resultat.length > 0 &&
+                    Math.abs(
+                        duradaActual - duradaDesitjada
+                    ) < 0.000001
                 ) {
-
-                    break;
+                    return resultat;
                 }
-
-
-                const figura =
-                    obtenirElementAleatori(
-                        figuresPossibles
-                    );
-
-
-                resultat.push(
-                    figura
-                );
-
-
-                duradaActual +=
-                    Number(
-                        figura.valor
-                    );
             }
-
-
+    
+            return null;
+        }
+    
+        // =========================
+        // FIGURES DISPONIBLES
+        // =========================
+    
+        const negra = figuresValides.find(
+            figura => figura.id === "negra"
+        );
+    
+        const blanca = figuresValides.find(
+            figura => figura.id === "blanca"
+        );
+    
+        const corxera = figuresValides.find(
+            figura => figura.id === "corxera"
+        );
+    
+        const semicorxera = figuresValides.find(
+            figura => figura.id === "semicorxera"
+        );
+    
+        // =========================
+        // PATRONS D'UNA PULSACIÓ
+        // =========================
+    
+        const patrons = [];
+    
+        if (negra) {
+            patrons.push([negra]);
+        }
+    
+        if (corxera) {
+            patrons.push([corxera, corxera]);
+        }
+    
+        if (semicorxera) {
+    
+            // 16 + 16 + 16 + 16
+            patrons.push([
+                semicorxera,
+                semicorxera,
+                semicorxera,
+                semicorxera
+            ]);
+    
             if (
-                resultat.length > 0 &&
-                Math.abs(
-                    duradaActual -
-                    duradaDesitjada
-                ) <
-                0.000001
+                corxera &&
+                config.semicorxeresAgrupades !== true
             ) {
-
-                return resultat;
+    
+                // 8 + 16 + 16
+                patrons.push([
+                    corxera,
+                    semicorxera,
+                    semicorxera
+                ]);
+    
+                // 16 + 16 + 8
+                patrons.push([
+                    semicorxera,
+                    semicorxera,
+                    corxera
+                ]);
+    
+                // 16 + 8 + 16
+                patrons.push([
+                    semicorxera,
+                    corxera,
+                    semicorxera
+                ]);
             }
         }
-
-
-        return null;
+    
+        // =========================
+        // CONSTRUIR SEQÜÈNCIA
+        // =========================
+    
+        const resultat = [];
+        let duradaActual = 0;
+    
+        // Generar pulsacions completes.
+        while (
+            duradaDesitjada - duradaActual >=
+            1 - 0.000001
+        ) {
+    
+            const opcions = patrons.map(
+                patro => ({
+                    figures: patro,
+                    valor: 1
+                })
+            );
+    
+            // Permetre blanques quan hi
+            // caben dues pulsacions completes.
+            if (
+                blanca &&
+                duradaDesitjada - duradaActual >=
+                2 - 0.000001
+            ) {
+                opcions.push({
+                    figures: [blanca],
+                    valor: 2
+                });
+            }
+    
+            if (opcions.length === 0) {
+                return null;
+            }
+    
+            const opcio =
+                obtenirElementAleatori(opcions);
+    
+            resultat.push(...opcio.figures);
+    
+            duradaActual += opcio.valor;
+        }
+    
+        // =========================
+        // FRAGMENT FINAL INCOMPLET
+        // =========================
+    
+        // Als compassos incorrectes pot faltar
+        // o sobrar una fracció de pulsació.
+        // Només permetem corxeres o semicorxeres
+        // aïllades en aquest fragment final.
+    
+        const restant =
+            duradaDesitjada - duradaActual;
+    
+        if (restant > 0.000001) {
+    
+            if (
+                Math.abs(restant - 0.5) < 0.000001 &&
+                corxera
+            ) {
+                resultat.push(corxera);
+            }
+    
+            else if (
+                Math.abs(restant - 0.25) < 0.000001 &&
+                semicorxera
+            ) {
+                resultat.push(semicorxera);
+            }
+    
+            else if (
+                Math.abs(restant - 0.75) < 0.000001 &&
+                corxera &&
+                semicorxera
+            ) {
+    
+                const opcions = [
+                    [corxera, semicorxera],
+                    [semicorxera, corxera]
+                ];
+    
+                resultat.push(
+                    ...obtenirElementAleatori(opcions)
+                );
+            }
+    
+            else {
+                return null;
+            }
+        }
+    
+        return resultat.length > 0
+            ? resultat
+            : null;
     }
 
 

@@ -277,16 +277,17 @@ function iniciarExerciciNotes(config) {
     comencarBtn.addEventListener(
         "click",
         () => {
-
-            explicacio.classList.add(
-                "ocult"
-            );
-
-            part1.classList.remove(
-                "ocult"
-            );
-
-            novaEquivalencia();
+    
+            explicacio.classList.add("ocult");
+    
+            // En clau de Fa comencem directament amb el pentagrama.
+            if (config.clau === "fa") {
+                iniciarPentagrama();
+            } else {
+                // En clau de Sol mantenim les equivalències.
+                part1.classList.remove("ocult");
+                novaEquivalencia();
+            }
         }
     );
 
@@ -446,13 +447,18 @@ function iniciarExerciciNotes(config) {
     function dibuixarPentagrama(nota) {
     
         const amplada = 600;
-        const alcada = 240;
+        const alcada = 270;
     
         const iniciX = 80;
         const finalX = 520;
     
         const distanciaLinies = 25;
         const primeraLiniaY = 160;
+
+        // Clau de Sol per defecte; clau de Fa si es configura.
+        const clau = config.clau === "fa" ? "fa" : "sol";
+        const simbolClau = clau === "fa" ? "𝄢" : "𝄞";
+        const posicioClauY = clau === "fa" ? 132 : 165;
     
     
         // =========================
@@ -612,15 +618,15 @@ function iniciarExerciciNotes(config) {
     
                 ${linies}
     
-                <!-- Clau de Sol -->
-    
+                <!-- Clau musical -->
+
                 <text
                     x="95"
-                    y="165"
+                    y="${posicioClauY}"
                     font-size="100"
                     font-family="serif"
                 >
-                    𝄞
+                    ${simbolClau}
                 </text>
     
                 <!-- Línia addicional -->

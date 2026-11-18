@@ -64,7 +64,7 @@ const EXERCICIS = [
         categoria: "notes",
         numero: 5,
         rang: "D",
-        xpMax: 60,
+        xpMax: 50,
         url: "exercicis/notes/notes-5.html"
     },
  
@@ -73,7 +73,7 @@ const EXERCICIS = [
         categoria: "notes",
         numero: 6,
         rang: "D",
-        xpMax: 60,
+        xpMax: 50,
         url: "exercicis/notes/notes-6.html"
     },
     
@@ -82,7 +82,7 @@ const EXERCICIS = [
         categoria: "notes",
         numero: 7,
         rang: "D",
-        xpMax: 60,
+        xpMax: 50,
         url: "exercicis/notes/notes-7.html"
     },    
 
@@ -91,7 +91,7 @@ const EXERCICIS = [
         categoria: "notes",
         numero: 8,
         rang: "C",
-        xpMax: 65,
+        xpMax: 60,
         url: "exercicis/notes/notes-8.html"
     },
     
@@ -100,7 +100,7 @@ const EXERCICIS = [
         categoria: "notes",
         numero: 9,
         rang: "C",
-        xpMax: 65,
+        xpMax: 60,
         url: "exercicis/notes/notes-9.html"
     },
     
@@ -109,7 +109,7 @@ const EXERCICIS = [
         categoria: "notes",
         numero: 10,
         rang: "C",
-        xpMax: 65,
+        xpMax: 60,
         url: "exercicis/notes/notes-10.html"
     },
     
@@ -118,7 +118,7 @@ const EXERCICIS = [
         categoria: "notes",
         numero: 11,
         rang: "C",
-        xpMax: 65,
+        xpMax: 60,
         url: "exercicis/notes/notes-11.html"
     },
     
@@ -127,9 +127,118 @@ const EXERCICIS = [
         categoria: "notes",
         numero: 12,
         rang: "C",
-        xpMax: 65,
+        xpMax: 60,
         url: "exercicis/notes/notes-12.html"
     },
+
+    {
+        id: "notes-13",
+        categoria: "notes",
+        numero: 13,
+        rang: "C",
+        xpMax: 60,
+        url: "exercicis/notes/notes-13.html"
+    },
+
+    {
+        id: "notes-14",
+        categoria: "notes",
+        numero: 14,
+        rang: "C",
+        xpMax: 60,
+        url: "exercicis/notes/notes-14.html"
+    },
+
+    {
+        id: "notes-15",
+        categoria: "notes",
+        numero: 15,
+        rang: "C",
+        xpMax: 60,
+        url: "exercicis/notes/notes-15.html"
+    },
+
+    {
+        id: "notes-16",
+        categoria: "notes",
+        numero: 16,
+        rang: "C",
+        xpMax: 60,
+        url: "exercicis/notes/notes-16.html"
+    },
+
+    {
+        id: "notes-17",
+        categoria: "notes",
+        numero: 17,
+        rang: "C",
+        xpMax: 60,
+        url: "exercicis/notes/notes-17.html"
+    },
+
+    {
+        id: "notes-18",
+        categoria: "notes",
+        numero: 18,
+        rang: "B",
+        xpMax: 70,
+        url: "exercicis/notes/notes-18.html"
+    },
+
+    {
+        id: "notes-19",
+        categoria: "notes",
+        numero: 19,
+        rang: "B",
+        xpMax: 70,
+        url: "exercicis/notes/notes-19.html"
+    },
+
+    {
+        id: "notes-20",
+        categoria: "notes",
+        numero: 20,
+        rang: "B",
+        xpMax: 70,
+        url: "exercicis/notes/notes-20.html"
+    },
+
+    {
+        id: "notes-21",
+        categoria: "notes",
+        numero: 21,
+        rang: "B",
+        xpMax: 70,
+        url: "exercicis/notes/notes-21.html"
+    },
+
+    {
+        id: "notes-22",
+        categoria: "notes",
+        numero: 22,
+        rang: "B",
+        xpMax: 70,
+        url: "exercicis/notes/notes-22.html"
+    },
+
+    {
+        id: "notes-23",
+        categoria: "notes",
+        numero: 23,
+        rang: "B",
+        xpMax: 70,
+        url: "exercicis/notes/notes-23.html"
+    },
+
+    {
+        id: "notes-24",
+        categoria: "notes",
+        numero: 24,
+        rang: "B",
+        xpMax: 70,
+        url: "exercicis/notes/notes-24.html"
+    },
+
 
     // =========================
     // VALORS

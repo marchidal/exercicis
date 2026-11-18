@@ -297,115 +297,294 @@ function iniciarExerciciIdentificarCompas(
     // GENERAR SEQÜÈNCIA
     // =========================
 
+    // =========================
+    // GENERAR SEQÜÈNCIA
+    // =========================
+    
     function generarSequencia(
         duradaObjectiu
     ) {
-
+    
         const figuresValides =
             obtenirFiguresValides(
                 duradaObjectiu
             );
-
-
+    
         if (
             figuresValides.length === 0
         ) {
-
             return null;
         }
-
-
-        let intentsGenerals = 0;
-
-
-        while (
-            intentsGenerals < 300
+    
+        // =========================
+        // GENERADOR ORIGINAL
+        // =========================
+    
+        // Els exercicis que no utilitzen
+        // patrons de semicorxeres mantenen
+        // el funcionament anterior.
+    
+        if (
+            config.patronsSemicorxeres !== true
         ) {
-
-            intentsGenerals++;
-
-
-            const resultat = [];
-
-            let duradaActual = 0;
-
-            let intentsInterns = 0;
-
-
+    
+            let intentsGenerals = 0;
+    
             while (
-                duradaActual <
-                duradaObjectiu -
-                0.000001
+                intentsGenerals < 300
             ) {
-
-                intentsInterns++;
-
-
-                if (
-                    intentsInterns > 200
+    
+                intentsGenerals++;
+    
+                const resultat = [];
+    
+                let duradaActual = 0;
+    
+                let intentsInterns = 0;
+    
+                while (
+                    duradaActual <
+                    duradaObjectiu - 0.000001
                 ) {
-
-                    break;
-                }
-
-
-                const restant =
-                    duradaObjectiu -
-                    duradaActual;
-
-
-                const possibles =
-                    figuresValides.filter(
-                        figura =>
-                            Number(
-                                figura.valor
-                            ) <=
-                            restant +
-                            0.000001
+    
+                    intentsInterns++;
+    
+                    if (
+                        intentsInterns > 200
+                    ) {
+                        break;
+                    }
+    
+                    const restant =
+                        duradaObjectiu -
+                        duradaActual;
+    
+                    const possibles =
+                        figuresValides.filter(
+                            figura =>
+                                Number(
+                                    figura.valor
+                                ) <=
+                                restant + 0.000001
+                        );
+    
+                    if (
+                        possibles.length === 0
+                    ) {
+                        break;
+                    }
+    
+                    const figura =
+                        obtenirElementAleatori(
+                            possibles
+                        );
+    
+                    resultat.push(
+                        figura
                     );
-
-
+    
+                    duradaActual +=
+                        Number(
+                            figura.valor
+                        );
+                }
+    
                 if (
-                    possibles.length === 0
+                    resultat.length > 0 &&
+                    Math.abs(
+                        duradaActual -
+                        duradaObjectiu
+                    ) < 0.000001
                 ) {
-
-                    break;
+                    return resultat;
                 }
-
-
-                const figura =
-                    obtenirElementAleatori(
-                        possibles
-                    );
-
-
-                resultat.push(
-                    figura
-                );
-
-
-                duradaActual +=
-                    Number(
-                        figura.valor
-                    );
             }
-
-
+    
+            return null;
+        }
+    
+        // =========================
+        // FIGURES DISPONIBLES
+        // =========================
+    
+        const negra =
+            figuresValides.find(
+                figura =>
+                    figura.id === "negra"
+            );
+    
+        const blanca =
+            figuresValides.find(
+                figura =>
+                    figura.id === "blanca"
+            );
+    
+        const corxera =
+            figuresValides.find(
+                figura =>
+                    figura.id === "corxera"
+            );
+    
+        const semicorxera =
+            figuresValides.find(
+                figura =>
+                    figura.id === "semicorxera"
+            );
+    
+        // =========================
+        // PATRONS D'UNA PULSACIÓ
+        // =========================
+    
+        const patrons = [];
+    
+        // Negra
+        if (negra) {
+    
+            patrons.push([
+                negra
+            ]);
+        }
+    
+        // Dues corxeres
+        if (corxera) {
+    
+            patrons.push([
+                corxera,
+                corxera
+            ]);
+        }
+    
+        // =========================
+        // PATRONS AMB SEMICORXERES
+        // =========================
+    
+        if (semicorxera) {
+    
+            // 16 + 16 + 16 + 16
+            patrons.push([
+                semicorxera,
+                semicorxera,
+                semicorxera,
+                semicorxera
+            ]);
+    
             if (
-                resultat.length > 0 &&
-                Math.abs(
-                    duradaActual -
-                    duradaObjectiu
-                ) <
-                0.000001
+                corxera &&
+                config.semicorxeresAgrupades !== true
             ) {
-
-                return resultat;
+    
+                // 8 + 16 + 16
+                patrons.push([
+                    corxera,
+                    semicorxera,
+                    semicorxera
+                ]);
+    
+                // 16 + 16 + 8
+                patrons.push([
+                    semicorxera,
+                    semicorxera,
+                    corxera
+                ]);
+    
+                // 16 + 8 + 16
+                patrons.push([
+                    semicorxera,
+                    corxera,
+                    semicorxera
+                ]);
             }
         }
-
-
-        return null;
+    
+        // =========================
+        // CONSTRUIR COMPÀS
+        // =========================
+    
+        const resultat = [];
+    
+        let duradaActual = 0;
+    
+        let intents = 0;
+    
+        while (
+            duradaActual <
+            duradaObjectiu - 0.000001
+        ) {
+    
+            intents++;
+    
+            if (
+                intents > 100
+            ) {
+                return null;
+            }
+    
+            const restant =
+                duradaObjectiu -
+                duradaActual;
+    
+            const opcions = [];
+    
+            // =========================
+            // PATRONS D'UNA PULSACIÓ
+            // =========================
+    
+            if (
+                restant >=
+                1 - 0.000001
+            ) {
+    
+                patrons.forEach(
+                    patro => {
+    
+                        opcions.push({
+                            figures: patro,
+                            valor: 1
+                        });
+                    }
+                );
+            }
+    
+            // =========================
+            // BLANCA
+            // =========================
+    
+            if (
+                blanca &&
+                restant >=
+                2 - 0.000001
+            ) {
+    
+                opcions.push({
+                    figures: [
+                        blanca
+                    ],
+                    valor: 2
+                });
+            }
+    
+            if (
+                opcions.length === 0
+            ) {
+                return null;
+            }
+    
+            const opcio =
+                obtenirElementAleatori(
+                    opcions
+                );
+    
+            resultat.push(
+                ...opcio.figures
+            );
+    
+            duradaActual +=
+                opcio.valor;
+        }
+    
+        return resultat.length > 0
+            ? resultat
+            : null;
     }
 
 
